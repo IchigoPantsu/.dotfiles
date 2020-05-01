@@ -1,0 +1,18 @@
+###.gitignore
+# ignore allfile
+/*
+# ignore dotfile
+/.*
+
+# Filelist not to ignore
+!/.bash_profile
+!/.bash_hrc
+
+!/.vimrc
+!/.vim
+
+!/.gitignore
+
+# After all filelist to ignore
+/.vim/bundle
+
