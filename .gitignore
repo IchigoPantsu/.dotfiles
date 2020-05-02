@@ -14,7 +14,7 @@
 
 #dotfiles
 !/bin
-!/.README.md
+!/README.md
 !/.gitmodule
 !/.gitignore
 
