@@ -6,7 +6,7 @@
 
 # Filelist not to ignore
 !/.bash_profile
-!/.bash_hrc
+!/.bashrc
 
 #vim
 !/.vimrc
