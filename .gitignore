@@ -8,14 +8,15 @@
 !/.bash_profile
 !/.bash_hrc
 
+#vim
 !/.vimrc
 !/.vim
-#!/.vim/autoload/
-#!/.vim/plugin/
-#!/.vim/ftplugin/
 
+#dotfiles
+!/.README.md
+!/.gitmodule
 !/.gitignore
 
 # After all filelist to ignore
-/.vim/bundle
+/.vim/bundle/*
 !/.vim/bundle/neobundle.vim
