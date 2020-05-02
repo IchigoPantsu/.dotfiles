@@ -13,6 +13,7 @@
 !/.vim
 
 #dotfiles
+!/bin
 !/.README.md
 !/.gitmodule
 !/.gitignore
