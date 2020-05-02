@@ -10,9 +10,12 @@
 
 !/.vimrc
 !/.vim
+#!/.vim/autoload/
+#!/.vim/plugin/
+#!/.vim/ftplugin/
 
 !/.gitignore
 
 # After all filelist to ignore
 /.vim/bundle
-
+!/.vim/bundle/neobundle.vim
