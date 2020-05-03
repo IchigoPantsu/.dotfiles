@@ -36,11 +36,12 @@ repo = 'w0rp/ale'
 repo = 'tpope/vim-repeat'
 
 [[plugins]]
-repo = 'junegunn/fzf.vim'
+repo = 'junegunn/fzf'
+build = ./install --all
 
 [[plugins]]
-repo = 'junegunn/fzf'
-depends = ['fzf.vim']
+repo = 'junegunn/fzf.vim'
+depends = ['fzf']
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'

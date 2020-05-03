@@ -117,7 +117,7 @@ if ! shopt -oq posix; then
 fi
 
 
-#fzf functions
+#fzf functions###########################################################
 
 fvim() {
   files=$(git ls-files) &&
@@ -125,4 +125,12 @@ fvim() {
   nvim $selected_files
 }
 
-#
+# fd - cd to selected directory
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
+#########################################################################

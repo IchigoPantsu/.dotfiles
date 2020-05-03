@@ -15,6 +15,9 @@
 #nvim
 !/.config
 
+#Linux brew
+!/Brewfile
+
 #dotfiles
 !/bin
 !/README.md
