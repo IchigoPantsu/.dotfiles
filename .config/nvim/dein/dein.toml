@@ -1,0 +1,89 @@
+###Shougowares
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo ='Shougo/defx.nvim'
+
+[[plugins]]
+repo = 'kristijanhusak/defx-icons' 
+depends = ['defx.vim']
+
+[[plugins]]
+repo = 'kristijanhusak/defx-git' 
+depends = ['defx.vim']
+
+###よく使われているvimのプラグイン top20
+###https://qiita.com/reireias/items/5364dcaada1a5b88a206#1%E4%BD%8D-tpopevim-fugitive
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'w0rp/ale'
+
+[[plugins]]
+repo = 'tpope/vim-repeat'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+
+[[plugins]]
+repo = 'junegunn/fzf'
+depends = ['fzf.vim']
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+depends = ['vim-airline']
+
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
+
+[[plugins]]
+repo = 'SirVer/ultisnips'
+
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+
+###オレ的vimプラグイン10選
+###https://qiita.com/reireias/items/beaa3bb0e299ae934217
+
+[[plugins]]
+repo = 'dhruvasagar/vim-table-mode'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+[[plufins]]
+repo = 'mattn/sonictemplate-vim'
+
+###おすすめプラグイン 〜 Vimはいいぞ！ゴリラと学ぶVim講座(7)
+###https://knowledge.sakura.ad.jp/23248/
+
+[[plugins]]
+repo = 'previm/previm'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'markonm/traces.vim'
+
+[[plugins]]
+repo = 'skanehira/translate.vim'

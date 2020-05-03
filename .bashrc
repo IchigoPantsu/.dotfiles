@@ -115,3 +115,14 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+
+#fzf functions
+
+fvim() {
+  files=$(git ls-files) &&
+  selected_files=$(echo "$files" | fzf -m --preview 'head -100 {}') &&
+  nvim $selected_files
+}
+
+#

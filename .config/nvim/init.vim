@@ -1,4 +1,6 @@
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" editor config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " setting
 "文字コードをUFT-8に設定
 set fenc=utf-8
@@ -95,88 +97,54 @@ if has('vim_starting')
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Shougo/dein.vim config 
+" https://qiita.com/sugamondo/items/fcaf210ca86d65bcaca8
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"" load separated .vimrc in ~/.vim/config
-"set runtimepath+=~/.vim/
-"runtime! autoload/*.vim
-"runtime! ftplugin/*.vim
+if &compatible
+  set nocompatible
+endif
+" Add the dein installation directory into runtimepath
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-"" Note: Skip initialization for vim-tiny or vim-small.
-"  if 0 | endif
-"  if &compatible
-"    set nocompatible "Be iMproved
-"  endif
-"" Required:
-"  set runtimepath+=~/.vim/bundle/neobundle.vim/
+""""""
+" dein.vimインストール時に指定したディレクトリをセット
+let s:dein_dir = expand('~/.cache/dein')
 
-"" Required:
-"  call neobundle#begin(expand('~/.vim/bundle/'))
+" dein.vimの実体があるディレクトリをセット
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-"" Let NeoBundle manage NeoBundle
-"" Required:
-"  NeoBundleFetch 'Shougo/neobundle.vim'
+" dein.vimが存在していない場合はgithubからclone
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
+""""""
 
-"" https://qiita.com/reireias/items/5364dcaada1a5b88a206
-"  NeoBundle 'tpope/vim-fugitive'
-"  NeoBundle 'tpope/vim-surround'
-"  NeoBundle 'w0rp/ale'
-"  NeoBundle 'airblade/vim-gitgutter'
-"  NeoBundle 'vim-airline/vim-airline'
-"  NeoBundle 'vim-airline/vim-airline-themes'
-"" VimAirline Theme Settings
-"  let g:airlne_theme='cobalt2'
-let g:quickrun_config = get(g:, 'quickrun_config', {})
-let g:quickrun_config._ = {
-      \ 'runner'    : 'vimproc',
-      \ 'runner/vimproc/updatetime' : 60,
-      \ 'outputter' : 'error',
-      \ 'outputter/error/success' : 'buffer',
-      \ 'outputter/error/error'   : 'quickfix',
-      \ 'outputter/buffer/split'  : ':rightbelow 8sp',
-      \ 'outputter/buffer/close_on_empty' : 1,
-      \ }
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
 
-"" neobundle.vim を使用しているなら
-"  NeoBundle "thinca/vim-quickrun"
-"  NeoBundle "Shougo/vimproc"
-"  NeoBundle "Shougo/unite.vim"
-"  NeoBundle "osyo-manga/unite-quickfix"
-"  NeoBundle "osyo-manga/shabadou.vim"
-"  NeoBundle "Shougo/vimfiler.vim"
-"  NeoBundle 'Shougo/neocomplete.vim'
-"  :command Vf VimFiler
-"" https://github.com/Shougo/vimfiler.vim/issues/364
-"  if neobundle#tap('~/vim/plugin/vimfiler.vim')
-"    let neobundle#hooks.on_source = '~/vim/plugin/vimfiler.vim'
-"    call neobundle#untap()
-"  endif
+  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('Shougo/deoplete.nvim')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
 
-" latex plugin
-"  NeoBundle 'lervag/vimtex'
-"  let g:vimtex_view_general_viewer = 'firefox.exe'
-"  let g:tex_flavor = 'latex'
-"  let g:vimtex_syntax_enabled = 1
-"" https://qiita.com/reireias/items/beaa3bb0e299ae934217
-"  NeoBundle 'dhruvasagar/vim-table-mode'
-"  NeoBundle 'mattn/sonictemplate-vim'
-""  NeoBundle 'kana/vim-operator-replace'
-""  NeoBundle 'Lokaltog/vim-easymotion'
-""  nmap s <Plug>(easymotion-s2)
-"" https://github.com/cohama/lexima.vim 
-"  NeoBundle 'cohama/lexima.vim'
-"  NeoBundle 'rhysd/clever-f.vim'
-"" My Bundles here:
-"" Refer to |:NeoBundle-examples|.
-"" Note: You don't set neobundle setting in .gvimrc!
+""""""
+  call dein#load_toml('~/.config/nvim/dein/dein.toml', {'lazy': 0})
+  call dein#load_toml('~/.config/nvim/dein/dein_lazy.toml', {'lazy': 1})
+""""""
+  call dein#end()
+  call dein#save_state()
+endif
 
-"  call neobundle#end()
+filetype plugin indent on
+syntax enable
 
-"" Required:
-"  filetype plugin indent on
-
-"" If there are uninstalled bundles found on startup,
-"" this will conveniently prompt you to install them.
-"  NeoBundleCheck
-
-"" Lunch Vimfiler
-""  autocmd VimEnter * VimFiler -split -simple -winheight=10 -parent -no-quit  -no-focus
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif

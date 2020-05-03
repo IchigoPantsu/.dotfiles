@@ -12,6 +12,9 @@
 !/.vimrc
 !/.vim
 
+#nvim
+!/.config
+
 #dotfiles
 !/bin
 !/README.md
@@ -20,4 +23,4 @@
 
 # After all filelist to ignore
 /.vim/bundle/*
-!/.vim/bundle/neobundle.vim
+#!/.vim/bundle/neobundle.vim
