@@ -20,10 +20,11 @@
 
 #dotfiles
 !/bin
+!/vortex_core
 !/README.md
 !/.gitmodule
 !/.gitignore
-
+!/.gitignore_global_
 # After all filelist to ignore
 /.vim/bundle/*
 #!/.vim/bundle/neobundle.vim

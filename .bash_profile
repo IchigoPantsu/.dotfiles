@@ -1,19 +1,25 @@
 
-#
+### basic config
 export PATH=$PATH:$HOME/bin
 
-#Linuxbrew config
-test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
-echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+### Linuxbrew config
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-#fzf config
+### fzf config
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+### keybinding and completion settings
+#fzf_version = brew --version
+source /home/linuxbrew/.linuxbrew/Cellar/fzf/0.21.1/shell/key-bindings.bash
+source /home/linuxbrew/.linuxbrew/Cellar/fzf/0.21.1/shell/completion.bash
+
+export FZF_COMPLETION_TRIGGER='~'
+# You can preview the content of the file under the cursor by setting --preview option.
+#export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+# export FZF_CTRL_T_OPTS="--select-1 --exit-0"
+#bind "$(bind -s | grep '^"\\C-r"' | sed 's/"/"\\C-x/' | sed 's/"$/\\C-m"/')"
+#export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+#export FZF_COMPLETION_TRIGGER=''
+#bindkey '^T' fzf-completion
+#bindkey '^I' $fzf_default_completion

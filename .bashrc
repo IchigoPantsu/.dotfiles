@@ -121,7 +121,7 @@ fi
 
 
 fv() {
-  files=$(git ls-files) &&
+  files=$() &&
   selected_files=$(echo "$files" | fzf -m --preview 'head -100 {}') &&
   nvim $selected_files
 }
