@@ -37,7 +37,8 @@ repo = 'tpope/vim-repeat'
 
 [[plugins]]
 repo = 'junegunn/fzf'
-build = ./install --all
+build = './install --all'
+hook_source = 'set rtp+=/usr/local/opt/fzf'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'

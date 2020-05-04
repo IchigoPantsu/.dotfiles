@@ -13,7 +13,6 @@ do
   fi
 done
 
-
 mkdir ~/.tmp
 cd ~/.tmp
 
