@@ -1,4 +1,4 @@
-#bin/sh
+#bin/bash
 has() {
   type "$1" > /dev/null 2>&1
 }
@@ -13,8 +13,16 @@ do
   fi
 done
 
-mkdir ~/.tmp
-cd ~/.tmp
+
+# download dotfiles 
+cd ${HOME}
+
+DOT_DIRECTORY="${HOME}/.dotfiles"
+DOT_TARBALL="https://github.com/IchigoPantsu/dotfiles/tarball/master"
+REMOTE_URL="https://github.com/IchigoPantsu/dotfiles.git"
+
+git clone --recursive "${REMOTE_URL}" "${DOT_DIRECTORY}"
+
 
 # https://brew.sh/
 echo ======linux brew install=======
@@ -24,6 +32,10 @@ test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
 test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
 echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+
+# install brewfile
+brew install ~/.dotfiles/Brewfile
+
 
 # https://github.com/neovim/neovim
 #echo ======install neovim/neovim======
