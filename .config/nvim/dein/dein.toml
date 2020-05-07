@@ -54,8 +54,8 @@ depends = ['vim-airline']
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
 
-[[plugins]]
-repo = 'SirVer/ultisnips'
+#[[plugins]]
+#repo = 'SirVer/ultisnips'
 
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'

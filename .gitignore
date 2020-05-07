@@ -16,7 +16,7 @@
 !/.config
 
 #Linux brew
-!/Brewfile
+!/.Brewfile
 
 #dotfiles
 !/bin

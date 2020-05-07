@@ -5,16 +5,6 @@ export PATH=$PATH:$HOME/bin
 ### Linuxbrew config
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-### fzf config
-export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
-
-### keybinding and completion settings
-#fzf_version = brew --version
-source /home/linuxbrew/.linuxbrew/Cellar/fzf/0.21.1/shell/key-bindings.bash
-source /home/linuxbrew/.linuxbrew/Cellar/fzf/0.21.1/shell/completion.bash
-
-export FZF_COMPLETION_TRIGGER='~'
 # You can preview the content of the file under the cursor by setting --preview option.
 #export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 # export FZF_CTRL_T_OPTS="--select-1 --exit-0"

@@ -49,6 +49,14 @@ nnoremap l w
 nnoremap H h
 nnoremap L l
 
+nnoremap <C-v> <C-w>v
+nnoremap <C-s> <C-w>s
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+
 "aで行末にインサート
 "nnoremap a A
 "nnoremap A a
@@ -104,8 +112,9 @@ endif
 if &compatible
   set nocompatible
 endif
+
 " Add the dein installation directory into runtimepath
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+" set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 """"""
 " dein.vimインストール時に指定したディレクトリをセット
