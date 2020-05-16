@@ -38,11 +38,50 @@ repo = 'tpope/vim-repeat'
 [[plugins]]
 repo = 'junegunn/fzf'
 build = './install --all'
-hook_source = 'set rtp+=/usr/local/opt/fzf'
+hook_add = 'set rtp+=/usr/local/opt/fzf'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 depends = ['fzf']
+hook_add = '''
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" Path completion with custom source command
+inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
+inoremap <expr> <c-x><c-f> fzf#vim#complete#path('rg --files')
+
+" Word completion with custom spec with popup layout option
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'window': { 'width': 0.2, 'height': 0.9, 'xoffset': 1 }})
+
+" Replace the default dictionary completion with fzf-based fuzzy completion
+inoremap <expr> <c-x><c-k> fzf#vim#complete('cat /usr/share/dict/words')
+
+" Global line completion (not just open buffers. ripgrep required.)
+inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
+  \ 'prefix': '^.*$',
+  \ 'source': 'rg -n ^ --color always',
+  \ 'options': '--ansi --delimiter : --nth 3..',
+  \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }}))
+
+function! s:make_sentence(lines)
+  return substitute(join(a:lines), '^.', '\=toupper(submatch(0))', '').'.'
+endfunction
+
+inoremap <expr> <c-x><c-s> fzf#vim#complete({
+  \ 'source':  'cat /usr/share/dict/words',
+  \ 'reducer': function('<sid>make_sentence'),
+  \ 'options': '--multi --reverse --margin 15%,0',
+  \ 'left':    20})
+'''
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
@@ -89,3 +128,15 @@ repo = 'markonm/traces.vim'
 
 [[plugins]]
 repo = 'skanehira/translate.vim'
+
+###
+[[plugin]]
+repo = '/tomasr/molokai'
+hook_add = '''
+  syntax on
+  colorscheme molokai
+  set t_Co=256
+'''
+
+[[plugins]]
+repo = 'terryma/vim-expand-region'

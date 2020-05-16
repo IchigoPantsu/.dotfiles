@@ -117,9 +117,8 @@ if ! shopt -oq posix; then
 fi
 
 
-#fzf config###########################################################
+###fzf config###
 
-### fzf config
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
 export FZF_DEFAULT_OPTS="--height 40% --reverse --border --preview 'bat --style=numbers --color=always {}'"
 
@@ -129,6 +128,7 @@ source /home/linuxbrew/.linuxbrew/Cellar/fzf/0.21.1/shell/key-bindings.bash
 source /home/linuxbrew/.linuxbrew/Cellar/fzf/0.21.1/shell/completion.bash
 export FZF_COMPLETION_TRIGGER='~'
 
-#########################################################################
+###
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+

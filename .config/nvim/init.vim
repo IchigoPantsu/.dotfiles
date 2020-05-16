@@ -24,7 +24,7 @@ filetype plugin on
 " 行番号を表示
 set number
 " 現在の行を強調表示
-set cursorline
+"set cursorline
 " 行末の1文字先までカーソルを移動できるように
 set virtualedit=onemore
 " インデントはスマートインデント
@@ -49,8 +49,10 @@ nnoremap l w
 nnoremap H h
 nnoremap L l
 
+" 画面分割
 nnoremap <C-v> <C-w>v
 nnoremap <C-s> <C-w>s
+" 画面分割移動
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -63,7 +65,6 @@ nnoremap <C-l> <C-w>l
 
 " シンタックスハイライトの有効化
 syntax enable
-
 
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)
@@ -103,6 +104,20 @@ if has('vim_starting')
   " 置換モード時に非点滅の下線タイプのカーソル
   let &t_SR .= "\e[4 q"
 endif
+
+" Vimの生産性を高める12の方法
+" https://postd.cc/how-to-boost-your-vim-productivity/
+"1. LeaderをSpaceキーにする
+let mapleader = "\<Space>"
+
+"3. 範囲拡大を使う
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+"4. テキスト検索オブジェクトを見つける
+"vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
+"  \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
+"omap s :normal vs<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shougo/dein.vim config 
