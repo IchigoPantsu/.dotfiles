@@ -56,8 +56,8 @@ imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Path completion with custom source command
-inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
-inoremap <expr> <c-x><c-f> fzf#vim#complete#path('rg --files')
+""inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
+""inoremap <expr> <c-x><c-f> fzf#vim#complete#path('rg --files')
 
 " Word completion with custom spec with popup layout option
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'window': { 'width': 0.2, 'height': 0.9, 'xoffset': 1 }})
@@ -72,15 +72,24 @@ inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
   \ 'options': '--ansi --delimiter : --nth 3..',
   \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }}))
 
-function! s:make_sentence(lines)
-  return substitute(join(a:lines), '^.', '\=toupper(submatch(0))', '').'.'
-endfunction
+"function! s:make_sentence(lines)
+"  return substitute(join(a:lines), '^.', '\=toupper(submatch(0))', '').'.'
+"endfunction
 
-inoremap <expr> <c-x><c-s> fzf#vim#complete({
-  \ 'source':  'cat /usr/share/dict/words',
-  \ 'reducer': function('<sid>make_sentence'),
-  \ 'options': '--multi --reverse --margin 15%,0',
-  \ 'left':    20})
+"" inoremap <expr> <c-x><c-s> fzf#vim#complete({
+"  \ 'source':  'cat /usr/share/dict/words',
+"  \ 'reducer': function('<sid>make_sentence'),
+"  \ 'options': '--multi --reverse --margin 15%,0',
+"  \ 'left':    20})
+
+" fzfによるCUI生活の改善
+" https://blog.nijohando.jp/post/fzf-fish-vim/
+nnoremap [Fzf] <Nop>
+nmap <Leader>f [Fzf]
+nnoremap [Fzf]f :<C-u>Files<CR>
+nnoremap [Fzf]g :<C-u>GFiles<CR>
+nnoremap [Fzf]G :<C-u>GFiles?<CR>
+nnoremap [Fzf]b :<C-u>Buffers<CR>
 '''
 
 [[plugins]]
