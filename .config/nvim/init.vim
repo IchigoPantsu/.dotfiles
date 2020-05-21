@@ -2,6 +2,8 @@
 " editor config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " setting
+" leader -> space
+let mapleader = "\<Space>"
 "文字コードをUFT-8に設定
 set fenc=utf-8
 " バックアップファイルを作らない
@@ -43,22 +45,31 @@ nnoremap j }
 nnoremap k {
 nnoremap J gj
 nnoremap K gk
+nnoremap Down gj
+nnoremap Up gk
 
 nnoremap h b
 nnoremap l w
 nnoremap H h
 nnoremap L l
+nnoremap Left h
+nnoremap Right l
 
-" 画面分割
-nnoremap <C-v> <C-w>v
-nnoremap <C-s> <C-w>s
+" 画面分割(Fzf.vimに依存するためdein.tomlに移動)
+"" nnoremap <C-s> <C-w>v
+" nnoremap <C-v> <C-w>v<C-w>l:<C-u>Files<CR>
+"" nnoremap <C-s> <C-w>s
+" nnoremap <C-s> <C-w>s<C-w>j:<C-u>Files<CR>
 " 画面分割移動
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-
+nnoremap <C-Left> <C-w>h
+nnoremap <C-Down> <C-w>j
+nnoremap <C-Up> <C-w>k
+nnoremap <C-Right> <C-w>l
 "aで行末にインサート
 "nnoremap a A
 "nnoremap A a
@@ -89,7 +100,7 @@ set wrapscan
 " 検索語をハイライト表示
 set hlsearch
 " ESC連打でハイライト解除
-nmap <Esc><Esc> :nohlsearch<CR>
+nnoremap <Esc><Esc> :nohlsearch<CR>
 
 " Shift押したくない 
 "nnoremap [ {
@@ -105,6 +116,8 @@ if has('vim_starting')
   let &t_SR .= "\e[4 q"
 endif
 
+nnoremap U <C-r>
+
 " Vimの生産性を高める12の方法
 " https://postd.cc/how-to-boost-your-vim-productivity/
 "1. LeaderをSpaceキーにする
@@ -118,6 +131,10 @@ vmap <C-v> <Plug>(expand_region_shrink)
 "vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
 "  \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
 "omap s :normal vs<CR>
+
+" Vimの縦移動を強化する
+" https://qiita.com/uji_/items/5cc267d6a96c417a29ef
+set relativenumber
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shougo/dein.vim config 

@@ -90,6 +90,13 @@ nnoremap [Fzf]f :<C-u>Files<CR>
 nnoremap [Fzf]g :<C-u>GFiles<CR>
 nnoremap [Fzf]G :<C-u>GFiles?<CR>
 nnoremap [Fzf]b :<C-u>Buffers<CR>
+nnoremap [Fzf]h :<C-u>History<CR>
+
+" 画面分割
+" nnoremap <C-s> <C-w>v
+nnoremap <C-v> <C-w>v<C-w>l:<C-u>Files<CR>
+" nnoremap <C-s> <C-w>s
+nnoremap <C-s> <C-w>s<C-w>j:<C-u>Files<CR>
 '''
 
 [[plugins]]
@@ -111,41 +118,131 @@ repo = 'jiangmiao/auto-pairs'
 ###オレ的vimプラグイン10選
 ###https://qiita.com/reireias/items/beaa3bb0e299ae934217
 
-[[plugins]]
-repo = 'dhruvasagar/vim-table-mode'
+# [[plugins]]
+# repo = 'dhruvasagar/vim-table-mode'
 
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
+#[[plugins]]
+#repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 
-[[plufins]]
-repo = 'mattn/sonictemplate-vim'
+#[[plufins]]
+#repo = 'mattn/sonictemplate-vim'
 
 ###おすすめプラグイン 〜 Vimはいいぞ！ゴリラと学ぶVim講座(7)
 ###https://knowledge.sakura.ad.jp/23248/
 
-[[plugins]]
-repo = 'previm/previm'
+#[[plugins]]
+#repo = 'previm/previm'
 
-[[plugins]]
-repo = 'vim-jp/vimdoc-ja'
+#[[plugins]]
+#repo = 'vim-jp/vimdoc-ja'
 
-[[plugins]]
-repo = 'markonm/traces.vim'
+#[[plugins]]
+#repo = 'markonm/traces.vim'
 
-[[plugins]]
-repo = 'skanehira/translate.vim'
+#[[plugins]]
+#repo = 'skanehira/translate.vim'
 
 ###
-[[plugin]]
-repo = '/tomasr/molokai'
+#[[plugin]]
+#repo = '/tomasr/molokai'
+#hook_add = '''
+#  syntax on
+#  colorscheme molokai
+#  set t_Co=256
+#'''
+
+# Vimの生産性を高める12の方法
+# https://postd.cc/how-to-boost-your-vim-productivity/ 
+[[plugins]]
+repo = 'terryma/vim-expand-region'
+
+
+# clever-f.vim でカーソルの横移動を便利にする
+# https://rhysd.hatenablog.com/entry/2013/09/17/220837
+[[plugins]]
+repo = 'rhysd/clever-f.vim'
+
+# Vimの縦移動を強化する
+# https://qiita.com/uji_/items/5cc267d6a96c417a29ef
+[[plugins]]
+repo = 'andymass/vim-matchup'
+hook_add = 'let g:loaded_matchit = 1'
+
+# 僕の推し Vimプラグインを見て！
+# https://aiya000.github.io/Maid/vimconf.swp.2018/#/
+[[plugins]]
+repo = 'LeafCage/foldCC'
+
+[[plugins]]
+repo = 'machakann/vim-highlightedyank'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+# 僕がVimで愛用しているプラグイン30連発
+# https://liginc.co.jp/469142
+[[plugins]]
+repo = 'https://github.com/ervandew/supertab'
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
 hook_add = '''
-  syntax on
-  colorscheme molokai
-  set t_Co=256
+map <Leader> <Plug>(easymotion-prefix)
+map <leader>s <Plug>(easymotion-s2)
+
+" map <leader>f <Plug>(easymotion-bd-f2)
+" nmap <leader>f <Plug>(easymotion-overwin-f2)
+
+map f <Plug>(easymotion-fl)
+map t <Plug>(easymotion-tl)
+map F <Plug>(easymotion-Fl)
+map T <Plug>(easymotion-Tl)
+
+" Gif config
+nmap s <Plug>(easymotion-s2)
+nmap t <Plug>(easymotion-t2)
+
+" Gif config
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+" Gif config
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+
+let g:EasyMotion_use_migemo = 1
 '''
 
 [[plugins]]
-repo = 'terryma/vim-expand-region'
+repo = 'simeji/winresizer'
+hook_add = '''
+" If you want to start window resize mode by `Ctrl+T`
+let g:winresizer_start_key = '<C-r>'
+" change keycode_mode 101(e) <-> 114(r)
+let g:winresizer_keycode_mode = 114 
+let g:winresizer_keycode_resize = 101
+'''
+
+#[[plugins]]
+#repo = 'yuttie/comfortable-motion.vim'
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+hook_add = '''
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+'''
