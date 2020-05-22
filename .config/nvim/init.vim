@@ -70,6 +70,12 @@ nnoremap <C-Left> <C-w>h
 nnoremap <C-Down> <C-w>j
 nnoremap <C-Up> <C-w>k
 nnoremap <C-Right> <C-w>l
+
+"" Tabs
+nnoremap <Tab> gt
+" nnoremap <S-Tab> gT
+nnoremap <silent> <S-Tab> :tabnew<CR>
+
 "aで行末にインサート
 "nnoremap a A
 "nnoremap A a
@@ -100,7 +106,7 @@ set wrapscan
 " 検索語をハイライト表示
 set hlsearch
 " ESC連打でハイライト解除
-nnoremap <Esc><Esc> :nohlsearch<CR>
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 
 " Shift押したくない 
 "nnoremap [ {
@@ -135,6 +141,17 @@ vmap <C-v> <Plug>(expand_region_shrink)
 " Vimの縦移動を強化する
 " https://qiita.com/uji_/items/5cc267d6a96c417a29ef
 set relativenumber
+
+" Vimの補完を他エディタやIDEのような挙動にするようにする 
+" https://note.com/yasukotelin/n/na87dc604e042
+" 補完表示時のEnterで改行をしない
+inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
+
+set completeopt=menuone,noinsert
+inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
+inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
+
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shougo/dein.vim config 
