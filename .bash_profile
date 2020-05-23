@@ -13,4 +13,6 @@ eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 #export FZF_COMPLETION_TRIGGER=''
 #bindkey '^T' fzf-completion
 #bindkey '^I' $fzf_default_completion
+
+#no nvidia driver cache
 export __GL_SHADER_DISK_CACHE=0
