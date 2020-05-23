@@ -122,7 +122,11 @@ if has('vim_starting')
   let &t_SR .= "\e[4 q"
 endif
 
-nnoremap U <C-r>
+
+" bash、vimの操作の見直し
+" https://qiita.com/asam316/items/5ff06b3dde61123d6dda
+set showmatch
+set wildmenu
 
 " Vimの生産性を高める12の方法
 " https://postd.cc/how-to-boost-your-vim-productivity/
@@ -151,7 +155,12 @@ set completeopt=menuone,noinsert
 inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
 inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
 
-
+" my  
+nnoremap U <C-r>
+nnoremap o O
+nnoremap O o
+nnoremap P 0p
+nnoremap p 0P
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shougo/dein.vim config 

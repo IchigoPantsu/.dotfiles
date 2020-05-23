@@ -128,7 +128,9 @@ source /home/linuxbrew/.linuxbrew/Cellar/fzf/0.21.1/shell/key-bindings.bash
 source /home/linuxbrew/.linuxbrew/Cellar/fzf/0.21.1/shell/completion.bash
 export FZF_COMPLETION_TRIGGER='~'
 
-###
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+ 
+###bash-powerline
+source ~/.bash-powerline.sh
 
+###

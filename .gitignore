@@ -7,7 +7,7 @@
 # Filelist not to ignore
 !/.bash_profile
 !/.bashrc
-
+!/.inputrc
 #vim
 !/.vimrc
 !/.vim
