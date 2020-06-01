@@ -6,16 +6,17 @@ repo = 'Shougo/dein.vim'
 repo = 'Shougo/vimproc.vim'
 build = 'make'
 
-[[plugins]]
-repo ='Shougo/defx.nvim'
+#[[plugins]]
+#repo ='Shougo/defx.nvim'
 
-[[plugins]]
-repo = 'kristijanhusak/defx-icons' 
-depends = ['defx.vim']
+#[[plugins]]
+#repo = 'kristijanhusak/defx-icons' 
+#depends = ['Shougo/defx.nvim']
 
-[[plugins]]
-repo = 'kristijanhusak/defx-git' 
-depends = ['defx.vim']
+#[[plugins]]
+#repo = 'kristijanhusak/defx-git' 
+#depends = ['Shougo/defx.nvim']
+
 
 
 ###よく使われているvimのプラグイン top20
@@ -40,15 +41,16 @@ repo = 'tpope/vim-repeat'
 repo = 'junegunn/fzf'
 build = './install --all'
 hook_add = 'set rtp+=/usr/local/opt/fzf'
+merged = '0'
 
 [[plugins]]
 repo = 'junegunn/fzf.vim'
-depends = ['fzf']
+depends = ['junegunn/fzf']
 hook_add = '''
-" Mapping selecting mappings
-nmap <leader><tab> <plug>(fzf-maps-n)
-xmap <leader><tab> <plug>(fzf-maps-x)
-omap <leader><tab> <plug>(fzf-maps-o)
+"" Mapping selecting mappings
+" nmap <leader><tab> <plug>(fzf-maps-n)
+" xmap <leader><tab> <plug>(fzf-maps-x)
+" omap <leader><tab> <plug>(fzf-maps-o)
 
 " Insert mode completion
 imap <c-x><c-k> <plug>(fzf-complete-word)
@@ -57,8 +59,8 @@ imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Path completion with custom source command
-""inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
-""inoremap <expr> <c-x><c-f> fzf#vim#complete#path('rg --files')
+inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
+inoremap <expr> <c-x><c-f> fzf#vim#complete#path('rg --files')
 
 " Word completion with custom spec with popup layout option
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'window': { 'width': 0.2, 'height': 0.9, 'xoffset': 1 }})
@@ -86,12 +88,18 @@ inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
 " fzfによるCUI生活の改善
 " https://blog.nijohando.jp/post/fzf-fish-vim/
 nnoremap [Fzf] <Nop>
-nmap <Leader>f [Fzf]
-nnoremap [Fzf]f :<C-u>Files<CR>
+nmap <Leader><Leader> [Fzf]
+nnoremap [Fzf]f :<C-u>Files ~<CR>
+nnoremap [Fzf]F :<C-u>Files ./<CR>
 nnoremap [Fzf]g :<C-u>GFiles<CR>
 nnoremap [Fzf]G :<C-u>GFiles?<CR>
 nnoremap [Fzf]b :<C-u>Buffers<CR>
 nnoremap [Fzf]h :<C-u>History<CR>
+" オレオレセッティング
+nnoremap [Fzf]a :<C-u>Ag<CR>
+nnoremap [Fzf]r :<C-u>Rg<CR>
+nnoremap [Fzf]c :<C-u>Commands<CR>
+nnoremap [Fzf]l :<C-u>Lines<CR>
 
 " 画面分割
 " nnoremap <C-s> <C-w>v
@@ -108,7 +116,7 @@ repo = 'vim-airline/vim-airline'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
-depends = ['vim-airline']
+depends = ['vim-airline/vim-airline']
 
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
@@ -118,6 +126,8 @@ repo = 'sheerun/vim-polyglot'
 
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
+
+
 
 ###オレ的vimプラグイン10選
 ###https://qiita.com/reireias/items/beaa3bb0e299ae934217
@@ -130,9 +140,11 @@ repo = 'jiangmiao/auto-pairs'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
+hook_add = 'set splitbelow'
 
 #[[plufins]]
 #repo = 'mattn/sonictemplate-vim'
+
 
 
 ###おすすめプラグイン 〜 Vimはいいぞ！ゴリラと学ぶVim講座(7)
@@ -160,16 +172,100 @@ repo = 'thinca/vim-quickrun'
 #'''
 
 
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+[[plugins]]
+repo = 'kana/vim-operator-replace'
+depends = ['kana/vim-operator-user']
+
+#kana/vim-textobj-user/wiki
+#https://github.com/kana/vim-textobj-user/wiki
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+
+#al/il for the current line
+[[plugins]]
+repo = 'kana/vim-textobj-line'
+
+#ae/ie for the entire region of the current buffer
+[[plugins]]
+repo = 'kana/vim-textobj-entire'
+
+#af/if and aF/iF for a function / extensible for any language
+[[plugins]]
+repo = 'kana/vim-textobj-indent'
+
+#ay/iy for a syntax-highlighted item
+[[plugins]]
+repo = 'kana/vim-textobj-syntax'
+
+#adh/idh and others for various elements in diff(1) output
+[[plugins]]
+repo = 'kana/vim-textobj-diff'
+
+#af{char}/if{char} for a region between {char}s
+[[plugins]]
+repo = 'thinca/vim-textobj-between'
+
+#ac/ic for a comment
+[[plugins]]
+repo = 'thinca/vim-textobj-comment'
+
+#ap/ip for next file path (w/o basename), aP/iP for the previous file path (w/o basename)
+[[plugins]]
+repo = 'paulhybryant/vim-textobj-path'
+
+#au/iu for a URL
+[[plugins]]
+repo ='mattn/vim-textobj-url'
+
+# isb/asb for the closest region between any of () [] or {}.
+[[plugins]]
+repo ='osyo-manga/vim-textobj-multiblock'
+
+#av/iv for a region between either _s or camelCaseVariables
+[[plugins]]
+repo = 'Julian/vim-textobj-variable-segment'
+
+#aT/iT for "top level" blocks of code in arbitrary programming language
+[[plugins]]
+repo = 'adolenc/vim-textobj-toplevel'
+
+
+
 # Vimの生産性を高める12の方法
 # https://postd.cc/how-to-boost-your-vim-productivity/ 
 [[plugins]]
 repo = 'terryma/vim-expand-region'
+hook_add = '''
+
+" Default settings. (NOTE: Remove comments in dictionary before sourcing)
+let g:expand_region_text_objects = {
+      \ "iw" :0,
+      \ "iW" :0,
+      \ "isb" :1,
+      \ "asb" :1,
+      \ "il" :0,
+      \ "ii" :1,
+      \ "ai" :1,
+      \ }
+
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+'''
+
 
 
 # clever-f.vim でカーソルの横移動を便利にする
 # https://rhysd.hatenablog.com/entry/2013/09/17/220837
 [[plugins]]
 repo = 'rhysd/clever-f.vim'
+hook_add = '''
+let g:clever_f_ignore_case = 1
+let g:clever_f_smart_case = 1
+'''
+
 
 
 # Vimの縦移動を強化する
@@ -177,6 +273,7 @@ repo = 'rhysd/clever-f.vim'
 [[plugins]]
 repo = 'andymass/vim-matchup'
 hook_add = 'let g:loaded_matchit = 1'
+
 
 
 # 僕の推し Vimプラグインを見て！
@@ -191,6 +288,7 @@ repo = 'machakann/vim-highlightedyank'
 #repo = 'nathanaelkane/vim-indent-guides'
 
 
+
 # 僕がVimで愛用しているプラグイン30連発
 # https://liginc.co.jp/469142
 #[[plugins]]
@@ -199,20 +297,8 @@ repo = 'machakann/vim-highlightedyank'
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 hook_add = '''
-map <Leader> <Plug>(easymotion-prefix)
-map <leader>s <Plug>(easymotion-s2)
-
-" map <leader>f <Plug>(easymotion-bd-f2)
-" nmap <leader>f <Plug>(easymotion-overwin-f2)
-
-map f <Plug>(easymotion-fl)
-map t <Plug>(easymotion-tl)
-map F <Plug>(easymotion-Fl)
-map T <Plug>(easymotion-Tl)
-
-" Gif config
-nmap s <Plug>(easymotion-s2)
-nmap t <Plug>(easymotion-t2)
+let g:EasyMotion_do_mapping = 0
+"map <Leader> <Plug>(easymotion-prefix)
 
 " Gif config
 map  / <Plug>(easymotion-sn)
@@ -221,18 +307,18 @@ omap / <Plug>(easymotion-tn)
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
 " different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+"map n <Plug>(easymotion-next)
+"map N <Plug>(easymotion-prev)
 
-" Gif config
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
+"let g:EasyMotion_use_migemo = 0
+let g:EasyMotion_enter_jump_first = 1
+let g:EasyMotion_add_search_history = 1
 
-let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+"オレオレセッティング
+"nnoremap <expr><CR> v:hlsearch==1 ? "n" : "<CR>"
+nnoremap <expr><CR> v:hlsearch==1 ? "n" : "*"
+nnoremap <expr><BS> v:hlsearch==1 ? "N" : "<BS>"
 
-let g:EasyMotion_use_migemo = 1
 '''
 
 [[plugins]]
@@ -257,48 +343,6 @@ vmap gx <Plug>(openbrowser-smart-search)
 '''
 
 
-# vim8,neovimで補完使うならdeopleteよりvim-lsp使おうぜ
-# http://kutimoti.hatenablog.com/entry/2018/05/20/110732
-#[[plugins]]
-#repo = 'prabirshrestha/async.vim'
-
-#[[plugins]]
-#repo = 'prabirshrestha/vim-lsp'
-#hook_add = '''
-#if executable('clangd')
-#    au User lsp_setup call lsp#register_server({
-#        \ 'name': 'clangd',
-#        \ 'cmd': {server_info->['clangd']},
-#        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-#        \ })
-#endif
-
-#let g:lsp_signs_enabled = 1         " enable signs
-#let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
-
-#let g:lsp_signs_error = {'text': '✗'}
-#let g:lsp_signs_warning = {'text': '‼'}
-#'''
-
-#[[plugins]]
-#repo = 'prabirshrestha/asyncomplete.vim'
-
-#[[plugins]]
-#repo = 'prabirshrestha/asyncomplete-lsp.vim'
-
-#[[plugins]]
-#repo='prabirshrestha/asyncomplete-neosnippet.vim'
-#hook_add='''
-#call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
-#    \ 'name': 'neosnippet',
-#    \ 'whitelist': ['*'],
-#    \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
-#    \ }))
-#imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-#smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-#xmap <C-k>     <Plug>(neosnippet_expand_target)
-#'''
-
 
 # Vim Bootstrap 基本プラグイン
 # https://qiita.com/uyo/items/2f8f1d6173b7ee0c0fac
@@ -309,27 +353,52 @@ repo = 'Yggdroot/indentLine'
 repo = 'majutsushi/tagbar'
 
 
-### color scheme
-[[plugins]]
-repo = 'ayu-theme/ayu-vim'
-hook_add = '''
-set termguicolors     " enable true colors support
-"let ayucolor="light"  " for light version of theme
-let ayucolor="mirage" " for mirage version of theme
-"let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
-'''
-
 
 ### completion lint tools by language-server-protocol
 [[plugins]]
 repo = 'prabirshrestha/async.vim'
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+nmap gD <Plug>(lsp-peek-definition)
+vmap gD <Plug>(lsp-peek-definition)
+nmap gd <Plug>(lsp-definition)
+vmap gD <Plug>(lsp-definition)
 
+nmap gC <Plug>(lsp-peek-declaration)
+vmap gC <Plug>(lsp-peek-declaration)
+nmap gc <Plug>(lsp-declaration)
+vmap gc <Plug>(lsp-declaration)
+
+nmap gT <Plug>(lsp-peek-type-definition)
+vmap gT <Plug>(lsp-peek-type-definition)
+nmap gt <Plug>(lsp-type-definition)
+vmap gt <Plug>(lsp-type-definition)
+
+nmap gI <Plug>(lsp-peek-implementation)
+vmap gI <Plug>(lsp-peek-implementation)
+nmap gi <Plug>(lsp-implementation)
+vmap gi <Plug>(lsp-implementation)
+
+"nmap ge <Plug>(lsp-next-error)
+"vmap ge <Plug>(lsp-next-error)
+"nmap gE <Plug>(lsp-previous-error)
+"vmap gE <Plug>(lsp-previous-error)
+
+nmap gw <Plug>(lsp-next-diagnostic)
+vmap gw <Plug>(lsp-next-diagnostic)
+nmap gW <Plug>(lsp-previous-diagnostic)
+vmap gW <Plug>(lsp-previous-diagnostic)
+'''
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
 merged = '0'
+hook_add = '''
+"let g:lsp_settings = {
+"\  'clangd': {'cmd': ['clangd-6.0']},
+"\  'efm-langserver': {'disabled': v:false}
+"\}
+'''
 [[plugins]]
 repo = 'mattn/vim-lsp-icons'
 [[plugins]]
@@ -344,8 +413,8 @@ repo = 'mattn/efm-langserver'
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete.vim'
 hook_add = '''
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
 let g:asyncomplete_auto_popup = 0
@@ -355,10 +424,24 @@ function! s:check_back_space() abort
 endfunction
 
 inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
+"  \ pumvisible() ? "\<C-n>" :
   \ <SID>check_back_space() ? "\<TAB>" :
   \ asyncomplete#force_refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" オレオレセッティング
+let g:asyncomplete_auto_completeopt = 0
+
+" Vimの補完を他エディタやIDEのような挙動にするようにする 
+" https://note.com/yasukotelin/n/na87dc604e042
+" 補完表示時のEnterで改行をしない
+inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
+set completeopt=menuone,noinsert
+inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
+inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
+
+"オレオレセッティング
+inoremap <expr><esc> pumvisible() ? "<CR>" : "<esc>"
 '''
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-lsp.vim'
@@ -374,4 +457,15 @@ repo = 'prabirshrestha/asyncomplete-lsp.vim'
 #imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 #smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 #xmap <C-k>     <Plug>(neosnippet_expand_target)
+#'''
+
+#w3m.vimで快適ブラウジング
+#https://sites.google.com/site/hymd3a/vim/w3m-vim
+#[[plugins]]
+#repo = 'yuratomo/w3m.vim'
+#hook_add = '''
+#nnoremap <leader>w :W3mTab google 
+#let g:w3m#external_browser = 'firefox'
+#nnoremap <leader>E :W3mShowExtenalBrowser
+#let g:w3m#hit_a_hint_key = 'f'
 #'''

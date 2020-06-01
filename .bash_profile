@@ -16,3 +16,9 @@ eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 #no nvidia driver cache
 export __GL_SHADER_DISK_CACHE=0
+
+# export ValkanSDK PATH 
+export VULKAN_SDK=~/Workspace/vulkan/1.2.135.0/x86_64
+export PATH=$VULKAN_SDK/bin:$PATH
+export LD_LIBRARY_PATH=$VULKAN_SDK/lib:$LD_LIBRARY_PATH
+export VK_LAYER_PATH=$VULKAN_SDK/etc/vulkan/explicit_layer.d

@@ -1,0 +1,7 @@
+# depend on python3 provider
+# type: pip3 install pynvim
+[[plugins]]
+repo = 'puremourning/vimspector'
+#on_ft = ["python", "javascript"]
+build = './install_gadget.py --all --disable-tcl'
+hook_add = 'let g:vimspector_enable_mappings = "HUMAN"'

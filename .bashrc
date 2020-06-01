@@ -92,6 +92,15 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+### my bash alias
+alias open='xdg-open'
+alias ss='gnome-screenshot'
+alias nv='nvim'
+_fzf_complete_nv() {
+  _fzf_complete --multi --reverse --prompt ="nv> " -- "$@"
+}
+[ -n "$BASH" ] && complete -F _fzf_complete_nv -o default -o bashdefault nv
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -133,4 +142,4 @@ export FZF_COMPLETION_TRIGGER='~'
 ###bash-powerline
 source ~/.bash-powerline.sh
 
-###
+

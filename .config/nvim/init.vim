@@ -26,7 +26,7 @@ filetype plugin on
 " 行番号を表示
 set number
 " 現在の行を強調表示
-"set cursorline
+set cursorline
 " 行末の1文字先までカーソルを移動できるように
 set virtualedit=onemore
 " インデントはスマートインデント
@@ -45,15 +45,29 @@ nnoremap j }
 nnoremap k {
 nnoremap J gj
 nnoremap K gk
-nnoremap Down gj
-nnoremap Up gk
+nnoremap <Down> gj
+nnoremap <Up> gk
 
-nnoremap h b
+nnoremap h ge
 nnoremap l w
 nnoremap H h
 nnoremap L l
-nnoremap Left h
-nnoremap Right l
+nnoremap <Left> h
+nnoremap <Right> l
+
+vnoremap j }
+vnoremap k {
+vnoremap J gj
+vnoremap K gk
+vnoremap <Down> gj
+vnoremap <Up> gk
+
+vnoremap h ge
+vnoremap l w
+vnoremap H h
+vnoremap L l
+vnoremap <Left> h
+vnoremap <Right> l
 
 " 画面分割(Fzf.vimに依存するためdein.tomlに移動)
 "" nnoremap <C-s> <C-w>v
@@ -66,6 +80,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+"オレオレコード
 nnoremap <C-Left> <C-w>h
 nnoremap <C-Down> <C-w>j
 nnoremap <C-Up> <C-w>k
@@ -73,8 +88,8 @@ nnoremap <C-Right> <C-w>l
 
 "" Tabs
 nnoremap <Tab> gt
-" nnoremap <S-Tab> gT
-nnoremap <silent> <S-Tab> :tabnew<CR>
+nnoremap <S-Tab> gT
+nnoremap <silent> <Leader><Tab> :tabnew<CR>
 
 "aで行末にインサート
 "nnoremap a A
@@ -122,7 +137,6 @@ if has('vim_starting')
   let &t_SR .= "\e[4 q"
 endif
 
-
 " bash、vimの操作の見直し
 " https://qiita.com/asam316/items/5ff06b3dde61123d6dda
 set showmatch
@@ -133,34 +147,58 @@ set wildmenu
 "1. LeaderをSpaceキーにする
 let mapleader = "\<Space>"
 
-"3. 範囲拡大を使う
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
 
-"4. テキスト検索オブジェクトを見つける
-"vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
-"  \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
-"omap s :normal vs<CR>
 
 " Vimの縦移動を強化する
 " https://qiita.com/uji_/items/5cc267d6a96c417a29ef
 set relativenumber
 
+""" asyncomplete#dein.tomlへ移動
 " Vimの補完を他エディタやIDEのような挙動にするようにする 
 " https://note.com/yasukotelin/n/na87dc604e042
 " 補完表示時のEnterで改行をしない
-inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
+"inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
+"set completeopt=menuone,noinsert
+"set completeopt=menuone,preview
+"inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
+"inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
+"オレオレセッティング
+"inoremap <expr><esc> pumvisible() ? "<CR>" : "<esc>"
+"inoremap <expr><CR>  !pumvisible() ? "<CR>" 
+"                         \: cond() ? "<C-n>""<C-y>"
+"                         \:"<C-y>"     
 
-set completeopt=menuone,noinsert
-inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
-inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
+"個人的に便利だと思うVimの基本設定のランキングを発表します！
+" https://itchyny.hatenablog.com/entry/2014/12/25/090000
+nnoremap Y y$
+set display=lastline
+set pumheight=10
+set showmatch
+set matchtime=1
+nnoremap + <C-a>
+nnoremap - <C-x>
 
-" my  
+" VimのQuickFix-windowを自動で開く設定
+" https://senooken.jp/post/2016/05/05/
+"autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwindow
+autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
+
+"Vim に惚れるシーン（QuickFix リストを編集＆再読込する）
+"https://qiita.com/noc06140728/items/8cf5f2462231914a267c
+"set modifiable
+set errorformat=%f\|%l\ col\ %c\|\ %m\ 
+
+" Search for visually selected text
+" https://vim.fandom.com/wiki/Search_for_visually_selected_text
+vnoremap <CR> y/\V<C-R>=escape(@",'/\')<CR><CR>
+
+" my settings 
 nnoremap U <C-r>
 nnoremap o O
 nnoremap O o
-nnoremap P 0p
-nnoremap p 0P
+nnoremap P p
+nnoremap p P
+set notimeout
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shougo/dein.vim config 
@@ -215,3 +253,15 @@ syntax enable
 if dein#check_install()
   call dein#install()
 endif
+
+""""""""""""""""""""""""""""""""""""
+
+
+"colorscheme ayu
+call dein#add('ayu-theme/ayu-vim', {'merged': 0})
+call dein#source('ayu-vim')
+set termguicolors     " enable true colors support
+"let ayucolor="light"  " for light version of theme
+let ayucolor="mirage" " for mirage version of theme
+"let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
