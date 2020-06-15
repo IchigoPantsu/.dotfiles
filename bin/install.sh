@@ -21,8 +21,8 @@ echo ======.dotfiles install =======
 cd ${HOME}
 
 DOT_DIRECTORY="${HOME}/.dotfiles"
-DOT_TARBALL="https://github.com/IchigoPantsu/dotfiles/tarball/master"
-REMOTE_URL="https://github.com/IchigoPantsu/dotfiles.git"
+DOT_TARBALL="https://github.com/IchigoPantsu/,dotfiles/tarball/master"
+REMOTE_URL="https://github.com/IchigoPantsu/.dotfiles.git"
 
 git clone --recursive "${REMOTE_URL}" "${DOT_DIRECTORY}"
 
@@ -42,7 +42,7 @@ test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew
 #echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 
 # install brewfile
-brew install "${DOT_DIRECTORY}"/Brewfile
+brew bundle --global
 
 # install bash-powerline
 echo ======install bash-powerline======

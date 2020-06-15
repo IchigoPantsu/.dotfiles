@@ -1,12 +1,9 @@
 ### dotfiles
 Under construction
 
-download install.sh
+at First download install.sh
 ```bash
-$> bash install.sh
-$> bash deploy.sh
-reboot
-$> brew bundle --global
+$ bash installsh
 ```
 
 ### TODO
