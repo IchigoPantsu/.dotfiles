@@ -2,54 +2,74 @@
 " editor config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " setting
+
 " leader -> space
 let mapleader = "\<Space>"
+
 "文字コードをUFT-8に設定
 set fenc=utf-8
+
 " バックアップファイルを作らない
 set nobackup
+
 " スワップファイルを作らない
 set noswapfile
+
 " 編集中のファイルが変更されたら自動で読み直す
 set autoread
+
 " バッファが編集中でもその他のファイルを開けるように
 set hidden
+
 " 入力中のコマンドをステータスに表示する
 set showcmd
+
 " ノーマルモード時だけ ; と : を入れ替える
 nnoremap ; :
 nnoremap : ;
+
 " filetype plugin enable
 filetype plugin on
 
 " 見た目系
 " 行番号を表示
 set number
+
 " 現在の行を強調表示
 set cursorline
+
 " 行末の1文字先までカーソルを移動できるように
 set virtualedit=onemore
+
 " インデントはスマートインデント
 " set smartindent
+
 " ビープ音を可視化
 set visualbell
+
 " 括弧入力時の対応する括弧を表示
 set showmatch
+
 " ステータスラインを常に表示
 set laststatus=2
+
 " コマンドラインの補完
 set wildmode=list:longest
 " 折り返し時に表示行単位での移動できるようにする
+
 " オレオレ移動めんどくっさぁコマンド
+" j,kはdein.toml/vim-anyfoldへ移動
 nnoremap j }
 nnoremap k {
 nnoremap J gj
 nnoremap K gk
 nnoremap <Down> gj
 nnoremap <Up> gk
+nnoremap <Leader>j zj
+nnoremap <Leader>k zk
 
-nnoremap h ge
-nnoremap l w
+nnoremap h b
+nnoremap l e
 nnoremap H h
 nnoremap L l
 nnoremap <Left> h
@@ -62,12 +82,14 @@ vnoremap K gk
 vnoremap <Down> gj
 vnoremap <Up> gk
 
-vnoremap h ge
-vnoremap l w
+vnoremap h b
+vnoremap l e
 vnoremap H h
 vnoremap L l
 vnoremap <Left> h
 vnoremap <Right> l
+
+
 
 " 画面分割(Fzf.vimに依存するためdein.tomlに移動)
 "" nnoremap <C-s> <C-w>v
@@ -80,11 +102,15 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+
+
 "オレオレコード
 nnoremap <C-Left> <C-w>h
 nnoremap <C-Down> <C-w>j
 nnoremap <C-Up> <C-w>k
 nnoremap <C-Right> <C-w>l
+
+
 
 "" Tabs
 nnoremap <Tab> gt
@@ -95,8 +121,12 @@ nnoremap <silent> <Leader><Tab> :tabnew<CR>
 "nnoremap a A
 "nnoremap A a
 
+
+
 " シンタックスハイライトの有効化
 syntax enable
+
+
 
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)
@@ -107,6 +137,7 @@ set expandtab
 set tabstop=2
 " 行頭でのTab文字の表示幅
 set shiftwidth=2
+
 
 
 " 検索系
@@ -127,6 +158,8 @@ nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 "nnoremap [ {
 "nnoremap ] }
 
+
+
 " モードごとにカーソルで強調表示
 if has('vim_starting')
   " 挿入モード時に非点滅の縦棒タイプのカーソル
@@ -137,10 +170,14 @@ if has('vim_starting')
   let &t_SR .= "\e[4 q"
 endif
 
+
+
 " bash、vimの操作の見直し
 " https://qiita.com/asam316/items/5ff06b3dde61123d6dda
 set showmatch
 set wildmenu
+
+
 
 " Vimの生産性を高める12の方法
 " https://postd.cc/how-to-boost-your-vim-productivity/
@@ -152,6 +189,8 @@ let mapleader = "\<Space>"
 " Vimの縦移動を強化する
 " https://qiita.com/uji_/items/5cc267d6a96c417a29ef
 set relativenumber
+
+
 
 """ asyncomplete#dein.tomlへ移動
 " Vimの補完を他エディタやIDEのような挙動にするようにする 
@@ -168,6 +207,8 @@ set relativenumber
 "                         \: cond() ? "<C-n>""<C-y>"
 "                         \:"<C-y>"     
 
+
+
 "個人的に便利だと思うVimの基本設定のランキングを発表します！
 " https://itchyny.hatenablog.com/entry/2014/12/25/090000
 nnoremap Y y$
@@ -178,19 +219,43 @@ set matchtime=1
 nnoremap + <C-a>
 nnoremap - <C-x>
 
+
+
 " VimのQuickFix-windowを自動で開く設定
 " https://senooken.jp/post/2016/05/05/
 "autocmd QuickfixCmdPost make,grep,grepadd,vimgrep cwindow
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
+
+
 
 "Vim に惚れるシーン（QuickFix リストを編集＆再読込する）
 "https://qiita.com/noc06140728/items/8cf5f2462231914a267c
 "set modifiable
 set errorformat=%f\|%l\ col\ %c\|\ %m\ 
 
+
+
 " Search for visually selected text
 " https://vim.fandom.com/wiki/Search_for_visually_selected_text
 vnoremap <CR> y/\V<C-R>=escape(@",'/\')<CR><CR>
+
+
+
+" 初心者向け　Vimでクリップボード連携(コピー&ペースト)する方法
+" https://qiita.com/iwaseasahi/items/a45b99a484966662adbe
+set clipboard+=unnamed
+
+"Is there a way to expand a Vim fold automatically when your put your cursor on it?
+"autocmd CursorMoved,CursorMovedI * call OnCursorMove()
+"function! OnCursorMove()
+"    let l = line('.')
+"    silent! foldopen
+"    if exists('b:last_line') && l < b:last_line
+"        norm! ]z
+"    endif
+"   let b:last_line = l
+"endfunction
+
 
 " my settings 
 nnoremap U <C-r>
@@ -199,6 +264,7 @@ nnoremap O o
 nnoremap P p
 nnoremap p P
 set notimeout
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shougo/dein.vim config 

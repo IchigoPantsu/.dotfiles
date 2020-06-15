@@ -92,6 +92,23 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# よく設定されているalias
+# https://qiita.com/hirooooooo/items/5c47fdaf40fc1d3b702f
+alias ls='ls --color=auto'
+alias rm='rm -i'
+
+alias ..='cd ..'
+alias ~='cd ~'
+
+alias mv='mv -i'
+alias cp='cp -i'
+
+alias vi='vim'
+
+alias gs='git status'
+
+alias c='clear'
+
 ### my bash alias
 alias open='xdg-open'
 alias ss='gnome-screenshot'
@@ -100,6 +117,8 @@ _fzf_complete_nv() {
   _fzf_complete --multi --reverse --prompt ="nv> " -- "$@"
 }
 [ -n "$BASH" ] && complete -F _fzf_complete_nv -o default -o bashdefault nv
+
+
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -138,8 +157,8 @@ source /home/linuxbrew/.linuxbrew/Cellar/fzf/0.21.1/shell/completion.bash
 export FZF_COMPLETION_TRIGGER='~'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
- 
-###bash-powerline
-source ~/.bash-powerline.sh
 
+### via .bash profile
+### bash-powerline
+source ~/.bash-powerline.sh
 
