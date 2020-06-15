@@ -5,6 +5,7 @@
 /.*
 
 # Filelist not to ignore
+!/.profile
 !/.bash_profile
 !/.bashrc
 !/.inputrc
