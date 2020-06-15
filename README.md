@@ -1,7 +1,8 @@
 ### dotfiles
 Under construction
 
-at First download install.sh
+at First download 
++ bin/install.sh
 ```bash
 $ bash installsh
 ```
