@@ -522,3 +522,6 @@ let g:fold_cycle_toggle_max_close = 0
 
 '''
 
+[[plugins]]
+repo = 'ayu-theme/ayu-vim'
+

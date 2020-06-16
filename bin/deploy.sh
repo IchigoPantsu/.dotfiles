@@ -17,6 +17,11 @@ do
 done
 
 #link in ${HOME}/.config
+
+if [ ! -d "$HOME/.config" ]; then
+  mkdir "$HOME/.config"
+fi
+
 DOT_CONFIG_DIRECTORY="${HOME}/.dotfiles/.config"
 cd ${DOT_CONFIG_DIRECTORY}
 for f in ??*
