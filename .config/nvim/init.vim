@@ -277,7 +277,9 @@ nnoremap p P
 set notimeout
 set clipboard+=unnamedplus
 
-
+set mouse=a
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

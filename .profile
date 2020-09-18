@@ -45,3 +45,5 @@ LD_LIBRARY_PATH="$VULKAN_SDK/lib:${LD_LIBRARY_PATH:-}"
 export LD_LIBRARY_PATH
 VK_LAYER_PATH="$VULKAN_SDK/etc/vulkan/explicit_layer.d"
 export VK_LAYER_PATH
+
+export PATH="$HOME/.cargo/bin:$PATH"

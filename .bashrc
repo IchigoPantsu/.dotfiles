@@ -109,10 +109,15 @@ alias gs='git status'
 
 alias c='clear'
 
+
 ### my bash alias
 alias open='xdg-open'
 alias ss='gnome-screenshot'
 alias nv='nvim'
+alias r='ranger'
+
+export EDITOR=nvim
+
 _fzf_complete_nv() {
   _fzf_complete --multi --reverse --prompt ="nv> " -- "$@"
 }
@@ -161,4 +166,5 @@ export FZF_COMPLETION_TRIGGER='~'
 ### via .bash profile
 ### bash-powerline
 source ~/.bash-powerline.sh
+
 

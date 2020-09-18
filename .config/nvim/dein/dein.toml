@@ -1,4 +1,4 @@
-###dark vim 
+#iijjj##dark vim 
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -157,8 +157,8 @@ hook_add = 'set splitbelow'
 #[[plugins]]
 #repo = 'previm/previm'
 
-#[[plugins]]
-#repo = 'vim-jp/vimdoc-ja'
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
 
 #[[plugins]]
 #repo = 'markonm/traces.vim'
@@ -339,15 +339,6 @@ let g:winresizer_keycode_resize = 101
 #[[plugins]]
 #repo = 'yuttie/comfortable-motion.vim'
 
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-hook_add = '''
-let g:netrw_nogx = 1 " disable netrw's gx mapping.
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
-'''
-
-
 
 # Vim Bootstrap 基本プラグイン
 # https://qiita.com/uyo/items/2f8f1d6173b7ee0c0fac
@@ -472,6 +463,7 @@ call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
 \ 'completor': function('asyncomplete#sources#omni#completor')
 \  }))
 '''
+
 #[[plugins]]
 #repo='prabirshrestha/asyncomplete-neosnippet.vim'
 #hook_add='''
@@ -501,13 +493,11 @@ repo = 'pseewald/vim-anyfold'
 hook_add = '''
 filetype plugin indent on " required
 syntax on                 " required
-
 " activate for all filetypes
 autocmd Filetype * AnyFoldActivate
 " or
 " activate for a specific filetype
 "autocmd Filetype <your-filetype> AnyFoldActivate
-
 " close all folds
 " set foldlevel=0
 " or
@@ -547,3 +537,71 @@ let g:vim_current_word#highlight_current_word = 0
 #  hook_add '''
 #  let g:cosco_ignore_comment_lines = 1
 # '''
+
+[[plugins]]
+repo = 'voldikss/vim-translator'
+hook_add = '''
+"let g:translator_target_lang = "ja"
+"let g:translator_default_engines = "google"
+
+""" Configuration example
+" Echo translation in the cmdline
+nmap <silent> <Leader>t <Plug>Translate
+vmap <silent> <Leader>t <Plug>TranslateV
+" Display translation in a window
+nmap <silent> <Leader>w <Plug>TranslateW
+vmap <silent> <Leader>w <Plug>TranslateWV
+" Replace the text with translation
+nmap <silent> <Leader>r <Plug>TranslateR
+vmap <silent> <Leader>r <Plug>TranslateRV
+" Translate the text in clipboard
+nmap <silent> <Leader>x <Plug>TranslateX
+
+'''
+
+
+# vim・neovimでできるマークダウン　[リアルタイムプレビュー完備]
+# https://qiita.com/Nedward/items/24a6c5aaec8c4fd86626
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+hook_add = '''
+let g:vim_markdown_conceal = 0
+"let g:tex_conceal = ""
+"let g:vim_markdown_math = 1
+let g:vim_markdown_conceal_code_blocks = 0
+
+'''
+
+[[plugins]]
+repo = 'IchigoPantsu/previm'
+hook_add = '''
+autocmd BufRead,BufNewFile *.md  set filetype=markdown
+nnoremap <silent> <C-p> :PrevimOpen<CR>
+let g:vim_markdown_folding_disabled=1
+let g:previm_enable_realtime=1
+'''
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+hook_add = '''
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+'''
+
+[[plugins]]
+repo = 'iberianpig/ranger-explorer.vim'
+depends = ['rbgrouleff/bclose.vim']
+hook_add = '''
+let g:ranger_explorer_keymap_edit    = '<C-o>'
+let g:ranger_explorer_keymap_tabedit = '<C-t>'
+let g:ranger_explorer_keymap_split   = '<C-s>'
+let g:ranger_explorer_keymap_vsplit  = '<C-v>'
+
+nnoremap <silent><Leader>c :RangerOpenCurrentDir<CR>
+nnoremap <silent><Leader>f :RangerOpenProjectRootDir<CR>
+'''
+
+[[plugins]]
+repo = 'rbgrouleff/bclose.vim'
+
