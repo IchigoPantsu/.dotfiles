@@ -602,6 +602,10 @@ nnoremap <silent><Leader>c :RangerOpenCurrentDir<CR>
 nnoremap <silent><Leader>f :RangerOpenProjectRootDir<CR>
 '''
 
+# for renger-explorer.vim
 [[plugins]]
 repo = 'rbgrouleff/bclose.vim'
+
+[[plugins]]
+repo = 'adelarsq/vim-hackernews'
 

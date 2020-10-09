@@ -245,7 +245,7 @@ nnoremap <silent> <Leader><Tab> :tabnew<CR>
 "nnoremap <expr><CR> v:hlsearch==1 ? "n" : "*"
 nnoremap <expr><CR> v:hlsearch==1 ? "n" : "zA"
 nnoremap <expr><BS> v:hlsearch==1 ? "N" : "<BS>"
-nnoremap <expr>m v:hlsearch==1 ? "n" : "zA"
+"nnoremap <expr>m v:hlsearch==1 ? "n" : "zA"
 nnoremap <leader><CR> zR
 nnoremap <leader><BS> zM
 
