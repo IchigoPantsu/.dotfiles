@@ -1,4 +1,5 @@
 ### dotfiles
+for manjaro i3wm edition
 Under construction
 
 at First download 

@@ -21,28 +21,28 @@ echo ======.dotfiles install =======
 cd ${HOME}
 
 DOT_DIRECTORY="${HOME}/.dotfiles"
-DOT_TARBALL="https://github.com/IchigoPantsu/,dotfiles/tarball/master"
-REMOTE_URL="https://github.com/IchigoPantsu/.dotfiles.git"
+#DOT_TARBALL="https://github.com/IchigoPantsu/,dotfiles/tarball/master"
+#REMOTE_URL="https://github.com/IchigoPantsu/.dotfiles.git"
 
-git clone --recursive "${REMOTE_URL}" "${DOT_DIRECTORY}"
+#git clone --recursive "${REMOTE_URL}" "${DOT_DIRECTORY}"
 
-/bin/bash "${DOT_DIRECTORY}"/bin/deploy.sh
+#/bin/bash "${DOT_DIRECTORY}"/bin/deploy.sh
 
 # make install directory
 mkdir "${DOT_DIRECTORY}"/install
 cd !$
 
 # https://brew.sh/
-echo ======linux brew install=======
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+#echo ======linux brew install=======
+#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+#test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+#test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 #test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
 #echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 
 # install brewfile
-brew bundle --global
+#brew bundle --global
 
 # install bash-powerline
 echo ======install bash-powerline======
@@ -56,14 +56,14 @@ git clone https://github.com/powerline/fonts.git --depth=1
 cd fonts
 ./install.sh
 # clean-up a bit
-cd ..
-rm -rf fonts
+#cd ..
+#rm -rf fonts
 
 #
-echo after you should manually install alacritty.
-echo refer: https://github.com/alacritty/alacritty
-echo and set default terminal emulater.
-echo type if ubuntu: sudo update-alternatives --config x-terminal-emulator
+#echo after you should manually install alacritty.
+#echo refer: https://github.com/alacritty/alacritty
+#echo and set default terminal emulater.
+#echo type if ubuntu: sudo update-alternatives --config x-terminal-emulator
 
 # https://github.com/neovim/neovim
 #echo ======install neovim/neovim======

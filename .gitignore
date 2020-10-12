@@ -12,10 +12,10 @@
 #vim
 !/.vimrc
 !/.vim
-
-#nvim
+#i3 config
+!/.i3
+#others config
 !/.config
-
 #Linux brew
 !/.Brewfile
 
