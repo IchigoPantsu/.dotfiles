@@ -116,6 +116,7 @@ alias ss='gnome-screenshot'
 alias nv='nvim'
 alias r='ranger_cd'
 
+alias bashrc='source ~/.bashrc'
 export EDITOR=nvim
 
 _fzf_complete_nv() {
@@ -152,8 +153,9 @@ fi
 
 ###fzf config###
 
-export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
+export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/*'"
 export FZF_DEFAULT_OPTS="--height 40% --reverse --border --preview 'bat --style=numbers --color=always {}'"
+
 
 ### keybinding and completion settings
 #fzf_version = brew --version

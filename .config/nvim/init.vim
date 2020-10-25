@@ -281,6 +281,9 @@ set mouse=a
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
+"Vimでwrapした文章もインデント出来る様になった
+"https://rcmdnk.com/blog/2014/07/14/computer-vim/
+set breakindent
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shougo/dein.vim config 
