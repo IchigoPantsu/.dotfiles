@@ -10,6 +10,7 @@
 !/.bashrc
 !/.inputrc
 !/.xprofile
+!/.Xmodmap
 #vim
 !/.vimrc
 !/.vim
@@ -17,8 +18,6 @@
 !/.i3
 #others config
 !/.config
-#Linux brew
-!/.Brewfile
 
 #dotfiles
 !/bin

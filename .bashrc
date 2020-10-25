@@ -263,6 +263,8 @@ alias r='ranger_cd'
 
 export EDITOR=nvim
 
+xmodmap ~/.Xmodmap
+
 _fzf_complete_nv() {
   _fzf_complete --multi --reverse --prompt ="nv> " -- "$@"
 }
