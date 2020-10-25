@@ -1,34 +1,59 @@
 # alacritty.yml
 
 # Colors (Ayu Mirage)
-colors:
-  # Default colors
-  primary:
-    background: '#202734'
-    foreground: '#CBCCC6'
+#colors:
+## Default colors
+#  primary:
+#    background: '#202734'
+#    foreground: '#CBCCC6'
 
-  # Normal colors
-  normal:
-    black: '#191E2A'
-    red: '#FF3333'
-    green: '#BAE67E'
-    yellow: '#FFA759'
-    blue: '#73D0FF'
-    magenta: '#FFD580'
-    cyan: '#95E6CB'
-    white: '#C7C7C7'
+## Normal colors
+#  normal:
+#    black: '#191E2A'
+#    red: '#FF3333'
+#    green: '#BAE67E'
+#    yellow: '#FFA759'
+#    blue: '#73D0FF'
+#    magenta: '#FFD580'
+#    cyan: '#95E6CB'
+#    white: '#C7C7C7'
 
   # Bright colors
-  bright:
-    black: '#686868'
-    red: '#F27983'
-    green: '#A6CC70'
-    yellow: '#FFCC66'
-    blue: '#5CCFE6'
-    magenta: '#FFEE99'
-    cyan: '#95E6CB'
-    white: '#FFFFFF'
+#  bright:
+#    black: '#686868'
+#    red: '#F27983'
+#    green: '#A6CC70'
+#    yellow: '#FFCC66'
+#    blue: '#5CCFE6'
+#    magenta: '#FFEE99'
+#   cyan: '#95E6CB'
+#    white: '#FFFFFF'
 
+# Colors (maia)
+colors:
+  primary:
+    background: "0x273136"
+    foreground: "0xe1e2e3"
+
+  normal:
+    black: "0x1c1e1f"
+    red: "0xf76c7c"
+    green: "0x9cd57b"
+    yellow: "0xe3d367"
+    blue: "0x78cee9"
+    magenta: "0xbaa0f8"
+    cyan: "0xf3a96a"
+    white: "0xe1e2e3"
+
+  bright:
+    black: "0x1c1e1f"
+    red: "0xf76c7c"
+    green: "0x9cd57b"
+    yellow: "0xe3d367"
+    blue: "0x78cee9"
+    magenta: "0xbaa0f8"
+    cyan: "0xf3a96a"
+    white: "0xe1e2e3"
 
 # Font configuration (changes require restart)
 font:

@@ -340,10 +340,13 @@ endif
 
 
 "colorscheme ayu
-call dein#add('ayu-theme/ayu-vim', {'merged': 0})
-call dein#source('ayu-vim')
+"call dein#add('ayu-theme/ayu-vim', {'merged': 0})
+"call dein#source('ayu-vim')
 set termguicolors     " enable true colors support
-"let ayucolor="light"  " for light version of theme
+"""let ayucolor="light"  " for light version of theme
 let ayucolor="mirage" " for mirage version of theme
-"let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
+"""let ayucolor="dark"   " for dark version of theme
+
+let g:sonokai_style = 'maia'
+colorscheme sonokai
+let g:airline_theme = 'sonokai'

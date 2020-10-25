@@ -84,3 +84,40 @@ cd fonts
 #curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
 #mv ./'Droid Sans Mono for Powerline Nerd Font Complete.otf' ~/.local/share/fonts
 
+
+##################################################
+
+sudo pacman -S yay
+sudo pacman -Syu
+
+###Manjaro i3 Editionインストールから僕おすすめカスタマイズまで
+###https://qiita.com/Hiroya_W/items/99c73dd29e88762b2d5c
+sudo pacman -S ntp
+sudo timedatectl set-ntp true
+
+sudo pacman -S xdg-user-dirs-gtk
+LANG=C xdg-user-dirs-gtk-update
+
+sudo pacman -S fcitx-im fcitx-configtool fcitx-mozc fcitx-gtk2 fcitx-gtk3 fcitx-qt5
+
+sudo pacman -S adobe-source-han-sans-jp-fonts
+
+sudo pacman -S rofi
+
+#utility
+sudo pacman -S neovim
+sudo pacman -S fzf
+sudo pacman -S ripgrep
+sudo pacman -S bat
+sudo pacman -S exa
+sudo pacman -S fd
+
+sudo pacman -S install firefox
+
+sudo pacman -S screenkey
+yay -S xkeysnail
+
+sudo pacman -S alacritty
+sudo pacman -S cmus
+
+

@@ -235,7 +235,7 @@ fi
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
-alias l='ls -alF'
+alias l='ls -A'
 
 # よく設定されているalias
 # https://qiita.com/hirooooooo/items/5c47fdaf40fc1d3b702f

@@ -1,4 +1,4 @@
-#iijjj##dark vim 
+###dark vim 
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -609,3 +609,10 @@ repo = 'rbgrouleff/bclose.vim'
 [[plugins]]
 repo = 'adelarsq/vim-hackernews'
 
+#for Regolith
+[[plugins]]
+repo = 'ayu-theme/ayu-vim'
+
+#for manjaro_i3wm
+[[plugins]]
+repo = 'sainnhe/sonokai'
