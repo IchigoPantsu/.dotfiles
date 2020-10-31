@@ -281,7 +281,7 @@ set mouse=a
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
-
+inoremap <silent> jj <ESC>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shougo/dein.vim config 
 " https://qiita.com/sugamondo/items/fcaf210ca86d65bcaca8

@@ -263,6 +263,7 @@ alias r='ranger_cd'
 
 export EDITOR=nvim
 
+setxkbmap -option ctrl:nocaps
 xmodmap ~/.Xmodmap
 
 _fzf_complete_nv() {
@@ -308,7 +309,6 @@ export FZF_DEFAULT_OPTS="--height 40% --reverse --border --preview 'bat --style=
 #source /home/linuxbrew/.linuxbrew/Cellar/fzf/0.21.1/shell/completion.bash
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
-e
 export FZF_COMPLETION_TRIGGER='~'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -1,3 +1,12 @@
-remove Lock = Caps_Lock
-keysym Caps_Lock = Control_L
-add Control = Control_L
+!BackSpace->Escape
+keycode 22 = Escape
+!Return->semicolon
+keycode 36 = semicolon colon
+!semicolon->Tab
+keycode 47 = Tab
+!apostrophe->Return
+keycode 48 = Return
+!RightShift->BackSpace
+keycode 62 = BackSpace
+!Delete->apostrophe
+keycode 119 = apostrophe quotedbl

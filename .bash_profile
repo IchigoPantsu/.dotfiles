@@ -11,3 +11,4 @@ if [ -f "$HOME/.bashrc" ]; then
 fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
