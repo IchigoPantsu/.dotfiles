@@ -1,37 +1,5 @@
 #bin/bash
 
-#check install curl, git
-has() {
-  type "$1" > /dev/null 2>&1
-}
-
-for cmd in "curl" "git" 
-do
-  if has ${cmd}; then
-      echo "${cmd} is installed"
-    else
-      echo "${cmd} is not installed. We need ${cmd}"
-      exit 1
-  fi
-done
-
-
-# download dotfiles 
-echo ======.dotfiles install ======= 
-cd ${HOME}
-
-DOT_DIRECTORY="${HOME}/.dotfiles"
-#DOT_TARBALL="https://github.com/IchigoPantsu/,dotfiles/tarball/master"
-#REMOTE_URL="https://github.com/IchigoPantsu/.dotfiles.git"
-
-#git clone --recursive "${REMOTE_URL}" "${DOT_DIRECTORY}"
-
-#/bin/bash "${DOT_DIRECTORY}"/bin/deploy.sh
-
-# make install directory
-mkdir "${DOT_DIRECTORY}"/install
-cd !$
-
 # https://brew.sh/
 #echo ======linux brew install=======
 #/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -87,37 +55,43 @@ cd fonts
 
 ##################################################
 
-sudo pacman -S yay
-sudo pacman -Syu
+#sudo pacman -Syu
+#sudo pacman -S yay
 
 ###Manjaro i3 Editionインストールから僕おすすめカスタマイズまで
 ###https://qiita.com/Hiroya_W/items/99c73dd29e88762b2d5c
-sudo pacman -S ntp
-sudo timedatectl set-ntp true
+#sudo pacman -S ntp
+#sudo timedatectl set-ntp true
 
-sudo pacman -S xdg-user-dirs-gtk
-LANG=C xdg-user-dirs-gtk-update
+#sudo pacman -S xdg-user-dirs-gtk
+#LANG=C xdg-user-dirs-gtk-update
 
-sudo pacman -S fcitx-im fcitx-configtool fcitx-mozc fcitx-gtk2 fcitx-gtk3 fcitx-qt5
+#sudo pacman -S fcitx-im fcitx-configtool fcitx-mozc fcitx-gtk2 fcitx-gtk3 fcitx-qt5
 
-sudo pacman -S adobe-source-han-sans-jp-fonts
+#sudo pacman -S adobe-source-han-sans-jp-fonts
 
-sudo pacman -S rofi
+#sudo pacman -S rofi
 
 #utility
-sudo pacman -S neovim
-sudo pacman -S fzf
-sudo pacman -S ripgrep
-sudo pacman -S bat
-sudo pacman -S exa
-sudo pacman -S fd
+#sudo pacman -S neovim
+#sudo pacman -S fzf
+#sudo pacman -S ripgrep
+#sudo pacman -S bat
+#sudo pacman -S exa
+#sudo pacman -S fd
 
-sudo pacman -S install firefox
+#sudo pacman -S install firefox
 
-sudo pacman -S screenkey
-yay -S xkeysnail
+#sudo pacman -S screenkey
+#yay -S xkeysnail
 
-sudo pacman -S alacritty
-sudo pacman -S cmus
+#sudo pacman -S alacritty
+#sudo pacman -S cmus
 
+sudo pacman -S Syu
+sudo pacman -S $(< pacman_pkg.txt)
+LANG=C xdg-user-dirs-gtk-update
+
+yay -Syu
+yay -S (< yay_pkg.txt)
 

@@ -151,7 +151,7 @@ nnoremap - <C-x>
 autocmd QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
 
-"Vim に惚れるシーン（QuickFix リストを編集＆再読込する）
+" Vim に惚れるシーン（QuickFix リストを編集＆再読込する）
 "https://qiita.com/noc06140728/items/8cf5f2462231914a267c
 "set modifiable
 set errorformat=%f\|%l\ col\ %c\|\ %m\ 
@@ -182,10 +182,10 @@ set clipboard+=unnamed
 
 " オレオレ移動めんどくっさぁコマンド
 " j,kはdein.toml/vim-anyfoldへ移動
-nnoremap j }
-nnoremap k {
-nnoremap J gj
-nnoremap K gk
+nnoremap j gj
+nnoremap k gk
+nnoremap J <C-d>
+nnoremap K <C-u>
 nnoremap <Down> gj
 nnoremap <Up> gk
 nnoremap <Leader>j zj
@@ -198,10 +198,10 @@ nnoremap L l
 nnoremap <Left> h
 nnoremap <Right> l
 
-vnoremap j }
-vnoremap k {
-vnoremap J gj
-vnoremap K gk
+vnoremap j gj
+vnoremap k gk
+vnoremap J <C-d>
+vnoremap K <C-u>
 vnoremap <Down> gj
 vnoremap <Up> gk
 
@@ -281,7 +281,11 @@ set mouse=a
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
-inoremap <silent> jj <ESC>
+nnoremap <C-o> <C-o>
+nnoremap <C-i> <C-i>
+
+
+"inoremap <silent> jj <ESC>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shougo/dein.vim config 
 " https://qiita.com/sugamondo/items/fcaf210ca86d65bcaca8

@@ -38,7 +38,7 @@ export EDITOR=/usr/bin/nvim
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 # fix "xdg-open fork-bomb" export your preferred browser from here
 #export BROWSER=/usr/bin/palemoon
-export BROWSER=/usr/bin/firefox
+export BROWSER=/usr/bin/qutebrowser
 
 export TERMINAL=/usr/bin/alacritty
 
@@ -57,5 +57,4 @@ VK_LAYER_PATH="$VULKAN_SDK/etc/vulkan/explicit_layer.d"
 export VK_LAYER_PATH
 
 export PATH="$HOME/.cargo/bin:$PATH"
-
 
