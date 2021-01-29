@@ -689,3 +689,19 @@ build = "./install_gadget.py --enable-python --force-enable-node"
 hook_add = '''
 let g:vimspector_enable_mappings = 'HUMAN'
 '''
+
+[[plugins]]
+repo = 'kana/vim-altercmd'
+hook_add = '''
+	call altercmd#load()
+"	AlterCommand greeting Greeting
+'''
+
+[[plugins]]
+repo = 'rhysd/accelerated-jk'
+hook_add = '''
+  nmap j <Plug>(accelerated_jk_gj)
+  nmap k <Plug>(accelerated_jk_gk)
+'''
+
+
