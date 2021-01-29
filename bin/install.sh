@@ -93,5 +93,5 @@ sudo pacman -S $(< pacman_pkg.txt)
 LANG=C xdg-user-dirs-gtk-update
 
 yay -Syu
-yay -S (< yay_pkg.txt)
+yay -S $(< yay_pkg.txt)
 

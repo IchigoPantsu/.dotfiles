@@ -10,7 +10,6 @@ if [ -f "$HOME/.bashrc" ]; then
   . $HOME/.bashrc
 fi
 
-export PATH="$HOME/.cargo/bin:$PATH"
 
 
 pacman -Qqen > ~/.dotfiles/bin/pacman_pkg.txt
@@ -31,3 +30,4 @@ yay -Qqen > ~/.dotfiles/bin/yay_pkg.txt
 #xmodmap -e "remove shift = BackSpace"
 
 
+source "$HOME/.cargo/env"

@@ -338,3 +338,4 @@ ranger_cd() {
 # This binds Ctrl-O to ranger-cd:
 bind '"\C-o":"ranger-cd\C-m"'
 
+source "$HOME/.cargo/env"

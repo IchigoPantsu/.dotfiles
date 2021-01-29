@@ -265,15 +265,15 @@ let rightFromCursor = len(matchstr(getline('.')[col('.')-1:],'\(\k\+\|\W\+\)'))
 return leftFromCursor<rightFromCursor
 endfunction
 
-nnoremap <expr>a SmartInsert()==1 ? "i" : "a"
-nnoremap <expr>i SmartInsert()==1 ? "a" : "i"  
+"nnoremap <expr>a SmartInsert()==1 ? "i" : "a"
+"nnoremap <expr>i SmartInsert()==1 ? "a" : "i"  
 
 
 nnoremap U <C-r>
-nnoremap o O
-nnoremap O o
-nnoremap P p
-nnoremap p P
+"nnoremap o O
+"nnoremap O o
+"nnoremap P p
+"nnoremap p P
 set notimeout
 set clipboard+=unnamedplus
 
