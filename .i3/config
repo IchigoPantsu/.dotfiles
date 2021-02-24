@@ -510,3 +510,6 @@ bindsym $mod+Shift+d exec $i3-wm.program.launcher.app
 
 bindsym $mod+Shift+Return exec qutebrowser
 bindsym $mod+Shift+n exec pcmanfm
+
+#for InteriiJ IDEA fullScreen 
+for_window [class="jetbrains-studio" title="^win\d+$"] focus

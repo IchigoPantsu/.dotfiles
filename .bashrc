@@ -261,6 +261,11 @@ alias ss='gnome-screenshot'
 alias nv='nvim'
 alias r='ranger_cd'
 
+alias tl='task list'
+alias ta='task add'
+alias tp='task project'
+alias td='task delete'
+
 export EDITOR=nvim
 
 _fzf_complete_nv() {

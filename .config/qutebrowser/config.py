@@ -6,7 +6,7 @@
 #   qute://help/settings.html
 
 # Uncomment this to still load settings configured via autoconfig.yml
-# config.load_autoconfig()
+config.load_autoconfig(False)
 
 # Enable JavaScript.
 # Type: Bool
@@ -272,7 +272,8 @@ ccw.darkmode.enabled = True
 ccw.darkmode.threshold.background = 100
 ccw.darkmode.threshold.text = 256 - ccw.darkmode.threshold.background
 ccw.darkmode.policy.images = 'smart'
-ccw.prefers_color_scheme_dark = True
-
+ccw.darkmode.policy.page = 'smart'
+#ccw.prefers_color_scheme_dark = True
+ccw.preferred_color_scheme = 'dark'
 #c.colors.statusbar.normal.bg = xresources['*.background']
 

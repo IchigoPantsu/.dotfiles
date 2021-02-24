@@ -28,4 +28,5 @@
 !/.gitignore_global_
 # After all filelist to ignore
 /.vim/bundle/*
+/.config/qutebrowser/qsettings/QtProject.conf
 #!/.vim/bundle/neobundle.vim

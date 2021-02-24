@@ -193,8 +193,8 @@ nnoremap <Leader>k zk
 
 nnoremap h b
 nnoremap l e
-nnoremap H h
-nnoremap L l
+nnoremap H B
+nnoremap L E
 nnoremap <Left> h
 nnoremap <Right> l
 
@@ -207,10 +207,24 @@ vnoremap <Up> gk
 
 vnoremap h b
 vnoremap l e
-vnoremap H h
-vnoremap L l
+vnoremap H B
+vnoremap L E
 vnoremap <Left> h
 vnoremap <Right> l
+
+onoremap j gj
+onoremap k gk
+onoremap J <C-d>
+onoremap K <C-u>
+onoremap <Down> gj
+onoremap <Up> gk
+
+onoremap h b
+onoremap l e
+onoremap H B
+onoremap L E
+onoremap <Left> h
+onoremap <Right> l
 
 
 " 画面分割(Fzf.vimに依存するためdein.tomlに移動)
@@ -219,22 +233,26 @@ vnoremap <Right> l
 "" nnoremap <C-s> <C-w>s
 " nnoremap <C-s> <C-w>s<C-w>j:<C-u>Files<CR>
 
-
 " 画面分割移動
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-
 "オレオレコード
-nnoremap <C-Left> <C-w>h
-nnoremap <C-Down> <C-w>j
-nnoremap <C-Up> <C-w>k
-nnoremap <C-Right> <C-w>l
+"nnoremap <C-Left> <C-w><S-r>
+"nnoremap <C-Down> <C-w>r
+"nnoremap <C-Up> <C-w><S-r>
+"nnoremap <C-Right> <C-w>r
+nnoremap <C-Left> <C-w><S-h><Esc>
+nnoremap <C-Down> <C-w><S-j><Esc>
+nnoremap <C-Up> <C-w><S-k><Esc>
+nnoremap <C-Right> <C-w><S-l><Esc>
 
+nnoremap <C-w>v <C-w>v<C-w>l:e.<CR>
+nnoremap <C-w>s <C-w>s<C-w>j:e.<CR>
 
-"" Tabs
+""" Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <silent> <Leader><Tab> :tabnew<CR>
@@ -243,11 +261,18 @@ nnoremap <silent> <Leader><Tab> :tabnew<CR>
 "オレオレセッティング
 "nnoremap <expr><CR> v:hlsearch==1 ? "n" : "<CR>"
 "nnoremap <expr><CR> v:hlsearch==1 ? "n" : "*"
-nnoremap <expr><CR> v:hlsearch==1 ? "n" : "zA"
-nnoremap <expr><BS> v:hlsearch==1 ? "N" : "<BS>"
+"nnoremap <expr><CR> v:hlsearch==1 ? "n" : "zA"
+"nnoremap <expr><BS> v:hlsearch==1 ? "N" : "<BS>"
 "nnoremap <expr>m v:hlsearch==1 ? "n" : "zA"
+
+nnoremap <CR> zA
 nnoremap <leader><CR> zR
 nnoremap <leader><BS> zM
+
+nnoremap a i
+nnoremap i a
+nnoremap A I
+nnoremap I A
 
 " smart insert 
 " 単語の先頭でaとiを入れ替える

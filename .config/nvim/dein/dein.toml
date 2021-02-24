@@ -1,6 +1,6 @@
-###dark vim 
-[[plugins]]
-repo = 'Shougo/dein.vim'
+#dark vim 
+#[[plugins]]
+#repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
@@ -20,7 +20,7 @@ build = 'make'
 
 
 ###よく使われているvimのプラグイン top20
-###https://qiita.com/reireias/items/5364dcaada1a5b88a206#1%E4%BD%8D-tpopevim-fugitive
+##https://qiita.com/reireias/items/5364dcaada1a5b88a206#1%E4%BD%8D-tpopevim-fugitive
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -30,6 +30,10 @@ repo = 'tpope/vim-surround'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+hook_add ='''
+let g:gitgutter_highlight_lines = 1
+set updatetime=250
+'''
 
 #[[plugins]]
 #repo = 'w0rp/ale'
@@ -106,10 +110,8 @@ nnoremap [Fzf]c :<C-u>Commands<CR>
 nnoremap [Fzf]l :<C-u>Lines<CR>
 
 " 画面分割
-" nnoremap <C-s> <C-w>v
-nnoremap <C-v> <C-w>v<C-w>l:<C-u>Files<CR>
-" nnoremap <C-s> <C-w>s
-nnoremap <C-s> <C-w>s<C-w>j:<C-u>Files<CR>
+" nnoremap <C-v> <C-w>v<C-w>l:<C-u>Files<CR>
+" nnoremap <C-s> <C-w>s<C-w>j:<C-u>Files<CR>
 
 " Tab
 " nnoremap <silent> <S-Tab> :tabnew<CR>
@@ -255,8 +257,8 @@ let g:expand_region_text_objects = {
       \ "ai" :1,
       \ }
 
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
+" vmap v <Plug>(expand_region_expand)
+" vmap <C-v> <Plug>(expand_region_shrink)
 '''
 
 
@@ -518,6 +520,15 @@ call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
 \  }))
 '''
 
+[[plugins]]
+repo = 'puremourning/vimspector'
+on_ft = ["python", "javascript"]
+build = "./install_gadget.py --enable-python --force-enable-node"
+hook_add = '''
+let g:vimspector_enable_mappings = 'HUMAN'
+'''
+
+
 #[[plugins]]
 #repo='prabirshrestha/asyncomplete-neosnippet.vim'
 #hook_add='''
@@ -646,17 +657,20 @@ vmap gx <Plug>(openbrowser-smart-search)
 '''
 
 [[plugins]]
-repo = 'iberianpig/ranger-explorer.vim'
-depends = ['rbgrouleff/bclose.vim']
-hook_add = '''
-let g:ranger_explorer_keymap_edit    = '<C-o>'
-let g:ranger_explorer_keymap_tabedit = '<C-t>'
-let g:ranger_explorer_keymap_split   = '<C-s>'
-let g:ranger_explorer_keymap_vsplit  = '<C-v>'
+repo = 'rafaqz/ranger.vim'
 
-nnoremap <silent><Leader>c :RangerOpenCurrentDir<CR>
-nnoremap <silent><Leader>f :RangerOpenProjectRootDir<CR>
-'''
+#[[plugins]]
+#repo = 'iberianpig/ranger-explorer.vim'
+#depends = ['rbgrouleff/bclose.vim']
+#hook_add = '''
+#let g:ranger_explorer_keymap_edit    = '<C-o>'
+#let g:ranger_explorer_keymap_tabedit = '<C-t>'
+#let g:ranger_explorer_keymap_split   = '<C-s>'
+#let g:ranger_explorer_keymap_vsplit  = '<C-v>'
+
+#nnoremap <silent><Leader>c :RangerOpenCurrentDir<CR>
+#nnoremap <silent><Leader>f :RangerOpenProjectRootDir<CR>
+#'''
 
 # for renger-explorer.vim
 [[plugins]]
@@ -683,14 +697,6 @@ let g:memoist_fzf = 1
 '''
 
 [[plugins]]
-repo = 'puremourning/vimspector'
-on_ft = ["python", "javascript"]
-build = "./install_gadget.py --enable-python --force-enable-node"
-hook_add = '''
-let g:vimspector_enable_mappings = 'HUMAN'
-'''
-
-[[plugins]]
 repo = 'kana/vim-altercmd'
 hook_add = '''
 	call altercmd#load()
@@ -702,6 +708,19 @@ repo = 'rhysd/accelerated-jk'
 hook_add = '''
   nmap j <Plug>(accelerated_jk_gj)
   nmap k <Plug>(accelerated_jk_gk)
+'''
+
+[[plugins]]
+repo = 'blindFS/vim-taskwarrior'
+hook_add = '''
+'''
+
+[[plugins]]
+repo = 'wellle/visual-split.vim'
+hook_add = '''
+xmap <C-W>r  <Plug>(Visual-Split-VSResize)
+xmap <C-W>s <Plug>(Visual-Split-VSSplitAbove)
+xmap <C-W>v <Plug>(Visual-Split-VSSplitBelow)
 '''
 
 
