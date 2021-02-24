@@ -252,6 +252,9 @@ nnoremap <C-Right> <C-w><S-l><Esc>
 nnoremap <C-w>v <C-w>v<C-w>l:e.<CR>
 nnoremap <C-w>s <C-w>s<C-w>j:e.<CR>
 
+nnoremap <C-w><C-v> <C-w>v<C-w>l:e.<CR>
+nnoremap <C-w><C-s> <C-w>s<C-w>j:e.<CR>
+
 """ Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT

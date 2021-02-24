@@ -718,6 +718,9 @@ hook_add = '''
 [[plugins]]
 repo = 'wellle/visual-split.vim'
 hook_add = '''
+xmap <C-W><C-r>  <Plug>(Visual-Split-VSResize)
+xmap <C-W><C-s> <Plug>(Visual-Split-VSSplitAbove)
+xmap <C-W><C-v> <Plug>(Visual-Split-VSSplitBelow)
 xmap <C-W>r  <Plug>(Visual-Split-VSResize)
 xmap <C-W>s <Plug>(Visual-Split-VSSplitAbove)
 xmap <C-W>v <Plug>(Visual-Split-VSSplitBelow)
