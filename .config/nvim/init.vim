@@ -193,8 +193,8 @@ nnoremap <Leader>k zk
 
 nnoremap h b
 nnoremap l e
-nnoremap H B
-nnoremap L E
+nnoremap H g;
+nnoremap L g,
 nnoremap <Left> h
 nnoremap <Right> l
 
@@ -207,8 +207,8 @@ vnoremap <Up> gk
 
 vnoremap h b
 vnoremap l e
-vnoremap H B
-vnoremap L E
+vnoremap H g;
+vnoremap L g,
 vnoremap <Left> h
 vnoremap <Right> l
 
@@ -221,8 +221,8 @@ onoremap <Up> gk
 
 onoremap h b
 onoremap l e
-onoremap H B
-onoremap L E
+onoremap H g;
+onoremap L g,
 onoremap <Left> h
 onoremap <Right> l
 
@@ -274,8 +274,12 @@ nnoremap <leader><BS> zM
 
 nnoremap a i
 nnoremap i a
-nnoremap A I
+noremap A I
 nnoremap I A
+
+
+"nnoremap <C-y> g;
+"nnoremap <C-u> g,
 
 " smart insert 
 " 単語の先頭でaとiを入れ替える

@@ -29,4 +29,6 @@
 # After all filelist to ignore
 /.vim/bundle/*
 /.config/qutebrowser/qsettings/QtProject.conf
+/.config/ranger/__pycache__/*
+
 #!/.vim/bundle/neobundle.vim

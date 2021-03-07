@@ -29,3 +29,12 @@ defxの設定
 + [Vimメモ : Neovimで開発環境を段階的に構築する（5）スニペット、入力補完と定義元ジャンプ](https://wonderwall.hatenablog.com/entry/2019/08/17/003000)
 + [40%キーボード VORTEX CORE のキー配置を思うがままにやってみる](https://qiita.com/Atoyr/items/3650156799bf9eec5306)
 + [i3 版 Ubuntu 、Regolith Linux を使うことのメモ](http://malkalech.com/regolith_linux_i3-gaps)
+
++ jetBrain IDE トラブルシュート
++ フルスクリーンにするとちらつく
++ > ちらつき
++ [Picom - ArchWiki](https://wiki.archlinux.jp/index.php/Picom)
++ i3のスクラッチパッドで
++ > フロートするダイアログを正しく扱う
++ [i3 - ArchWiki](https://wiki.archlinux.jp/index.php/I3)
+

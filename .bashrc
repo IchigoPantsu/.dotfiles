@@ -344,3 +344,13 @@ ranger_cd() {
 bind '"\C-o":"ranger-cd\C-m"'
 
 source "$HOME/.cargo/env"
+
+
+# pyenv
+#export PYENV_ROOT="$HOME/.pyenv"
+#export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init -)"
+
+# pipenv
+# これを書いておくと、.venvフォルダが生成されてVSCodeやPyCharm等でPipenvの環境が認識できるようになります。
+#export PIPENV_VENV_IN_PROJECT=true

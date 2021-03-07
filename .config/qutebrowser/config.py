@@ -222,6 +222,11 @@ config.unbind('<Shift+l>')
 config.bind('<Shift+h>', ':back')
 config.bind('<Shift+l>', ':forward')
 
+#config.unbind('<Control+i>')
+#config.unbind('<Control+o>')
+#config.bind('<Control+i>', ':back')
+#config.bind('<Control+o>', ':forward')
+
 #config.unbind('<Shift+h>')
 #config.unbind(';')
 #config.bind(';', ':')
@@ -238,6 +243,7 @@ config.bind('<Shift+k>', ':run-with-count 15 scroll up')
 config.bind(',c', ':spawn google-chrome-unstable {url}')
 config.bind(',f', ':spawn firefox-nightly {url}')
 
+#config.set('backend', 'webkit')
 #config.bind('x', ':tab-close')
 #config.bind('X', ':undo')
 
