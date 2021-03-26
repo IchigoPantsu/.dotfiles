@@ -193,8 +193,8 @@ nnoremap <Leader>k zk
 
 nnoremap h b
 nnoremap l e
-nnoremap H g;
-nnoremap L g,
+nnoremap H <C-o>
+nnoremap L <C-i>
 nnoremap <Left> h
 nnoremap <Right> l
 
@@ -207,8 +207,8 @@ vnoremap <Up> gk
 
 vnoremap h b
 vnoremap l e
-vnoremap H g;
-vnoremap L g,
+vnoremap H <C-o>
+vnoremap L <C-i>
 vnoremap <Left> h
 vnoremap <Right> l
 
@@ -221,8 +221,8 @@ onoremap <Up> gk
 
 onoremap h b
 onoremap l e
-onoremap H g;
-onoremap L g,
+onoremap H <C-o>
+onoremap L <C-i>
 onoremap <Left> h
 onoremap <Right> l
 
@@ -268,9 +268,9 @@ nnoremap <silent> <Leader><Tab> :tabnew<CR>
 "nnoremap <expr><BS> v:hlsearch==1 ? "N" : "<BS>"
 "nnoremap <expr>m v:hlsearch==1 ? "n" : "zA"
 
-nnoremap <CR> zA
-nnoremap <leader><CR> zR
-nnoremap <leader><BS> zM
+"nnoremap <CR> zA
+"nnoremap <leader><CR> zR
+"nnoremap <leader><BS> zM
 
 nnoremap a i
 nnoremap i a
@@ -312,10 +312,6 @@ set clipboard+=unnamedplus
 set mouse=a
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
-
-nnoremap <C-o> <C-o>
-nnoremap <C-i> <C-i>
-
 
 "inoremap <silent> jj <ESC>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -371,18 +367,19 @@ syntax enable
 if dein#check_install()
   call dein#install()
 endif
-
 """"""""""""""""""""""""""""""""""""
 
-
-"colorscheme ayu
+" -------------------- ColorScheme ---------------------------------
 "call dein#add('ayu-theme/ayu-vim', {'merged': 0})
 "call dein#source('ayu-vim')
 set termguicolors     " enable true colors support
-"""let ayucolor="light"  " for light version of theme
+"let ayucolor="light"  " for light version of theme
 let ayucolor="mirage" " for mirage version of theme
-"""let ayucolor="dark"   " for dark version of theme
+"let ayucolor="dark"   " for dark version of theme
+"colorscheme ayu
+set background=dark
+colorscheme oceanic_material
 
 let g:sonokai_style = 'maia'
-colorscheme sonokai
+"colorscheme sonokai
 let g:airline_theme = 'sonokai'

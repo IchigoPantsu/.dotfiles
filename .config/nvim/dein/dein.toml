@@ -1,4 +1,4 @@
-#dark vim 
+
 #[[plugins]]
 #repo = 'Shougo/dein.vim'
 
@@ -32,7 +32,7 @@ repo = 'tpope/vim-surround'
 repo = 'airblade/vim-gitgutter'
 hook_add ='''
 let g:gitgutter_highlight_lines = 1
-set updatetime=250
+set updatetime=100
 '''
 
 #[[plugins]]
@@ -106,7 +106,7 @@ nnoremap [Fzf]h :<C-u>History<CR>
 " オレオレセッティング
 nnoremap [Fzf]a :<C-u>Ag<CR>
 nnoremap [Fzf]r :<C-u>Rg<CR>
-nnoremap [Fzf]c :<C-u>Commands<CR>
+nnoremap [Fzf]C :<C-u>Commands<CR>
 nnoremap [Fzf]l :<C-u>Lines<CR>
 
 " 画面分割
@@ -117,12 +117,47 @@ nnoremap [Fzf]l :<C-u>Lines<CR>
 " nnoremap <silent> <S-Tab> :tabnew<CR>
 '''
 
+#[[plugins]]
+#repo = 'gfanto/fzf-lsp.nvim'
+#depends = ['junegunn/fzf','junegunn/fzf.vim']
+
+[[plugins]]
+repo = 'antoinemadec/coc-fzf'
+depends = ['junegunn/fzf','junegunn/fzf.vim','neoclide/coc.nvim']
+hook_add ='''
+" mappings
+nnoremap [Fzf] <Nop>
+nmap <Leader><Leader> [Fzf]
+nnoremap [Fzf]cl       :<C-u>CocFzfList<CR>
+nnoremap [Fzf]cd       :<C-u>CocFzfList diagnostics<CR>
+nnoremap [Fzf]cD       :<C-u>CocFzfList diagnostics --current-buf<CR>
+nnoremap [Fzf]cc       :<C-u>CocFzfList commands<CR>
+nnoremap [Fzf]ce       :<C-u>CocFzfList extensions<CR>
+nnoremap [Fzf]cL       :<C-u>CocFzfList location<CR>
+nnoremap [Fzf]co       :<C-u>CocFzfList outline<CR>
+nnoremap [Fzf]cs       :<C-u>CocFzfList symbols<CR>
+nnoremap [Fzf]cp       :<C-u>CocFzfListResume<CR>
+'''
+#[[plugins]]
+#repo = 'pbogut/fzf-mru.vim'
+#depends = ['junegunn/fzf','junegunn/fzf.vim','neoclide/coc.nvim']
+
+
+
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 depends = ['vim-airline/vim-airline']
+
+#[[plugins]]
+#repo = 'glepnir/spaceline.vim'
+# Use the icon plugin for better behavior
+#[[plugins]]
+#repo = 'ryanoasis/vim-devicons' 
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
 
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
@@ -148,36 +183,31 @@ repo = 'jiangmiao/auto-pairs'
 repo = 'thinca/vim-quickrun'
 hook_add = 'set splitbelow'
 
-#[[plufins]]
+#[[plugins]]
 #repo = 'mattn/sonictemplate-vim'
 
-
-
-###おすすめプラグイン 〜 Vimはいいぞ！ゴリラと学ぶVim講座(7)
+###gすすめプラグイン 〜 Vimはいいぞ！ゴリラと学ぶVim講座(7)
 ###https://knowledge.sakura.ad.jp/23248/
 
-#[[plugins]]
-#repo = 'previm/previm'
+# [[plugins]]
+# repo = 'previm/previm'
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 
-#[[plugins]]
-#repo = 'markonm/traces.vim'
+# [[plugins]]
+# repo = 'markonm/traces.vim'
 
-#[[plugins]]
-#repo = 'skanehira/translate.vim'
+# [[plugins]]
+# repo = 'skanehira/translate.vim'
 
-###
-#[[plugin]]
-#repo = '/tomasr/molokai'
-#hook_add = '''
-#  syntax on
-#  colorscheme molokai
-#  set t_Co=256
-#'''
-
-
+# [[plugin]]
+# repo = '/tomasr/molokai'
+# hook_add = '''
+# syntax on
+# colorscheme molokai
+# set t_Co=256
+# '''
 
 [[plugins]]
 repo = 'kana/vim-operator-user'
@@ -240,26 +270,26 @@ repo = 'adolenc/vim-textobj-toplevel'
 
 
 
-# Vimの生産性を高める12の方法
+### Vimの生産性を高める12の方法
 # https://postd.cc/how-to-boost-your-vim-productivity/ 
-[[plugins]]
-repo = 'terryma/vim-expand-region'
-hook_add = '''
-
-" Default settings. (NOTE: Remove comments in dictionary before sourcing)
-let g:expand_region_text_objects = {
-      \ "iw" :0,
-      \ "iW" :0,
-      \ "isb" :1,
-      \ "asb" :1,
-      \ "il" :0,
-      \ "ii" :1,
-      \ "ai" :1,
-      \ }
-
-" vmap v <Plug>(expand_region_expand)
-" vmap <C-v> <Plug>(expand_region_shrink)
-'''
+# [[plugins]]
+# repo = 'terryma/vim-expand-region'
+# hook_add = '''
+# 
+# " Default settings. (NOTE: Remove comments in dictionary before sourcing)
+# let g:expand_region_text_objects = {
+#       \ "iw" :0,
+#       \ "iW" :0,
+#       \ "isb" :1,
+#       \ "asb" :1,
+#       \ "il" :0,
+#       \ "ii" :1,
+#       \ "ai" :1,
+#       \ }
+# 
+# " vmap v <Plug>(expand_region_expand)
+# " vmap <C-v> <Plug>(expand_region_shrink)
+# '''
 
 
 
@@ -347,186 +377,171 @@ let g:winresizer_keycode_resize = 101
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 
-[[plugins]]
-repo = 'majutsushi/tagbar'
+# [[plugins]]
+# repo = 'majutsushi/tagbar'
 
-
-
-### completion lint tools by language-server-protocol
-[[plugins]]
-repo = 'prabirshrestha/async.vim'
-[[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-hook_add = '''
-nmap gD <Plug>(lsp-peek-definition)
-vmap gD <Plug>(lsp-peek-definition)
-nmap gd <Plug>(lsp-definition)
-vmap gD <Plug>(lsp-definition)
-
-nmap gC <Plug>(lsp-peek-declaration)
-vmap gC <Plug>(lsp-peek-declaration)
-nmap gc <Plug>(lsp-declaration)
-vmap gc <Plug>(lsp-declaration)
-
-nmap gT <Plug>(lsp-peek-type-definition)
-vmap gT <Plug>(lsp-peek-type-definition)
-nmap gt <Plug>(lsp-type-definition)
-vmap gt <Plug>(lsp-type-definition)
-
-nmap gI <Plug>(lsp-peek-implementation)
-vmap gI <Plug>(lsp-peek-implementation)
-nmap gi <Plug>(lsp-implementation)
-vmap gi <Plug>(lsp-implementation)
-
-"nmap ge <Plug>(lsp-next-error)
-"vmap ge <Plug>(lsp-next-error)
-"nmap gE <Plug>(lsp-previous-error)
-"vmap gE <Plug>(lsp-previous-error)
-
-nmap gw <Plug>(lsp-next-diagnostic)
-vmap gw <Plug>(lsp-next-diagnostic)
-nmap gW <Plug>(lsp-previous-diagnostic)
-vmap gW <Plug>(lsp-previous-diagnostic)
-
-let g:lsp_log_file = ''
-let g:lsp_log_verbose = 0
-
-" https://dev.to/moniquelive/haskell-lsp-bonus-for-vim-4nlj
-" vim-lsp-settings won't detect hls automatically as of today (2020-10-26). Let's teach it:
-if (executable('haskell-language-server-wrapper'))
-  au User lsp_setup call lsp#register_server({
-      \ 'name': 'haskell-language-server-wrapper',
-      \ 'cmd': {server_info->['haskell-language-server-wrapper', '--lsp']},
-      \ 'whitelist': ['haskell'],
-      \ })
-endif
-
-" My Mappings
-function! s:on_lsp_buffer_enabled() abort
-    setlocal omnifunc=lsp#complete
-    setlocal signcolumn=yes
-    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-    nmap <buffer> gd <plug>(lsp-definition)
-    nmap <buffer> gr <plug>(lsp-references)
-    nmap <buffer> gf <plug>(lsp-code-action)
-    nmap <buffer> gi <plug>(lsp-implementation)
-    nmap <buffer> gt <plug>(lsp-type-definition)
-    nmap <buffer> <F2> <plug>(lsp-rename)
-    nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
-    nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
-    nmap <buffer> K <plug>(lsp-hover)
-    xmap <buffer> f <plug>(lsp-document-range-format)
-    nmap <buffer> <F5> <plug>(lsp-code-lens)
-
-    " buffer format on save
-    " autocmd BufWritePre <buffer> LspDocumentFormatSync
-endfunction
-
-  " Decorations
-augroup lsp_install
-    au!
-    let g:lsp_signs_enabled = 1         " enable signs
-    let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
-    let g:lsp_signs_error = {'text': '✗'}
-    " let g:lsp_signs_warning = {'text': '‼', 'icon': '/path/to/some/icon'} " icons require GUI
-    " let g:lsp_signs_hint = {'icon': '/path/to/some/other/icon'} " icons require GUI
-    let g:lsp_signs_warning = {'text': '‼'}
-    let g:lsp_highlight_references_enabled = 1
-    highlight link LspErrorText GruvboxRedSign " requires gruvbox
-    highlight clear LspWarningLine
-    " highlight lspReference ctermfg=red guifg=red ctermbg=green guibg=green
-    highlight lspReference guibg=#303010
-
-    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
-    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
-
-'''
-[[plugins]]
-repo = 'mattn/vim-lsp-settings'
-merged = '0'
-hook_add = '''
-"let g:lsp_settings = {
-"\  'clangd': {'cmd': ['clangd-6.0']},
-"\  'efm-langserver': {'disabled': v:false}
-"\}
-'''
-[[plugins]]
-repo = 'mattn/vim-lsp-icons'
-[[plugins]]
-repo = 'mattn/efm-langserver'
-
-#[[plugins]]
-#repo = 'Shougo/neosnippet.vim'
-
-#[[plugins]]
-#repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete.vim'
-hook_add = '''
-"inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
-
-let g:asyncomplete_auto_popup = 0
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <TAB>
-"  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ asyncomplete#force_refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-" オレオレセッティング
-let g:asyncomplete_auto_completeopt = 0
-
-" Vimの補完を他エディタやIDEのような挙動にするようにする 
-" https://note.com/yasukotelin/n/na87dc604e042
-" 補完表示時のEnterで改行をしない
-inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
-set completeopt=menuone,noinsert
-inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
-inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
-
-"オレオレセッティング
-inoremap <expr><esc> pumvisible() ? "<CR>" : "<esc>"
-'''
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-lsp.vim'
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-file.vim'
-hook_add = '''
-au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-    \ 'name': 'file',
-    \ 'whitelist': ['*'],
-    \ 'priority': 10,
-    \ 'completor': function('asyncomplete#sources#file#completor')
-    \ }))
-'''
-
-[[plugins]]
-repo = 'yami-beta/asyncomplete-omni.vim'
-hook_add = '''
-call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
-\ 'name': 'omni',
-\ 'whitelist': ['*'],
-\ 'blacklist': [],
-\ 'completor': function('asyncomplete#sources#omni#completor')
-\  }))
-'''
-
-[[plugins]]
-repo = 'puremourning/vimspector'
-on_ft = ["python", "javascript"]
-build = "./install_gadget.py --enable-python --force-enable-node"
-hook_add = '''
-let g:vimspector_enable_mappings = 'HUMAN'
-'''
+# ### completion lint tools by language-server-protocol
+# [[plugins]]
+# repo = 'prabirshrestha/async.vim'
+# [[plugins]]
+# repo = 'prabirshrestha/vim-lsp'
+# hook_add = '''
+# nmap gD <Plug>(lsp-peek-definition)
+# vmap gD <Plug>(lsp-peek-definition)
+# nmap gd <Plug>(lsp-definition)
+# vmap gD <Plug>(lsp-definition)
+# 
+# nmap gC <Plug>(lsp-peek-declaration)
+# vmap gC <Plug>(lsp-peek-declaration)
+# nmap gc <Plug>(lsp-declaration)
+# vmap gc <Plug>(lsp-declaration)
+# 
+# nmap gT <Plug>(lsp-peek-type-definition)
+# vmap gT <Plug>(lsp-peek-type-definition)
+# nmap gt <Plug>(lsp-type-definition)
+# vmap gt <Plug>(lsp-type-definition)
+# 
+# nmap gI <Plug>(lsp-peek-implementation)
+# vmap gI <Plug>(lsp-peek-implementation)
+# nmap gi <Plug>(lsp-implementation)
+# vmap gi <Plug>(lsp-implementation)
+# 
+# "nmap ge <Plug>(lsp-next-error)
+# "vmap ge <Plug>(lsp-next-error)
+# "nmap gE <Plug>(lsp-previous-error)
+# "vmap gE <Plug>(lsp-previous-error)
+# 
+# nmap gw <Plug>(lsp-next-diagnostic)
+# vmap gw <Plug>(lsp-next-diagnostic)
+# nmap gW <Plug>(lsp-previous-diagnostic)
+# vmap gW <Plug>(lsp-previous-diagnostic)
+# 
+# let g:lsp_log_file = ''
+# let g:lsp_log_verbose = 0
+# 
+# " https://dev.to/moniquelive/haskell-lsp-bonus-for-vim-4nlj
+# " vim-lsp-settings won't detect hls automatically as of today (2020-10-26). Let's teach it:
+# if (executable('haskell-language-server-wrapper'))
+#   au User lsp_setup call lsp#register_server({
+#       \ 'name': 'haskell-language-server-wrapper',
+#       \ 'cmd': {server_info->['haskell-language-server-wrapper', '--lsp']},
+#       \ 'whitelist': ['haskell'],
+#       \ })
+# endif
+# 
+# " My Mappings
+# function! s:on_lsp_buffer_enabled() abort
+#     setlocal omnifunc=lsp#complete
+#     setlocal signcolumn=yes
+#     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+#     nmap <buffer> gd <plug>(lsp-definition)
+#     nmap <buffer> gr <plug>(lsp-references)
+#     nmap <buffer> gf <plug>(lsp-code-action)
+#     nmap <buffer> gi <plug>(lsp-implementation)
+#     nmap <buffer> gt <plug>(lsp-type-definition)
+#     nmap <buffer> <F2> <plug>(lsp-rename)
+#     nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
+#     nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
+#     nmap <buffer> K <plug>(lsp-hover)
+#     xmap <buffer> f <plug>(lsp-document-range-format)
+#     nmap <buffer> <F5> <plug>(lsp-code-lens)
+# 
+#     " buffer format on save
+#     " autocmd BufWritePre <buffer> LspDocumentFormatSync
+# endfunction
+# 
+#   " Decorations
+# augroup lsp_install
+#     au!
+#     let g:lsp_signs_enabled = 1         " enable signs
+#     let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+#     let g:lsp_signs_error = {'text': '✗'}
+#     " let g:lsp_signs_warning = {'text': '‼', 'icon': '/path/to/some/icon'} " icons require GUI
+#     " let g:lsp_signs_hint = {'icon': '/path/to/some/other/icon'} " icons require GUI
+#     let g:lsp_signs_warning = {'text': '‼'}
+#     let g:lsp_highlight_references_enabled = 1
+#     highlight link LspErrorText GruvboxRedSign " requires gruvbox
+#     highlight clear LspWarningLine
+#     " highlight lspReference ctermfg=red guifg=red ctermbg=green guibg=green
+#     highlight lspReference guibg=#303010
+# 
+#     " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+#     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+# augroup END
+# 
+# '''
+# [[plugins]]
+# repo = 'mattn/vim-lsp-settings'
+# merged = '0'
+# hook_add = '''
+# "let g:lsp_settings = {
+# "\  'clangd': {'cmd': ['clangd-6.0']},
+# "\  'efm-langserver': {'disabled': v:false}
+# "\}
+# '''
+# [[plugins]]
+# repo = 'mattn/vim-lsp-icons'
+# [[plugins]]
+# repo = 'mattn/efm-langserver'
+# 
+# 
+# [[plugins]]
+# repo = 'prabirshrestha/asyncomplete.vim'
+# hook_add = '''
+# "inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+# "inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+# inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+# 
+# let g:asyncomplete_auto_popup = 0
+# function! s:check_back_space() abort
+#     let col = col('.') - 1
+#     return !col || getline('.')[col - 1]  =~ '\s'
+# endfunction
+# 
+# inoremap <silent><expr> <TAB>
+# "  \ pumvisible() ? "\<C-n>" :
+#   \ <SID>check_back_space() ? "\<TAB>" :
+#   \ asyncomplete#force_refresh()
+# " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+# 
+# " オレオレセッティング
+# let g:asyncomplete_auto_completeopt = 0
+# 
+# " Vimの補完を他エディタやIDEのような挙動にするようにする 
+# " https://note.com/yasukotelin/n/na87dc604e042
+# " 補完表示時のEnterで改行をしない
+# inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
+# set completeopt=menuone,noinsert
+# inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
+# inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
+# 
+# "オレオレセッティング
+# inoremap <expr><esc> pumvisible() ? "<CR>" : "<esc>"
+# '''
+# [[plugins]]
+# repo = 'prabirshrestha/asyncomplete-lsp.vim'
+# 
+# [[plugins]]
+# repo = 'prabirshrestha/asyncomplete-file.vim'
+# hook_add = '''
+# au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+#     \ 'name': 'file',
+#     \ 'whitelist': ['*'],
+#     \ 'priority': 10,
+#     \ 'completor': function('asyncomplete#sources#file#completor')
+#     \ }))
+# '''
+# 
+# [[plugins]]
+# repo = 'yami-beta/asyncomplete-omni.vim'
+# hook_add = '''
+# call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+# \ 'name': 'omni',
+# \ 'whitelist': ['*'],
+# \ 'blacklist': [],
+# \ 'completor': function('asyncomplete#sources#omni#completor')
+# \  }))
+# '''
 
 
 #[[plugins]]
@@ -597,32 +612,31 @@ hook_add = '''
 let g:vim_current_word#highlight_current_word = 0
 '''
 
-#[[plugins]]
-#repo = 'lfilho/cosco.vim'
-#  hook_add '''
-#  let g:cosco_ignore_comment_lines = 1
+# [[plugins]]
+# repo = 'lfilho/cosco.vim'
+# hook_add '''
+# let g:cosco_ignore_comment_lines = 1
 # '''
 
-[[plugins]]
-repo = 'voldikss/vim-translator'
-hook_add = '''
-"let g:translator_target_lang = "ja"
-"let g:translator_default_engines = "google"
+# [[plugins]]
+# repo = 'voldikss/vim-translator'
+# hook_add = '''
+# "let g:translator_target_lang = "ja"
+# "let g:translator_default_engines = "google"
 
-""" Configuration example
-" Echo translation in the cmdline
-nmap <silent> <Leader>t <Plug>Translate
-vmap <silent> <Leader>t <Plug>TranslateV
-" Display translation in a window
-nmap <silent> <Leader>w <Plug>TranslateW
-vmap <silent> <Leader>w <Plug>TranslateWV
-" Replace the text with translation
-nmap <silent> <Leader>r <Plug>TranslateR
-vmap <silent> <Leader>r <Plug>TranslateRV
-" Translate the text in clipboard
-nmap <silent> <Leader>x <Plug>TranslateX
-
-'''
+# """ Configuration example
+# " Echo translation in the cmdline
+# nmap <silent> <Leader>t <Plug>Translate
+# vmap <silent> <Leader>t <Plug>TranslateV
+# " Display translation in a window
+# nmap <silent> <Leader>w <Plug>TranslateW
+# vmap <silent> <Leader>w <Plug>TranslateWV
+# " Replace the text with translation
+# nmap <silent> <Leader>r <Plug>TranslateR
+# vmap <silent> <Leader>r <Plug>TranslateRV
+# " Translate the text in clipboard
+# nmap <silent> <Leader>x <Plug>TranslateX
+# '''
 
 
 # vim・neovimでできるマークダウン　[リアルタイムプレビュー完備]
@@ -653,31 +667,18 @@ hook_add = '''
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
-
 '''
 
 [[plugins]]
 repo = 'rafaqz/ranger.vim'
-
-#[[plugins]]
-#repo = 'iberianpig/ranger-explorer.vim'
-#depends = ['rbgrouleff/bclose.vim']
-#hook_add = '''
-#let g:ranger_explorer_keymap_edit    = '<C-o>'
-#let g:ranger_explorer_keymap_tabedit = '<C-t>'
-#let g:ranger_explorer_keymap_split   = '<C-s>'
-#let g:ranger_explorer_keymap_vsplit  = '<C-v>'
-
-#nnoremap <silent><Leader>c :RangerOpenCurrentDir<CR>
-#nnoremap <silent><Leader>f :RangerOpenProjectRootDir<CR>
-#'''
+depends = ['rbgrouleff/bclose.vim']
 
 # for renger-explorer.vim
 [[plugins]]
 repo = 'rbgrouleff/bclose.vim'
 
-[[plugins]]
-repo = 'adelarsq/vim-hackernews'
+# [[plugins]]
+# repo = 'adelarsq/vim-hackernews'
 
 #for Regolith
 [[plugins]]
@@ -687,21 +688,21 @@ repo = 'ayu-theme/ayu-vim'
 [[plugins]]
 repo = 'sainnhe/sonokai'
 
-[[plugins]]
-repo = 'glidenote/memolist.vim'
-hook_add = '''
-nnoremap <Leader>mn  :MemoNew<CR>
-nnoremap <Leader>ml  :MemoList<CR>
-nnoremap <Leader>mg  :MemoGrep<CR>
-let g:memoist_fzf = 1
-'''
+# [[plugins]]
+# repo = 'glidenote/memolist.vim'
+# hook_add = '''
+# nnoremap <Leader>mn  :MemoNew<CR>
+# nnoremap <Leader>ml  :MemoList<CR>
+# nnoremap <Leader>mg  :MemoGrep<CR>
+# let g:memoist_fzf = 1
+# '''
 
-[[plugins]]
-repo = 'kana/vim-altercmd'
-hook_add = '''
-	call altercmd#load()
-"	AlterCommand greeting Greeting
-'''
+# [[plugins]]
+# repo = 'kana/vim-altercmd'
+# hook_add = '''
+# call altercmd#load()
+# "AlterCommand greeting Greeting
+# '''
 
 [[plugins]]
 repo = 'rhysd/accelerated-jk'
@@ -710,10 +711,10 @@ hook_add = '''
   nmap k <Plug>(accelerated_jk_gk)
 '''
 
-[[plugins]]
-repo = 'blindFS/vim-taskwarrior'
-hook_add = '''
-'''
+# [[plugins]]
+# repo = 'blindFS/vim-taskwarrior'
+# hook_add = '''
+# '''
 
 [[plugins]]
 repo = 'wellle/visual-split.vim'
@@ -726,4 +727,451 @@ xmap <C-W>s <Plug>(Visual-Split-VSSplitAbove)
 xmap <C-W>v <Plug>(Visual-Split-VSSplitBelow)
 '''
 
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+merged = '0'
+hook_add = '''
+" [GitHub - neoclide/coc.nvim: Nodejs extension host for vim & neovim, load extensions like VSCode and host language servers.](https://github.com/neoclide/coc.nvim)
+
+" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
+" unicode characters in the file autoload/float.vim
+set encoding=utf-8
+
+" TextEdit might fail if hidden is not set.
+set hidden
+
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=100
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+"nmap <silent> [g <Plug>(coc-diagnostic-prev)
+"nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <leader>h <Plug>(coc-diagnostic-prev)
+nmap <leader>l <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <leader>k :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of language server.
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Mappings for CoCList
+" Show all diagnostics.
+"nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+"nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
+" Show commands.
+"nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+"nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+"nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+"nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+"nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+"nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+set pumblend=10
+
+'''
+
+[[plugins]]
+repo = 'morhetz/gruvbox'
+
+[[plugins]]
+repo = 'glepnir/oceanic-material'
+
+
+
+### [Neovim LSP, DAP and Fuzzy Finder. Overview | by alpha2phi | The Startup | Jan, 2021 | Medium](https://medium.com/swlh/neovim-lsp-dap-and-fuzzy-finder-60337ef08060)
+
+# LSP and Auto Completion Setup
+#[[plugins]]
+#repo = 'neovim/nvim-lspconfig'
+#hook_add ='''
+#" -------------------- LSP ---------------------------------
+#:lua << EOF
+#  local nvim_lsp = require('lspconfig')
+#
+#  local on_attach = function(client, bufnr)
+#    require('completion').on_attach()
+#
+#    local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+#    local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+#
+#    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+#
+#    -- Mappings
+#    local opts = { noremap=true, silent=true }
+#    buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+#    buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+#    buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+#    buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+#    
+#    buf_set_keymap('n', '<space>k', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+#    buf_set_keymap('n', '<space>K', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+#    buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+#    buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+#    buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+#    buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+#    buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+#    buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+#    buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+#    
+#    buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+#    buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+#
+#    -- Set some keybinds conditional on server capabilities
+#    if client.resolved_capabilities.document_formatting then
+#        buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+#    elseif client.resolved_capabilities.document_range_formatting then
+#        buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+#    end
+#
+#    -- Set autocommands conditional on server_capabilities
+#    if client.resolved_capabilities.document_highlight then
+#        require('lspconfig').util.nvim_multiline_command [[
+#        :hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
+#        :hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
+#        :hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
+#        augroup lsp_document_highlight
+#            autocmd!
+#            autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+#            autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+#        augroup END
+#        ]]
+#    end
+#  end
+#
+#  local servers = {'pyright', 'gopls', 'rust_analyzer'}
+#  for _, lsp in ipairs(servers) do
+#    nvim_lsp[lsp].setup {
+#      on_attach = on_attach,
+#    }
+#  end
+#EOF
+#'''
+#
+#[[plugins]]
+#repo = 'anott03/nvim-lspinstall'
+#
+#
+#[[plugins]]
+#repo = 'nvim-lua/completion-nvim'
+#
+#[[plugins]]
+#repo = 'SirVer/ultisnips'
+#hook_add ='''
+#let g:completion_enable_snippet = 'UltiSnips'
+#'''
+#[[plugins]]
+#repo = 'honza/vim-snippets'
+#
+#[[plugin]]
+#repo = 'kosayoda/nvim-lightbulb'
+#hook_add = '''
+#autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
+#
+#:lua << EOF
+#-- Showing defaults
+#require'nvim-lightbulb'.update_lightbulb {
+#    sign = {
+#        enabled = true,
+#        -- Priority of the gutter sign
+#        priority = 10,
+#    },
+#    float = {
+#        enabled = false,
+#        -- Text to show in the popup float
+#        text = "💡",
+#        -- Available keys for window options:
+#        -- - height     of floating window
+#        -- - width      of floating window
+#        -- - wrap_at    character to wrap at for computing height
+#        -- - max_width  maximal width of floating window
+#        -- - max_height maximal height of floating window
+#        -- - pad_left   number of columns to pad contents at left
+#        -- - pad_right  number of columns to pad contents at right
+#        -- - pad_top    number of lines to pad contents at top
+#        -- - pad_bottom number of lines to pad contents at bottom
+#        -- - offset_x   x-axis offset of the floating window
+#        -- - offset_y   y-axis offset of the floating window
+#        -- - anchor     corner of float to place at the cursor (NW, NE, SW, SE)
+#        -- - winblend   transparency of the window (0-100)
+#        win_opts = {},
+#    },
+#    virtual_text = {
+#        enabled = false,
+#        -- Text to show at virtual text
+#        text = "💡",
+#    }
+#}
+#EOF
+#'''
+#
+#### async
+#[[plugins]]
+#repo = 'skywind3000/asynctasks.vim'
+#[[plugins]]
+#
+#repo = 'skywind3000/asyncrun.vim'
+#
+## Fuzzy Finder using Telescope
+# [[plugins]]
+# repo = 'nvim-lua/popup.nvim'
+# [[plugins]]
+# repo = 'nvim-lua/plenary.nvim'
+# [[plugins]]
+# repo = 'nvim-telescope/telescope.nvim'
+# hook_add ='''
+# " Find files using Telescope command-line sugar.
+# nnoremap <leader>ff <cmd>Telescope find_files<cr>
+# nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+# nnoremap <leader>fb <cmd>Telescope buffers<cr>
+# nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+# nnoremap <leader>fl <cmd>Telescope git_files<cr>
+# 
+# "Mapping <Esc> to quit in insert mode
+# :lua << EOF
+# local actions = require('telescope.actions')
+# require('telescope').setup{
+#   defaults = {
+#     mappings = {
+#       i = {
+#         ["<esc>"] = actions.close
+#       },
+#     },
+#   }
+# }
+# EOF
+# '''
+# 
+# [[plugins]]
+# repo = 'nvim-telescope/telescope-fzf-writer.nvim'
+# hook_add = '''
+# :lua << EOF
+# require('telescope').setup {
+#     extensions = {
+#         fzf_writer = {
+#             minimum_grep_characters = 2,
+#             minimum_files_characters = 2,
+# 
+#             -- Disabled by default.
+#             -- Will probably slow down some aspects of the sorter, but can make color highlights.
+#             -- I will work on this more later.
+#             use_highlighter = true,
+#         }
+#     }
+# }
+# EOF
+# '''
+# 
+# [[plugins]]
+# repo = 'nvim-telescope/telescope-dap.nvim'
+# depends = ['mfussenegger/nvim-dap','nvim-treesitter/nvim-treesitter']
+# 
+# [[plugins]]
+# repo = 'GustavoKatel/telescope-asynctasks.nvim'
+#
+# [[plugins]]
+# repo = 'nvim-telescope/telescope-media-files.nvim'
+# depends = ['nvim-lua/plenary.nvim','nvim-telescope/telescope.nvim']
+# hook_add ='''
+# :lua << EOF
+# require('telescope').load_extension('media_files')
+# require'telescope'.setup {
+#   extensions = {
+#     media_files = {
+#      -- filetypes whitelist
+#       -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+#       filetypes = {"png", "webp", "jpg", "jpeg"},
+#       find_cmd = "rg" -- find command (defaults to `fd`)
+#     }
+#  },
+# }
+# EOF
+# '''
+#
+## Better Syntax Highlighting using Tree-Sitter
+#[[plugins]]
+#repo = 'nvim-treesitter/nvim-treesitter'
+#merge = 0
+#hook_add ='''
+#lua <<EOF
+#require'nvim-treesitter.configs'.setup {
+#  highlight = {
+#    enable = true
+#  },
+#}
+#EOF
+#'''
+#
+#[[plugins]]
+#repo = 'nvim-treesitter/playground'
+
+
+# Debugging
+[[plugins]]
+repo = 'mfussenegger/nvim-dap'
+hook_add = '''
+nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
+nnoremap <silent> <leader>dd :lua require('dap').continue()<CR>
+nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
+nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>
+nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
+nnoremap <silent> <leader>b :lua require'dap'.toggle_breakpoint()<CR>
+nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
+nnoremap <silent> <leader>dl :lua require'dap'.repl.run_last()<CR>`
+nnoremap <silent> <leader>dn :lua require('dap-python').test_method()<CR>
+vnoremap <silent> <leader>ds <ESC>:lua require('dap-python').debug_selection()<CR>
+
+lua << EOF
+require('dap')
+vim.fn.sign_define('DapBreakpoint', {text='●', texthl='', linehl='', numhl=''})
+EOF
+
+'''
+[[plugins]]
+repo = 'mfussenegger/nvim-dap-python'
+depends = ['mfussenegger/nvim-dap','nvim-treesitter/nvim-treesitter']
+[[plugins]]
+repo = 'theHamsta/nvim-dap-virtual-text'
+depends = ['mfussenegger/nvim-dap','nvim-treesitter/nvim-treesitter']
+
+# Integration with GitHub
+#[[plugins]]
+#repo = 'pwntester/octo.nvim'
 

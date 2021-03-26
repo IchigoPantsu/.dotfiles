@@ -1,6 +1,44 @@
 # alacritty.yml
 
-# Colors (Ayu Mirage)
+# material ocean color scheme
+colors:
+  primary:
+    background: '#1b2b34'
+    foreground: '#d4be98'
+  cursor:
+    cursor: '#EC5f67'
+  normal:
+    black:      '#000000'
+    red:        '#EC5f67'
+    green:      '#a7c777'
+    yellow:     '#d8a657'
+    blue:       '#6699cc'
+    magenta:    '#d16d9e'
+    cyan:       '#62b3b2'
+    white:      '#c0c5ce'
+
+font:
+  size: 8.5
+  # fixes tmux bottom navbar being cut-off
+  offset:
+    y: 1
+  normal:
+#    family: "JetBrainsMono Nerd Font"
+
+window:
+  padding:
+    x: 5
+    y: 5
+
+# fixes nvim background
+env:
+  TERM: xterm-256color
+
+scrolling:
+  history: 2000
+  auto_scroll: true
+
+  ## Colors (Ayu Mirage)
 #colors:
 ## Default colors
 #  primary:
@@ -18,7 +56,7 @@
 #    cyan: '#95E6CB'
 #    white: '#C7C7C7'
 
-  # Bright colors
+## Bright colors
 #  bright:
 #    black: '#686868'
 #    red: '#F27983'
@@ -26,34 +64,34 @@
 #    yellow: '#FFCC66'
 #    blue: '#5CCFE6'
 #    magenta: '#FFEE99'
-#   cyan: '#95E6CB'
+#    cyan: '#95E6CB'
 #    white: '#FFFFFF'
 
-# Colors (maia)
-colors:
-  primary:
-    background: "0x273136"
-    foreground: "0xe1e2e3"
-
-  normal:
-    black: "0x1c1e1f"
-    red: "0xf76c7c"
-    green: "0x9cd57b"
-    yellow: "0xe3d367"
-    blue: "0x78cee9"
-    magenta: "0xbaa0f8"
-    cyan: "0xf3a96a"
-    white: "0xe1e2e3"
-
-  bright:
-    black: "0x1c1e1f"
-    red: "0xf76c7c"
-    green: "0x9cd57b"
-    yellow: "0xe3d367"
-    blue: "0x78cee9"
-    magenta: "0xbaa0f8"
-    cyan: "0xf3a96a"
-    white: "0xe1e2e3"
+## Colors (maia)
+#colors:
+#  primary:
+#    background: "0x273136"
+#    foreground: "0xe1e2e3"
+#
+#  normal:
+#    black: "0x1c1e1f"
+#    red: "0xf76c7c"
+#    green: "0x9cd57b"
+#    yellow: "0xe3d367"
+#    blue: "0x78cee9"
+#    magenta: "0xbaa0f8"
+#    cyan: "0xf3a96a"
+#    white: "0xe1e2e3"
+#
+#  bright:
+#    black: "0x1c1e1f"
+#    red: "0xf76c7c"
+#    green: "0x9cd57b"
+#    yellow: "0xe3d367"
+#    blue: "0x78cee9"
+#    magenta: "0xbaa0f8"
+#    cyan: "0xf3a96a"
+#    white: "0xe1e2e3"
 
 # Font configuration (changes require restart)
 font:
@@ -87,7 +125,7 @@ cursor:
   #   - ▇ Block
   #   - _ Underline
   #   - | Beam
-  style: Block
+  style: Beam
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
   unfocused_hollow: true

@@ -157,11 +157,11 @@ c.colors.tabs.selected.even.bg = '#202020'
 # c.fonts.tabs = '10pt fantasque sans mono'
 
 # Bindings for normal mode
-config.bind(';M', 'hint --rapid links spawn open -na /Applications/mpv.app {hint-url}')
+#config.bind(';M', 'hint --rapid links spawn open -na /Applications/mpv.app {hint-url}')
 #config.bind('<Meta+n>', 'open -p')
 #config.bind('<Meta+w>', 'close')
-config.bind('M', 'hint links spawn open -na /Applications/mpv.app {hint-url}')
-config.bind('m', 'spawn open -na /Applications/mpv.app {url}')
+config.bind(',M', 'hint links spawn open -na /Applications/mpv.app {hint-url}')
+config.bind(',m', 'spawn open -na /Applications/mpv.app {url}')
 
 #[qutebrowser の細かい設定 - Qiita](https://qiita.com/toyboot4e/items/c801050c0d53d3a1600a)
 
@@ -209,7 +209,18 @@ config.set('zoom.default', '125%')
 #c.window.hide_decoration = True
 
 ### QUICKMARK (it's much better than bookmarks for now) ###
-config.bind('sq', 'quickmark-save')
+#config.bind('sq', 'quickmark-save')
+#config.bind('ab', 'bookmark-add')
+#config.bind('aq', 'quickmark-add')
+config.unbind('d')
+config.bind('db', 'bookmark-del')
+config.bind('dd', 'tab-close')
+config.bind('dq', 'quickmark-del')
+
+#config.unbind('b',)
+#config.bind('b',':bookmark-load ')
+#config.unbind('B')
+#config.bind('B', ':quickmark-load ')
 
 ### VIMIUM-LIKE ###
 config.unbind('h')

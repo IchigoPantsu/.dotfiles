@@ -58,3 +58,11 @@ export VK_LAYER_PATH
 
 
 source "$HOME/.cargo/env"
+
+#https://doc.qt.io/qt-5/linux-building.html
+PATH="/usr/local/Qt-5.15.3/bin:$PATH"
+export PATH
+
+#For compilers that do not support rpath you must also extend the LD_LIBRARY_PATH environment variable to include /usr/local/Qt-%VERSION%/lib. On Linux with GCC this step is not needed.
+LD_LIBRARY_PATH="/usr/local/Qt-5.15.3/lib"
+export LD_LIBRARY_PATH
