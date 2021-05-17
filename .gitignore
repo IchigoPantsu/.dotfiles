@@ -35,5 +35,6 @@
 /.config/qutebrowser/bookmarks/urls
 /.config/qutebrowser/quickmarks
 /.config/ranger/__pycache__/*
+/.config/ranger/plugins/__pycache__/*
 
 #!/.vim/bundle/neobundle.vim
