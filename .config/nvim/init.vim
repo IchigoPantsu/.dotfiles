@@ -27,7 +27,9 @@ set showcmd
 " ノーマルモード時だけ ; と : を入れ替える
 nnoremap ; :
 nnoremap : ;
-
+" visual mode
+vnoremap ; :
+vnoremap : ;
 " filetype plugin enable
 filetype plugin on
 
@@ -277,6 +279,11 @@ nnoremap i a
 noremap A I
 nnoremap I A
 
+vnoremap A I
+vnoremap I A
+"vnoremap a I
+"vnoremap i A
+"tnoremap <Esc> <C-\><C-n>
 
 "nnoremap <C-y> g;
 "nnoremap <C-u> g,
@@ -374,12 +381,12 @@ endif
 "call dein#source('ayu-vim')
 set termguicolors     " enable true colors support
 "let ayucolor="light"  " for light version of theme
-let ayucolor="mirage" " for mirage version of theme
+"let ayucolor="mirage" " for mirage version of theme
 "let ayucolor="dark"   " for dark version of theme
 "colorscheme ayu
 set background=dark
 colorscheme oceanic_material
 
-let g:sonokai_style = 'maia'
+"let g:sonokai_style = 'maia'
 "colorscheme sonokai
-let g:airline_theme = 'sonokai'
+"let g:airline_theme = 'sonokai'

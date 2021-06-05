@@ -1,7 +1,23 @@
-# depend on python3 provider
-# type: pip3 install pynvim
+## depend on python3 provider
+## type: pip3 install pynvim
 #[[plugins]]
 #repo = 'puremourning/vimspector'
-#on_ft = ["python", "javascript"]
-#build = './install_gadget.py --all --disable-tcl'
-#hook_add = 'let g:vimspector_enable_mappings = "HUMAN"'
+#on_ft = ["c","cpp","go","rust","python","javascript"]
+#build = './install_gadget.py --all --force-enable-rust --disable-tcl'
+#hook_add = '''
+#let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+#
+#nmap <leader>dc <Plug>VimspectorContinue	
+#nmap <leader>ds <Plug>VimspectorStop
+#nmap <leader>dR <Plug>VimpectorRestart
+#nmap <leader>dp <Plug>VimspectorPause
+#nmap <leader>db <Plug>VimspectorToggleBreakpoint
+#"nmap <Plug>VimspectorToggleConditionalBreakpoint
+#"nmap <Plug>VimspectorAddFunctionBreakpoint
+#nmap <leader>dr <Plug>VimspectorRunToCursor
+#"nmap <Plug>VimspectorStepOver
+#"nmap <Plug>VimspectorStepInto
+#"nmap <Plug>VimspectorStepOut
+#nmap <leader>de <Plug>VimspectorBalloonEval
+#xmap <leader>de <Plug>VimspectorBalloonEval
+#'''

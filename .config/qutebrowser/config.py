@@ -251,7 +251,7 @@ config.bind('k', ':run-with-count 1 scroll up')
 config.bind('<Shift+j>', ':run-with-count 15 scroll down')
 config.bind('<Shift+k>', ':run-with-count 15 scroll up')
 
-config.bind(',c', ':spawn google-chrome-unstable {url}')
+config.bind(',c', ':spawn google-chrome-stable {url}')
 config.bind(',f', ':spawn firefox-nightly {url}')
 
 #config.set('backend', 'webkit')
@@ -263,8 +263,7 @@ config.bind(',f', ':spawn firefox-nightly {url}')
 #config.bind('<Ctrl+e>', ':scroll down')
 #config.bind('<Ctrl+y>', ':scroll up')
 
-
-
+#c.content.user_stylesheets = "~/.config/qutebrowser/solarized-dark/solarized-dark-all-sites.css"
 
 #[Yet another dark mode post : qutebrowser](https://www.reddit.com/r/qutebrowser/comments/jdnqbp/yet_another_dark_mode_post/)
 
@@ -279,7 +278,7 @@ def read_xresources(prefix):
         props[prop] = value
     return props
 
-xresources = read_xresources('*')
+#xresources = read_xresources('*')
 
 
 ccw = c.colors.webpage

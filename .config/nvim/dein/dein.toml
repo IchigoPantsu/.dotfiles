@@ -31,7 +31,7 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add ='''
-let g:gitgutter_highlight_lines = 1
+"let g:gitgutter_highlight_lines = 1
 set updatetime=100
 '''
 
@@ -142,7 +142,40 @@ nnoremap [Fzf]cp       :<C-u>CocFzfListResume<CR>
 #repo = 'pbogut/fzf-mru.vim'
 #depends = ['junegunn/fzf','junegunn/fzf.vim','neoclide/coc.nvim']
 
+# debug
+# depend on python3 provider
+# type: pip3 install pynvim
+[[plugins]]
+repo = 'puremourning/vimspector'
+on_ft = ["c","cpp","go","rust","python","javascript"]
+build = './install_gadget.py --all --force-enable-rust --disable-tcl'
+hook_add ='''
+let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 
+nmap <leader>ds :call vimspector#Launch()<CR>	
+"nmap <leader>dc <Plug>VimspectorContinue	
+"nmap <leader>dS <Plug>VimspectorStop
+"nmap <leader>dR <Plug>VimpectorRestart
+"nmap <leader>dP <Plug>VimspectorPause
+nmap <leader>b <Plug>VimspectorToggleBreakpoint
+"nmap <Plug>VimspectorToggleConditionalBreakpoint
+"nmap <Plug>VimspectorAddFunctionBreakpoint
+nmap <leader>dr <Plug>VimspectorRunToCursor
+"nmap <Plug>VimspectorStepOver
+"nmap <Plug>VimspectorStepInto
+"nmap <Plug>VimspectorStepOut
+"nmap <expr><CR> exists("g:_vimspector_session") ? <Plug>VimspectorBalloonEval : <CR>
+"xmap <expr><CR> _vimspector_session ? <Plug>VimspectorBalloonEval : <CR>
+
+function! s:my_cr()
+  try
+    <Plug>VimspectorBalloonEval
+  catch
+    <CR>
+  endtry
+endfunction
+nmap <CR> :call my_cr() <CR>
+'''
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
@@ -664,7 +697,8 @@ let g:previm_enable_realtime=1
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 hook_add = '''
-let g:netrw_nogx = 1 " disable netrw's gx mapping.
+" disable netrw's gx mapping.
+let g:netrw_nogx = 1 
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 '''
@@ -681,12 +715,12 @@ repo = 'rbgrouleff/bclose.vim'
 # repo = 'adelarsq/vim-hackernews'
 
 #for Regolith
-[[plugins]]
-repo = 'ayu-theme/ayu-vim'
+#[[plugins]]
+#repo = 'ayu-theme/ayu-vim'
 
 #for manjaro_i3wm
-[[plugins]]
-repo = 'sainnhe/sonokai'
+#[[plugins]]
+#repo = 'sainnhe/sonokai'
 
 # [[plugins]]
 # repo = 'glidenote/memolist.vim'
@@ -799,12 +833,14 @@ nmap <leader>l <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <leader>k :call <SID>show_documentation()<CR>
+nnoremap gk :call <SID>show_documentation()<CR>
+" Use J to show documentation in preview window.
+nnoremap gj <Plug>(coc-codeaction)
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -906,13 +942,17 @@ set pumblend=10
 
 '''
 
-[[plugins]]
-repo = 'morhetz/gruvbox'
+#[[plugins]]
+#repo = 'morhetz/gruvbox'
 
 [[plugins]]
 repo = 'glepnir/oceanic-material'
 
-
+#[[plugins]]
+#repo = 'norcalli/nvim-colorizer.lua'
+#hook_add = '''
+#lua require'colorizer'.setup()
+#'''
 
 ### [Neovim LSP, DAP and Fuzzy Finder. Overview | by alpha2phi | The Startup | Jan, 2021 | Medium](https://medium.com/swlh/neovim-lsp-dap-and-fuzzy-finder-60337ef08060)
 
@@ -1136,40 +1176,103 @@ repo = 'glepnir/oceanic-material'
 #}
 #EOF
 #'''
+
+## Debugging
+#[[plugins]]
+#repo = 'mfussenegger/nvim-dap'
+#hook_add = '''
+#nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
+#nnoremap <silent> <leader>dd :lua require('dap').continue()<CR>
+#nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
+#nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>
+#nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
+#nnoremap <silent> <leader>b :lua require'dap'.toggle_breakpoint()<CR>
+#nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+#nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+#nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
+#nnoremap <silent> <leader>dl :lua require'dap'.repl.run_last()<CR>`
+#nnoremap <silent> <leader>dn :lua require('dap-python').test_method()<CR>
+#vnoremap <silent> <leader>ds <ESC>:lua require('dap-python').debug_selection()<CR>
 #
+#lua << EOF
+#require('dap')
+#vim.fn.sign_define('DapBreakpoint', {text='●', texthl='', linehl='', numhl=''})
+#vim.fn.sign_define('DapStopped', {text='◎', texthl='', linehl='', numhl=''})
+#local dap = require "dap"
+#-- Modern LLVM installations come with a binary called lldb-vscode (or lldb-vscode-11). Use the same function as with vscode-cpptools and the following adapter configuration:
+#
+#dap.adapters.cpp = {
+#  type = 'executable',
+#  attach = {
+#    pidProperty = "pid",
+#    pidSelect = "ask"
+#  },
+#  command = 'lldb-vscode', -- my binary was called 'lldb-vscode-11'
+#  env = {
+#    LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY = "YES"
+#  },
+#  name = "lldb"
+#}
+#
+#dap.adapters.rust = {
+#    type = 'executable',
+#    attach = {
+#        pidProperty = "pid",
+#        pidSelect = "ask"
+#    },
+#    command = 'lldb-vscode', -- my binary was called 'lldb-vscode-11'
+#    env = {
+#        LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY = "YES"
+#    },
+#    name = "lldb"
+#}
+#
+#-- Now you should be able to debug a Rust or C/C++ binary (compiled with -g flag!) with a vim command :DebugC main "Hello World!" or :DebugRust target/debug/myrustprogram. :DebugC will remember your last target. So you can leave away the arguments when using it the second time.
+#-- The first time you run it, the debug adapter will complain about a missing file nvim-dap.something. Just create this file. It is already there but has the name cppdbg.something.
+#-- you should rename cppdbg.ad7Engine.json to nvim-dap.ad7Engine.json in 'extension/debugAdapters/bin'.
+#
+#vim.cmd [[
+#  command! -complete=file -nargs=* DebugC lua require "my_debug".start_c_debugger({<f-args>}, "gdb")
+#]]
+#vim.cmd [[
+#  command! -complete=file -nargs=* DebugRust lua require "my_debug".start_c_debugger({<f-args>}, "gdb", "rust-gdb")
+#]]
+#
+#env = function()
+#  local variables = {}
+#  for k, v in pairs(vim.fn.environ()) do
+#    table.insert(variables, string.format("%s=%s", k, v))
+#  end
+#  return variables
+#end
+#
+#EOF
+
+#[[plugins]]
+#repo = 'mfussenegger/nvim-dap-python'
+#depends = ['mfussenegger/nvim-dap','nvim-treesitter/nvim-treesitter']
+#[[plugins]]
+#repo = 'theHamsta/nvim-dap-virtual-text'
+#depends = ['mfussenegger/nvim-dap','nvim-treesitter/nvim-treesitter']
+# END debug
+
 #[[plugins]]
 #repo = 'nvim-treesitter/playground'
 
+### for test
+#[[plugins]]
+#repo = 'roxma/vim-hug-neovim-rpc'
 
-# Debugging
-[[plugins]]
-repo = 'mfussenegger/nvim-dap'
-hook_add = '''
-nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
-nnoremap <silent> <leader>dd :lua require('dap').continue()<CR>
-nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
-nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>
-nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
-nnoremap <silent> <leader>b :lua require'dap'.toggle_breakpoint()<CR>
-nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
-nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
-nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
-nnoremap <silent> <leader>dl :lua require'dap'.repl.run_last()<CR>`
-nnoremap <silent> <leader>dn :lua require('dap-python').test_method()<CR>
-vnoremap <silent> <leader>ds <ESC>:lua require('dap-python').debug_selection()<CR>
+#[[plugins]]
+#repo = 'roxma/vim-yarp'
+#depends = ['roxma/vim-hug-neovim-rpc']
 
-lua << EOF
-require('dap')
-vim.fn.sign_define('DapBreakpoint', {text='●', texthl='', linehl='', numhl=''})
-EOF
+#[[plugins]]
+#repo = 'janko/vim-test'
 
-'''
-[[plugins]]
-repo = 'mfussenegger/nvim-dap-python'
-depends = ['mfussenegger/nvim-dap','nvim-treesitter/nvim-treesitter']
-[[plugins]]
-repo = 'theHamsta/nvim-dap-virtual-text'
-depends = ['mfussenegger/nvim-dap','nvim-treesitter/nvim-treesitter']
+#[[plugins]]
+#repo = 'rcarriga/vim-ultest'
+#depends = ['roxma/vim-yarp','roxma/vim-hug-neovim-rpc','janko/vim-test']
 
 # Integration with GitHub
 #[[plugins]]

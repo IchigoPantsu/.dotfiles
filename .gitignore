@@ -5,12 +5,15 @@
 /.*
 
 # Filelist not to ignore
-!/.profile
 !/.bash_profile
 !/.bashrc
-!/.inputrc
-!/.xprofile
-!/.Xmodmap
+!/.my_bashrc
+!/.profile
+!/README.md
+!/.vim
+!/.vimrc
+!/.zshenv
+!/.zshrc
 #vim
 !/.vimrc
 !/.vim

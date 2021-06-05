@@ -1,68 +1,32 @@
-# ~/.profile: executed by the command interpreter for login shells.
-# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
-# exists.
-# see /usr/share/doc/bash/examples/startup-files for examples.
-# the files are located in the bash-doc package.
+#!/bin/sh
+# make default editor Neovim
+export BROWSER=qutebrowser
+export EDITOR=nvim
 
-# the default umask is set in /etc/profile; for setting the umask
-# for ssh logins, install and configure the libpam-umask package.
-#umask 022
+# Most pure GTK3 apps use wayland by default, but some,
+# like Firefox, need the backend to be explicitely selected.
+export MOZ_ENABLE_WAYLAND=1
+export MOZ_DBUS_REMOTE=1
+export GTK_CSD=0
 
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
+# qt wayland
+export QT_QPA_PLATFORM="wayland"
+export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
+# set default shell and terminal
+export SHELL=/usr/bin/zsh
+export TERM=xterm-termite
+export TERMINAL_COMMAND='/usr/share/sway/scripts/terminal.sh'
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
+# sway-launcher-desktop with material icons
+export GLYPH_DESKTOP="󰄶 "
+export GLYPH_COMMAND="󰆍 "
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/include" ] ; then
-    PATH="$HOME/.local/include:$PATH"
-fi
+# fcitx(japanese)  
+export LC_CTYPE=ja_JP.utf-8
 
-#for type japanese 
-export QT_QPA_PLATFORMTHEME="qt5ct"
-#export EDITOR=/usr/bin/nano
-export EDITOR=/usr/bin/nvim
-export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-# fix "xdg-open fork-bomb" export your preferred browser from here
-#export BROWSER=/usr/bin/palemoon
-export BROWSER=/usr/bin/qutebrowser
-
-export TERMINAL=/usr/bin/alacritty
-
-### via bash_profile
-#eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-export __GL_SHADER_DISK_CACHE=0
-
-# source this file into an existing shell.
-VULKAN_SDK="$HOME/Workspace/vulkan/1.2.135.0/x86_64"
-export VULKAN_SDK
-PATH="$VULKAN_SDK/bin:$PATH"
-export PATH
-LD_LIBRARY_PATH="$VULKAN_SDK/lib:${LD_LIBRARY_PATH:-}"
-export LD_LIBRARY_PATH
-VK_LAYER_PATH="$VULKAN_SDK/etc/vulkan/explicit_layer.d"
-export VK_LAYER_PATH
-
-
-source "$HOME/.cargo/env"
-
-#https://doc.qt.io/qt-5/linux-building.html
-PATH="/usr/local/Qt-5.15.3/bin:$PATH"
-export PATH
-
-#For compilers that do not support rpath you must also extend the LD_LIBRARY_PATH environment variable to include /usr/local/Qt-%VERSION%/lib. On Linux with GCC this step is not needed.
-LD_LIBRARY_PATH="/usr/local/Qt-5.15.3/lib"
-export LD_LIBRARY_PATH
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+#fcitx &
