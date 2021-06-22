@@ -6,5 +6,5 @@
 
 config_version: 2
 settings:
-  backend:
-    global: webengine
+  content.notifications.enabled:
+    https://ouo.press: true

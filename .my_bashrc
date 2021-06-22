@@ -99,3 +99,7 @@ alias nv='nvim'
 alias nt="nvim -c ':term'"
 alias nmk="nvim -c ':make'"
 alias e.='ranger_cd' 
+
+#unity
+#https://github.com/OmniSharp/omnisharp-vim/issues/583
+export FrameworkPathOverride=/lib/mono/4.7.2-api

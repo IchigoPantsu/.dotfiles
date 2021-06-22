@@ -14,4 +14,12 @@
       }
     }
   }
+  ,
+  "source": {
+    "OmniSharp": {
+      "enable": true,
+      "triggerCharacters": "."
+    }
+  }
+
 }

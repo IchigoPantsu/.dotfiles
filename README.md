@@ -1,17 +1,92 @@
-### dotfiles
-for manjaro i3wm edition
-Under construction
+# dotfiles
+for manjaro sway edition
 
-at First download 
-+ bin/install.sh
-```bash
-$ bash installsh
+---
+
+## setup
+
+### update 
+```
+sudo pacman -syy
+sudo pacman -syu
 ```
 
-### TODO
-.bash_profile中fzfの設定ファイルにバージョン名がハードコードされているので自動化する
-defxの設定
-,gitconfigについて考える
+
+### install japanese font 
+```
+sudo pacman -S adobe-source-han-sans-jp-fonts
+```
+
+### sendanywhere
+```
+sudo pacman -S base-devel
+yay -S sendanywhere
+```
+
+### install japanese fcitx 
+```
+sudo pacman -S fcitx fcitx-mozc fcitx-configtool fcitx-im
+```
+
+```
+## append below to .profile 
+
+export GLYPH_DESKTOP="󰄶 "
+export GLYPH_COMMAND="󰆍 "
+
+# fcitx(japanese)  
+export LC_CTYPE=ja_JP.utf-8
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
+```
+
+#### ref
+> [How To Setup Japanese Language Environment In Arch Linux](https://ostechnix.com/setup-japanese-language-environment-arch-linux/)
+> [ArchLinuxで日本語入力環境を整える - Qiita](https://qiita.com/k_almajiro/items/1c569513cbe705321902)
+
+### fcitx configuration
+
+###
+```
+sudo pacman -S ntp
+sudo timedatectl list-timezones | grep -i tokyo
+sudo timedatectl set-timezone Asia/Tokyo
+sudo timedatectl set-ntp true                                                                                                                                                  
+```
+#### ref
+> [日時の設定 - Arch Linuxの最小限インストール直後の作業(2) - Qiita](https://qiita.com/j8takagi/items/cc63ee5e9cfcb20fd244)
+
+### exfat
+```
+pacman -S exfat-utils ntfs-3g
+#mount
+sudo fdisk -l
+sudo mount -t /dev/... /mnt/data/
+```
+#### ref
+> [ArchLinuxの個人的な推奨事項 - Qiita](https://qiita.com/kob-u/items/7cf29ac669efac36fbde)
+
+
+### qmk firmware(ergo dox)
+```
+sudo pacman -S qmk 
+yay -S teensy-loader-cli
+git clone --recursive https://github.com/IchigoPantsu/qmk_firmware -b master 
+qmk compile -kb ergodox_ez -km my_ergodox_ez
+qmk flash -kb ergodox_ez -km my_ergodox_ez
+```
+
+#### ref
+> [Overview](https://docs.qmk.fm/#/cli)
+
+
+### ssh(Github)
+> [GitHubでssh接続する手順~公開鍵・秘密鍵の生成から~ - Qiita](https://qiita.com/shizuma/items/2b2f873a0034839e47ce)
+
+---
 
 ### Reference
 + [ミニマルに始めるDotfiles自動化計画](https://qiita.com/okamos/items/40966158d0271ae7198b)

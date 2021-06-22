@@ -251,7 +251,7 @@ config.bind('k', ':run-with-count 1 scroll up')
 config.bind('<Shift+j>', ':run-with-count 15 scroll down')
 config.bind('<Shift+k>', ':run-with-count 15 scroll up')
 
-config.bind(',c', ':spawn google-chrome-stable {url}')
+config.bind(',c', ':spawn google-chrome-unstable {url}')
 config.bind(',f', ':spawn firefox-nightly {url}')
 
 #config.set('backend', 'webkit')
