@@ -13,13 +13,8 @@
         }
       }
     }
-  }
-  ,
-  "source": {
-    "OmniSharp": {
-      "enable": true,
-      "triggerCharacters": "."
-    }
-  }
+  } ,
+  "coc.source.OmniSharp.enable" : true,
+  "coc.source.OmniSharp.triggerCharacters":"."
 
 }

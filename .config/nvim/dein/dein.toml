@@ -943,13 +943,18 @@ set pumblend=10
 "let g:coc_global_extensions=['coc-cmake','coc-rust-analyzer']
 '''
 
+#[[plugin]]
+#repo = 'https://github.com/dense-analysis/ale'
+#'''
+#let g:ale_linters = {'cs': ['OmniSharp']}
+#'''
+
 [[plugins]]
 repo = 'OmniSharp/omnisharp-vim'
 hook_add = '''
 "for Unity
 let g:OmniSharp_server_use_mono = 1
 '''
-
 
 #[[plugins]]
 #repo = 'morhetz/gruvbox'

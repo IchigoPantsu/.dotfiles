@@ -61,7 +61,7 @@ sudo timedatectl set-ntp true                                                   
 
 ### exfat
 ```
-pacman -S exfat-utils ntfs-3g
+sudo pacman -S exfat-utils ntfs-3g
 #mount
 sudo fdisk -l
 sudo mount -t /dev/... /mnt/data/
@@ -86,6 +86,13 @@ qmk flash -kb ergodox_ez -km my_ergodox_ez
 ### ssh(Github)
 > [GitHubでssh接続する手順~公開鍵・秘密鍵の生成から~ - Qiita](https://qiita.com/shizuma/items/2b2f873a0034839e47ce)
 
+
+### enable japanese in pdf
+```
+sudo pacman -S poppler-data
+
+> [Arch Linuxで日本語pdfを閲覧したり、辞書を表示する | 3log](https://3100.github.io/log/2016/01/01/viewing-pdf-on-arch/)
+```
 ---
 
 ### Reference
@@ -104,12 +111,8 @@ qmk flash -kb ergodox_ez -km my_ergodox_ez
 + [Vimメモ : Neovimで開発環境を段階的に構築する（5）スニペット、入力補完と定義元ジャンプ](https://wonderwall.hatenablog.com/entry/2019/08/17/003000)
 + [40%キーボード VORTEX CORE のキー配置を思うがままにやってみる](https://qiita.com/Atoyr/items/3650156799bf9eec5306)
 + [i3 版 Ubuntu 、Regolith Linux を使うことのメモ](http://malkalech.com/regolith_linux_i3-gaps)
-
-+ jetBrain IDE トラブルシュート
-+ フルスクリーンにするとちらつく
-+ > ちらつき
-+ [Picom - ArchWiki](https://wiki.archlinux.jp/index.php/Picom)
-+ i3のスクラッチパッドで
-+ > フロートするダイアログを正しく扱う
-+ [i3 - ArchWiki](https://wiki.archlinux.jp/index.php/I3)
++ jetBrain IDE トラブルシュート(フルスクリーンにするとちらつく)
+> [Picom - ArchWiki](https://wiki.archlinux.jp/index.php/Picom)
++ i3のスクラッチパッドでフロートするダイアログを正しく扱う
+> [i3 - ArchWiki](https://wiki.archlinux.jp/index.php/I3)
 
