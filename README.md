@@ -93,6 +93,11 @@ sudo pacman -S poppler-data
 
 > [Arch Linuxで日本語pdfを閲覧したり、辞書を表示する | 3log](https://3100.github.io/log/2016/01/01/viewing-pdf-on-arch/)
 ```
+
+### zsh-vi-mode
+```
+yay -S zsh-vi-mode
+```
 ---
 
 ### Reference
