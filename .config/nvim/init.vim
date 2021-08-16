@@ -283,7 +283,13 @@ vnoremap A I
 vnoremap I A
 "vnoremap a I
 "vnoremap i A
+
+"[NeovimのTerminalモードをちょっと使いやすくする](https://zenn.dev/ryo_kawamata/articles/improve-neovmi-terminal)
 "tnoremap <Esc> <C-\><C-n>
+autocmd TermOpen * startinsert
+"autocmd BufEnter * startinsert
+"autocmd BufEnter * if &filetype == "fzf" | startinsert | endif
+"autocmd BufLeave * startinsert
 
 "nnoremap <C-y> g;
 "nnoremap <C-u> g,

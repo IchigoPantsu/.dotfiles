@@ -97,7 +97,7 @@ alias open='xdg-open'
 alias rc='wf-recorder -g "$(slurp)" --file "$(date +%Y%m%d-%H%M%S)".mp4'
 alias ss='grim -g "$(slurp)" - | swappy -f -'
 #grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp)" - | swappy -f -
-alias nv='nvim'
+alias nv='nvr'
 alias nt="nvim -c ':term'"
 alias nmk="nvim -c ':make'"
 alias e.='ranger_cd' 
@@ -106,3 +106,12 @@ export XCURSOR_THEME=Adwaita XCURSOR_SIZE=30 slurp
 #unity
 #https://github.com/OmniSharp/omnisharp-vim/issues/583
 export FrameworkPathOverride=/lib/mono/4.7.2-api
+export LESS='iRX'
+#[jeffreytse/zsh-vi-mode: 💻 A better and friendly vi(vim) mode plugin for ZSH.](https://github.com/jeffreytse/zsh-vi-mode)
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# Define an init function and append to zvm_after_init_commands
+function my_init() {
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+}
+zvm_after_init_commands+=(my_init)
+

@@ -6,6 +6,5 @@
 
 config_version: 2
 settings:
-  content.notifications.enabled:
-    https://genuine-lamps.com: true
-    https://my.pcloud.com: true
+  content.geolocation:
+    https://www.google.co.jp: true
