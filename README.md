@@ -84,7 +84,7 @@ qmk flash -kb ergodox_ez -km my_ergodox_ez
 
 
 ### ssh(Github)
-> [GitHubでssh接続する手順~公開鍵・秘密鍵の生成から~ - Qiita](https://qiita.com/shizuma/items/2b2f873a0034839e47ce)
+> [GitHubでssh接続する手順公開鍵・秘密鍵の生成から- Qiita](https://qiita.com/shizuma/items/2b2f873a0034839e47ce)
 
 
 ### enable japanese in pdf
@@ -161,8 +161,7 @@ sudo systemctl enable key-mapper
 + [Vimメモ : Neovimで開発環境を段階的に構築する（5）スニペット、入力補完と定義元ジャンプ](https://wonderwall.hatenablog.com/entry/2019/08/17/003000)
 + [40%キーボード VORTEX CORE のキー配置を思うがままにやってみる](https://qiita.com/Atoyr/items/3650156799bf9eec5306)
 + [i3 版 Ubuntu 、Regolith Linux を使うことのメモ](http://malkalech.com/regolith_linux_i3-gaps)
-+ jetBrain IDE トラブルシュート(フルスクリーンにするとちらつく)
-> [Picom - ArchWiki](https://wiki.archlinux.jp/index.php/Picom)
-+ i3のスクラッチパッドでフロートするダイアログを正しく扱う
-+ [i3 - ArchWiki](https://wiki.archlinux.jp/index.php/I3)
++ [Picom - ArchWiki(jetBrain IDE トラブルシュート(フルスクリーンにするとちらつく))](https://wiki.archlinux.jp/index.php/Picom)
++ [i3 - ArchWiki(i3のスクラッチパッドでフロートするダイアログを正しく扱う
+)](https://wiki.archlinux.jp/index.php/I3)
 
