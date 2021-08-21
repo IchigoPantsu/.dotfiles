@@ -90,15 +90,60 @@ qmk flash -kb ergodox_ez -km my_ergodox_ez
 ### enable japanese in pdf
 ```
 sudo pacman -S poppler-data
-
-> [Arch Linuxで日本語pdfを閲覧したり、辞書を表示する | 3log](https://3100.github.io/log/2016/01/01/viewing-pdf-on-arch/)
 ```
-
+> [Arch Linuxで日本語pdfを閲覧したり、辞書を表示する | 3log](https://3100.github.io/log/2016/01/01/viewing-pdf-on-arch/)
 ### zsh-vi-mode
 ```
 yay -S zsh-vi-mode
 ```
 ---
+
+### dual-function-key
+```
+yay -S interception-dual-function-keys
+```
+#### mag1 profile
+```
+#/etc/interception/dual-function-keys/mag1.yaml
+TIMING:
+  TAP_MILLISEC: 200
+  DOUBLE_TAP_MILLISEC: 0
+
+MAPPINGS:
+  - KEY: KEY_CAPSLOCK
+    TAP: KEY_TAB
+    HOLD: KEY_LEFTCTRL
+ 
+  - KEY: KEY_LEFTALT
+    TAP: KEY_F13
+    HOLD: KEY_F13
+
+  - KEY: KEY_RIGHTSHIFT
+    TAP: KEY_SEMICOLON
+    HOLD: KEY_RIGHTSHIFT
+```
+ 
+```
+#/etc/interception/udevmon.yaml
+- JOB: "intercept -g $DEVNODE | dual-function-keys -c /etc/interception/dual-function-keys/mag1.yaml | uinput -d $DEVNODE"
+  DEVICE:
+    #NAME: "AT Translated Set 2 keyboard"
+    NAME: "HAILUCK CO.,LTD USB KEYBOARD"
+    EVENTS:
+      EV_KEY: [KEY_CAPSLOCK,KEY_ESC,KEY_LEFTCTRL,KEY_LEFTALT]
+```
+
+> [Remap Caps Lock to Escape and Control](https://www.dannyguo.com/blog/remap-caps-lock-to-escape-and-control/)
+
+```
+sudo systemctl enable udevmon
+```
+
+### key-mapper
+```
+yay -S key-mapper-git
+sudo systemctl enable key-mapper
+```
 
 ### Reference
 + [ミニマルに始めるDotfiles自動化計画](https://qiita.com/okamos/items/40966158d0271ae7198b)
@@ -119,5 +164,5 @@ yay -S zsh-vi-mode
 + jetBrain IDE トラブルシュート(フルスクリーンにするとちらつく)
 > [Picom - ArchWiki](https://wiki.archlinux.jp/index.php/Picom)
 + i3のスクラッチパッドでフロートするダイアログを正しく扱う
-> [i3 - ArchWiki](https://wiki.archlinux.jp/index.php/I3)
++ [i3 - ArchWiki](https://wiki.archlinux.jp/index.php/I3)
 

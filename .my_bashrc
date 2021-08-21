@@ -1,7 +1,7 @@
 :
 ###fzf config###                                                                               
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"                                
-export FZF_DEFAULT_OPTS="--height 40% --reverse --border --preview 'bat --style=numbers --color=always {}'"                                                                                   
+export FZF_DEFAULT_OPTS="--preview-window=down:1 --height 40% --reverse --border --preview 'bat --style=numbers --color=always {}'"                                                                                   
                                                                                                
 ### keybinding and completion settings                                                         
 #fzf_version = brew --version                                                                  
@@ -115,3 +115,4 @@ function my_init() {
 }
 zvm_after_init_commands+=(my_init)
 
+key-mapper-control --command autoload  
