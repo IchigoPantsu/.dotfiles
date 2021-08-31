@@ -141,41 +141,61 @@ nnoremap [Fzf]cp       :<C-u>CocFzfListResume<CR>
 #[[plugins]]
 #repo = 'pbogut/fzf-mru.vim'
 #depends = ['junegunn/fzf','junegunn/fzf.vim','neoclide/coc.nvim']
-
-# debug
-# depend on python3 provider
-# type: pip3 install pynvim
 [[plugins]]
-repo = 'puremourning/vimspector'
-on_ft = ["c","cpp","go","rust","python","javascript"]
-build = './install_gadget.py --all --force-enable-rust --disable-tcl'
-hook_add ='''
-let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
-
-nmap <leader>ds :call vimspector#Launch()<CR>	
-"nmap <leader>dc <Plug>VimspectorContinue	
-"nmap <leader>dS <Plug>VimspectorStop
-"nmap <leader>dR <Plug>VimpectorRestart
-"nmap <leader>dP <Plug>VimspectorPause
-nmap <leader>b <Plug>VimspectorToggleBreakpoint
-"nmap <Plug>VimspectorToggleConditionalBreakpoint
-"nmap <Plug>VimspectorAddFunctionBreakpoint
-nmap <leader>dr <Plug>VimspectorRunToCursor
-"nmap <Plug>VimspectorStepOver
-"nmap <Plug>VimspectorStepInto
-"nmap <Plug>VimspectorStepOut
-"nmap <expr><CR> exists("g:_vimspector_session") ? <Plug>VimspectorBalloonEval : <CR>
-"xmap <expr><CR> _vimspector_session ? <Plug>VimspectorBalloonEval : <CR>
-
-function! s:my_cr()
-  try
-    <Plug>VimspectorBalloonEval
-  catch
-    <CR>
-  endtry
+repo = 'sakhnik/nvim-gdb'
+build = ':!./install.sh'
+hook_add = """
+" We're going to define single-letter keymaps, so don't try to define them
+" in the terminal window.  The debugger CLI should continue accepting text commands.
+function! NvimGdbNoTKeymaps()
+  tnoremap <silent> <buffer> <esc> <c-\><c-n>
 endfunction
-nmap <CR> :call my_cr() <CR>
-'''
+
+let g:nvimgdb_config_override = {
+  \ 'key_next': 'n',
+  \ 'key_step': 's',
+  \ 'key_finish': 'f',
+  \ 'key_continue': 'c',
+  \ 'key_until': 'u',
+  \ 'key_breakpoint': 'b',
+  \ 'set_tkeymaps': "NvimGdbNoTKeymaps",
+  \ }
+
+"""
+## debug
+## depend on python3 provider
+## type: pip3 install pynvim
+#[[plugins]]
+#repo = 'puremourning/vimspector'
+#on_ft = ["c","cpp","go","rust","python","javascript"]
+#build = './install_gadget.py --all --force-enable-rust --disable-tcl'
+#hook_add ='''
+#let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+#
+#nmap <leader>ds :call vimspector#Launch()<CR>	
+#"nmap <leader>dc <Plug>VimspectorContinue	
+#"nmap <leader>dS <Plug>VimspectorStop
+#"nmap <leader>dR <Plug>VimpectorRestart
+#"nmap <leader>dP <Plug>VimspectorPause
+#nmap <leader>b <Plug>VimspectorToggleBreakpoint
+#"nmap <Plug>VimspectorToggleConditionalBreakpoint
+#"nmap <Plug>VimspectorAddFunctionBreakpoint
+#nmap <leader>dr <Plug>VimspectorRunToCursor
+#"nmap <Plug>VimspectorStepOver
+#"nmap <Plug>VimspectorStepInto
+#"nmap <Plug>VimspectorStepOut
+#"nmap <expr><CR> exists("g:_vimspector_session") ? <Plug>VimspectorBalloonEval : <CR>
+#"xmap <expr><CR> _vimspector_session ? <Plug>VimspectorBalloonEval : <CR>
+#
+#function! s:my_cr()
+#  try
+#    <Plug>VimspectorBalloonEval
+#  catch
+#    <CR>
+#  endtry
+#endfunction
+#nmap <CR> :call my_cr() <CR>
+#'''
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'

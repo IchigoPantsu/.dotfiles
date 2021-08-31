@@ -97,7 +97,7 @@ alias open='xdg-open'
 alias rc='wf-recorder -g "$(slurp)" --file "$(date +%Y%m%d-%H%M%S)".mp4'
 alias ss='grim -g "$(slurp)" - | swappy -f -'
 #grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp)" - | swappy -f -
-alias nv='nvr'
+alias nv='nvim'
 alias nt="nvim -c ':term'"
 alias nmk="nvim -c ':make'"
 alias e.='ranger_cd' 

@@ -212,6 +212,8 @@ config.set('zoom.default', '125%')
 #config.bind('sq', 'quickmark-save')
 #config.bind('ab', 'bookmark-add')
 #config.bind('aq', 'quickmark-add')
+config.bind(';', 'set-cmd-text :')
+
 config.unbind('d')
 config.bind('db', 'bookmark-del')
 config.bind('dd', 'tab-close')
