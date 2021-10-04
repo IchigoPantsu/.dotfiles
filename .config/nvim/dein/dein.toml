@@ -141,27 +141,29 @@ nnoremap [Fzf]cp       :<C-u>CocFzfListResume<CR>
 #[[plugins]]
 #repo = 'pbogut/fzf-mru.vim'
 #depends = ['junegunn/fzf','junegunn/fzf.vim','neoclide/coc.nvim']
-[[plugins]]
-repo = 'sakhnik/nvim-gdb'
-build = ':!./install.sh'
-hook_add = """
-" We're going to define single-letter keymaps, so don't try to define them
-" in the terminal window.  The debugger CLI should continue accepting text commands.
-function! NvimGdbNoTKeymaps()
-  tnoremap <silent> <buffer> <esc> <c-\><c-n>
-endfunction
 
-let g:nvimgdb_config_override = {
-  \ 'key_next': 'n',
-  \ 'key_step': 's',
-  \ 'key_finish': 'f',
-  \ 'key_continue': 'c',
-  \ 'key_until': 'u',
-  \ 'key_breakpoint': 'b',
-  \ 'set_tkeymaps': "NvimGdbNoTKeymaps",
-  \ }
+#[[plugins]]
+#repo = 'sakhnik/nvim-gdb'
+#build = ':!./install.sh'
+#hook_add = """
+#" We're going to define single-letter keymaps, so don't try to define them
+#" in the terminal window.  The debugger CLI should continue accepting text commands.
+#function! NvimGdbNoTKeymaps()
+#  tnoremap <silent> <buffer> <esc> <c-\><c-n>
+#endfunction
+#
+#let g:nvimgdb_config_override = {
+#  \ 'key_next': 'n',
+#  \ 'key_step': 's',
+#  \ 'key_finish': 'f',
+#  \ 'key_continue': 'c',
+#  \ 'key_until': 'u',
+#  \ 'key_breakpoint': 'b',
+#  \ 'set_tkeymaps': "NvimGdbNoTKeymaps",
+#  \ }
+#
+#"""
 
-"""
 ## debug
 ## depend on python3 provider
 ## type: pip3 install pynvim
@@ -1212,83 +1214,209 @@ repo = 'glepnir/oceanic-material'
 #'''
 
 ## Debugging
-#[[plugins]]
-#repo = 'mfussenegger/nvim-dap'
-#hook_add = '''
-#nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
-#nnoremap <silent> <leader>dd :lua require('dap').continue()<CR>
-#nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
-#nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>
-#nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
-#nnoremap <silent> <leader>b :lua require'dap'.toggle_breakpoint()<CR>
-#nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
-#nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
-#nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
-#nnoremap <silent> <leader>dl :lua require'dap'.repl.run_last()<CR>`
-#nnoremap <silent> <leader>dn :lua require('dap-python').test_method()<CR>
-#vnoremap <silent> <leader>ds <ESC>:lua require('dap-python').debug_selection()<CR>
-#
-#lua << EOF
-#require('dap')
-#vim.fn.sign_define('DapBreakpoint', {text='●', texthl='', linehl='', numhl=''})
-#vim.fn.sign_define('DapStopped', {text='◎', texthl='', linehl='', numhl=''})
-#local dap = require "dap"
-#-- Modern LLVM installations come with a binary called lldb-vscode (or lldb-vscode-11). Use the same function as with vscode-cpptools and the following adapter configuration:
-#
-#dap.adapters.cpp = {
-#  type = 'executable',
-#  attach = {
-#    pidProperty = "pid",
-#    pidSelect = "ask"
-#  },
-#  command = 'lldb-vscode', -- my binary was called 'lldb-vscode-11'
-#  env = {
-#    LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY = "YES"
-#  },
-#  name = "lldb"
-#}
-#
-#dap.adapters.rust = {
-#    type = 'executable',
-#    attach = {
-#        pidProperty = "pid",
-#        pidSelect = "ask"
-#    },
-#    command = 'lldb-vscode', -- my binary was called 'lldb-vscode-11'
-#    env = {
-#        LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY = "YES"
-#    },
-#    name = "lldb"
-#}
-#
-#-- Now you should be able to debug a Rust or C/C++ binary (compiled with -g flag!) with a vim command :DebugC main "Hello World!" or :DebugRust target/debug/myrustprogram. :DebugC will remember your last target. So you can leave away the arguments when using it the second time.
-#-- The first time you run it, the debug adapter will complain about a missing file nvim-dap.something. Just create this file. It is already there but has the name cppdbg.something.
-#-- you should rename cppdbg.ad7Engine.json to nvim-dap.ad7Engine.json in 'extension/debugAdapters/bin'.
-#
-#vim.cmd [[
-#  command! -complete=file -nargs=* DebugC lua require "my_debug".start_c_debugger({<f-args>}, "gdb")
-#]]
-#vim.cmd [[
-#  command! -complete=file -nargs=* DebugRust lua require "my_debug".start_c_debugger({<f-args>}, "gdb", "rust-gdb")
-#]]
-#
-#env = function()
-#  local variables = {}
-#  for k, v in pairs(vim.fn.environ()) do
-#    table.insert(variables, string.format("%s=%s", k, v))
-#  end
-#  return variables
-#end
-#
-#EOF
+[[plugins]]
+repo = 'Pocco81/DAPInstall.nvim'
+#hook_add = '''```
+
+[[plugins]]
+repo = 'mfussenegger/nvim-dap'
+hook_add = '''
+nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
+nnoremap <silent> <leader>dd :lua require('dap').continue()<CR>
+nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
+nnoremap <silent> <F11> :lua require'dap'.step_into()<CR>
+nnoremap <silent> <F12> :lua require'dap'.step_out()<CR>
+nnoremap <silent> <leader>db :lua require'dap'.toggle_breakpoint()<CR>
+nnoremap <silent> <leader>dB :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
+nnoremap <silent> <leader>dl :lua require'dap'.repl.run_last()<CR>`
+nnoremap <silent> <leader>dn :lua require('dap-python').test_method()<CR>
+vnoremap <silent> <leader>ds <ESC>:lua require('dap-python').debug_selection()<CR>
+
+lua << EOF
+require('dap')
+vim.fn.sign_define('DapBreakpoint', {text='●', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapStopped', {text='◎', texthl='', linehl='', numhl=''})
+local dap = require "dap"
+-- Modern LLVM installations come with a binary called lldb-vscode (or lldb-vscode-11). Use the same function as with vscode-cpptools and the following adapter configuration:
+
+local dap = require('dap')
+dap.adapters.lldb = {
+  type = 'executable',
+  command = '/usr/bin/lldb-vscode', -- adjust as needed
+  name = "lldb"
+}
+
+dap.adapters.cpp = {
+  type = 'executable',
+  attach = {
+    pidSelect = "ask"
+  },
+  command = 'lldb-vscode', -- my binary was called 'lldb-vscode-11'
+  env = {
+    LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY = "YES"
+  },
+  name = "lldb"
+}
+
+dap.adapters.rust = {
+    type = 'executable',
+    attach = {
+        pidProperty = "pid",
+        pidSelect = "ask"
+    },
+    command = 'lldb-vscode', -- my binary was called 'lldb-vscode-11'
+    env = {
+        LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY = "YES"
+    },
+    name = "lldb"
+}
+
+dap.configurations.cpp = {
+  {
+    name = "Launch",
+    type = "lldb",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+    args = {},
+
+    -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
+    --
+    --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
+    --
+    -- Otherwise you might get the following error:
+    --
+    --    Error on launch: Failed to attach to the target process
+    --
+    -- But you should be aware of the implications:
+    -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
+    runInTerminal = false,
+  },
+}
+
+-- If you want to use this for rust and c, add something like this:
+
+dap.configurations.c = dap.configurations.cpp
+dap.configurations.rust = dap.configurations.cpp
+
+
+-- Now you should be able to debug a Rust or C/C++ binary (compiled with -g flag!) with a vim command :DebugC main "Hello World!" or :DebugRust target/debug/myrustprogram. :DebugC will remember your last target. So you can leave away the arguments when using it the second time.
+-- The first time you run it, the debug adapter will complain about a missing file nvim-dap.something. Just create this file. It is already there but has the name cppdbg.something.
+-- you should rename cppdbg.ad7Engine.json to nvim-dap.ad7Engine.json in 'extension/debugAdapters/bin'.
+
+vim.cmd [[
+  command! -complete=file -nargs=* DebugC lua require "my_debug".start_c_debugger({<f-args>}, "gdb")
+]]
+vim.cmd [[
+  command! -complete=file -nargs=* DebugRust lua require "my_debug".start_c_debugger({<f-args>}, "gdb", "rust-gdb")
+]]
+
+env = function()
+  local variables = {}
+  for k, v in pairs(vim.fn.environ()) do
+    table.insert(variables, string.format("%s=%s", k, v))
+  end
+  return variables
+end
+
+-- Map K to hover while session is active.
+local dap = require('dap')
+local api = vim.api
+local keymap_restore = {}
+dap.listeners.after['event_initialized']['me'] = function()
+  for _, buf in pairs(api.nvim_list_bufs()) do
+    local keymaps = api.nvim_buf_get_keymap(buf, 'n')
+    for _, keymap in pairs(keymaps) do
+      if keymap.lhs == "K" then
+        table.insert(keymap_restore, keymap)
+        api.nvim_buf_del_keymap(buf, 'n', 'K')
+      end
+    end
+  end
+  api.nvim_set_keymap(
+    'n', '<CR>', '<Cmd>lua require("dap.ui.variables").hover()<CR>', { silent = true })
+end
+
+dap.listeners.after['event_terminated']['me'] = function()
+  for _, keymap in pairs(keymap_restore) do
+    api.nvim_buf_set_keymap(
+      keymap.buffer,
+      keymap.mode,
+      keymap.lhs,
+      keymap.rhs,
+      { silent = keymap.silent == 1 }
+    )
+  end
+  keymap_restore = {}
+end
+
+
+
+EOF
+'''
 
 #[[plugins]]
 #repo = 'mfussenegger/nvim-dap-python'
 #depends = ['mfussenegger/nvim-dap','nvim-treesitter/nvim-treesitter']
-#[[plugins]]
-#repo = 'theHamsta/nvim-dap-virtual-text'
-#depends = ['mfussenegger/nvim-dap','nvim-treesitter/nvim-treesitter']
-# END debug
+
+[[plugins]]
+repo = 'theHamsta/nvim-dap-virtual-text'
+depends = ['mfussenegger/nvim-dap','nvim-treesitter/nvim-treesitter']
+
+[[plugins]]
+repo = 'rcarriga/nvim-dap-ui'
+depends = ['mfussenegger/nvim-dap']
+hook_add = '''
+"nnoremap <CR> <Cmd>lua require("dapui").eval()<CR>
+"vnoremap <CR> <Cmd>lua require("dapui").eval()<CR>
+
+lua << EOF
+require("dapui").setup({
+  icons = { expanded = "▾", collapsed = "▸" },
+  mappings = {
+    -- Use a table to apply multiple mappings
+    expand = { "<CR>", "<2-LeftMouse>" },
+    open = "o",
+    remove = "d",
+    edit = "e",
+    repl = "r",
+  },
+  sidebar = {
+    open_on_start = true,
+    -- You can change the order of elements in the sidebar
+    elements = {
+      -- Provide as ID strings or tables with "id" and "size" keys
+      -- { id = "scopes", size = 0.25, },
+         { id = "breakpoints", size = 0.5 },
+         { id = "stacks", size = 0.5 },
+      --{ id = "watches", size = 0.25 },
+    },
+    size = 10,
+    position = "top", -- Can be "left", "right", "top", "bottom"
+  },
+  tray = {
+    open_on_start = true,
+    elements = { "repl" },
+    size = 10,
+    position = "bottom", -- Can be "left", "right", "top", "bottom"
+  },
+  floating = {
+    max_height = nil, -- These can be integers or a float between 0 and 1.
+    max_width = nil, -- Floats will be treated as percentage of your screen.
+    mappings = {
+      close = { "q", "<Esc>" },
+    },
+  },
+  windows = { indent = 1 },
+})
+EOF
+'''
+#END debug
 
 #[[plugins]]
 #repo = 'nvim-treesitter/playground'

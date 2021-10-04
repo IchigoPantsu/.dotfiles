@@ -246,10 +246,10 @@ nnoremap <C-l> <C-w>l
 "nnoremap <C-Down> <C-w>r
 "nnoremap <C-Up> <C-w><S-r>
 "nnoremap <C-Right> <C-w>r
-nnoremap <C-Left> <C-w><S-h><Esc>
-nnoremap <C-Down> <C-w><S-j><Esc>
-nnoremap <C-Up> <C-w><S-k><Esc>
-nnoremap <C-Right> <C-w><S-l><Esc>
+"nnoremap <C-Left> <C-w><S-h><Esc>
+"nnoremap <C-Down> <C-w><S-j><Esc>
+"nnoremap <C-Up> <C-w><S-k><Esc>
+"nnoremap <C-Right> <C-w><S-l><Esc>
 
 nnoremap <C-w>v <C-w>v<C-w>l:e.<CR>
 nnoremap <C-w>s <C-w>s<C-w>j:e.<CR>
@@ -261,7 +261,6 @@ nnoremap <C-w><C-s> <C-w>s<C-w>j:e.<CR>
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 nnoremap <silent> <Leader><Tab> :tabnew<CR>
-
 
 "オレオレセッティング
 "nnoremap <expr><CR> v:hlsearch==1 ? "n" : "<CR>"
@@ -392,7 +391,44 @@ set termguicolors     " enable true colors support
 "colorscheme ayu
 set background=dark
 colorscheme oceanic_material
+let g:oceanic_material_transparent_background = 0
 
 "let g:sonokai_style = 'maia'
 "colorscheme sonokai
 "let g:airline_theme = 'sonokai'
+
+""[vim transparent background](https://gist.github.com/fuadnafiz98/d91e468c9bc4689868eb0984a29fef66)
+"" for transparent background
+"function! AdaptColorscheme()
+"   highlight clear CursorLine
+"   highlight Normal ctermbg=none
+"   highlight LineNr ctermbg=none
+"   highlight Folded ctermbg=none
+"   highlight NonText ctermbg=none
+"   highlight SpecialKey ctermbg=none
+"   highlight VertSplit ctermbg=none
+"   highlight SignColumn ctermbg=none
+"endfunction
+"autocmd ColorScheme * call AdaptColorscheme()
+"
+"highlight Normal guibg=NONE ctermbg=NONE
+"highlight CursorColumn cterm=NONE ctermbg=NONE ctermfg=NONE
+"highlight CursorLine cterm=NONE ctermbg=NONE ctermfg=NONE
+"highlight CursorLineNr cterm=NONE ctermbg=NONE ctermfg=NONE
+"highlight clear LineNr
+"highlight clear SignColumn
+"highlight clear StatusLine
+"
+"
+"" Change Color when entering Insert Mode
+"autocmd InsertEnter * set nocursorline
+"
+"" Revert Color to default when leaving Insert Mode
+"autocmd InsertLeave * set nocursorline
+"
+""" extra settings, uncomment them if necessary :) 
+""set cursorline
+""set noshowmode
+""set nocursorline
+"
+"" trasparent end

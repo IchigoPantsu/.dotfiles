@@ -6,5 +6,5 @@
 
 config_version: 2
 settings:
-  content.geolocation:
-    https://www.google.co.jp: true
+  content.notifications.enabled:
+    https://www.4shared.com: true

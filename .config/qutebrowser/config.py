@@ -203,7 +203,7 @@ c.input.partial_timeout = 0
 #c.tabs.padding = {'bottom': 4, 'left': 4, 'right': 4, 'top': 4}
 
 # zoom
-config.set('zoom.default', '125%')
+config.set('zoom.default', '80%')
 
 # hide title bar
 #c.window.hide_decoration = True
