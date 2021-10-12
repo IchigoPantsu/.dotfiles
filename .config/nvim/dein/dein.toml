@@ -645,9 +645,8 @@ autocmd Filetype * AnyFoldActivate
 repo = 'luochen1990/rainbow'
 hook_add = '''
 "set to 0 if you want to enable it later via :RainbowToggle
-let g:rainbow_active = 1 
-"nnoremap j [j
-"nnoremap k ]k
+let g:rainbow_active = 1
+
 '''
 
 [[plugins]]
@@ -1187,7 +1186,7 @@ repo = 'glepnir/oceanic-material'
 # :lua << EOF
 # require('telescope').load_extension('media_files')
 # require'telescope'.setup {
-#   extensions = {
+#   extensions = {#
 #     media_files = {
 #      -- filetypes whitelist
 #       -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
@@ -1198,20 +1197,20 @@ repo = 'glepnir/oceanic-material'
 # }
 # EOF
 # '''
-#
-## Better Syntax Highlighting using Tree-Sitter
-#[[plugins]]
-#repo = 'nvim-treesitter/nvim-treesitter'
-#merge = 0
-#hook_add ='''
-#lua <<EOF
-#require'nvim-treesitter.configs'.setup {
-#  highlight = {
-#    enable = true
-#  },
-#}
-#EOF
-#'''
+
+# Better Syntax Highlighting using Tree-Sitter
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+merge = 0
+hook_add ='''
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true
+  },
+}
+EOF
+'''
 
 ## Debugging
 [[plugins]]
@@ -1221,6 +1220,8 @@ repo = 'Pocco81/DAPInstall.nvim'
 [[plugins]]
 repo = 'mfussenegger/nvim-dap'
 hook_add = '''
+
+
 nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
 nnoremap <silent> <leader>dd :lua require('dap').continue()<CR>
 nnoremap <silent> <F10> :lua require'dap'.step_over()<CR>
@@ -1238,7 +1239,8 @@ lua << EOF
 require('dap')
 vim.fn.sign_define('DapBreakpoint', {text='●', texthl='', linehl='', numhl=''})
 vim.fn.sign_define('DapStopped', {text='◎', texthl='', linehl='', numhl=''})
-local dap = require "dap"
+
+-- local dap = require "dap"
 -- Modern LLVM installations come with a binary called lldb-vscode (or lldb-vscode-11). Use the same function as with vscode-cpptools and the following adapter configuration:
 
 local dap = require('dap')
@@ -1376,6 +1378,14 @@ hook_add = '''
 "vnoremap <CR> <Cmd>lua require("dapui").eval()<CR>
 
 lua << EOF
+
+-- Automatically opening the UI is deprecated.
+-- You can replicate previous behaviour by adding the following to your config
+local dap, dapui = require('dap'), require('dapui') 
+dap.listeners.after.event_initialized['dapui_config'] = function() dapui.open() end
+dap.listeners.before.event_terminated['dapui_config'] = function() dapui.close() end
+dap.listeners.before.event_exited['dapui_config'] = function() dapui.close() end
+
 require("dapui").setup({
   icons = { expanded = "▾", collapsed = "▸" },
   mappings = {
@@ -1387,7 +1397,7 @@ require("dapui").setup({
     repl = "r",
   },
   sidebar = {
-    open_on_start = true,
+    -- open_on_start = true,
     -- You can change the order of elements in the sidebar
     elements = {
       -- Provide as ID strings or tables with "id" and "size" keys
@@ -1400,7 +1410,7 @@ require("dapui").setup({
     position = "top", -- Can be "left", "right", "top", "bottom"
   },
   tray = {
-    open_on_start = true,
+    -- open_on_start = true,
     elements = { "repl" },
     size = 10,
     position = "bottom", -- Can be "left", "right", "top", "bottom"

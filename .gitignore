@@ -21,6 +21,8 @@
 !/.i3
 #others config
 !/.config
+#less configuration
+!/.lesskey
 
 #dotfiles
 !/bin
