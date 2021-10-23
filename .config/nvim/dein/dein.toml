@@ -640,14 +640,12 @@ autocmd Filetype * AnyFoldActivate
  set foldlevel=99 
 '''
 
-
-[[plugins]]
-repo = 'luochen1990/rainbow'
-hook_add = '''
-"set to 0 if you want to enable it later via :RainbowToggle
-let g:rainbow_active = 1
-
-'''
+#[[plugins]]
+#repo = 'luochen1990/rainbow'
+#hook_add = '''
+#"set to 0 if you want to enable it later via :RainbowToggle
+#let g:rainbow_active = 1
+#'''
 
 [[plugins]]
 repo = 'arecarn/vim-fold-cycle'
@@ -1211,6 +1209,25 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 '''
+
+[[plugins]]
+repo = 'p00f/nvim-ts-rainbow'
+depends = ['nvim-treesitter/nvim-treesitter']
+hook_add ='''
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  rainbow = {
+    enable = true,
+    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    -- colors = {}, -- table of hex strings
+    -- termcolors = {} -- table of colour name strings
+  }
+}
+EOF
+'''
+
+
 
 ## Debugging
 [[plugins]]
