@@ -11,7 +11,6 @@ sudo pacman -syy
 sudo pacman -syu
 ```
 
-
 ### install japanese font 
 ```
 sudo pacman -S adobe-source-han-sans-jp-fonts
