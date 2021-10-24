@@ -19,3 +19,13 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # set default shell and terminal
 export SHELL=/usr/bin/zsh
 export TERMINAL_COMMAND=/usr/share/sway/scripts/foot.sh
+
+export GLYPH_DESKTOP="󰄶 "
+export GLYPH_COMMAND="󰆍 "
+
+# fcitx(japanese)  
+export LC_CTYPE=ja_JP.utf-8
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
