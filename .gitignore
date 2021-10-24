@@ -5,38 +5,64 @@
 /.*
 
 # Filelist not to ignore
+
+!/.bash_logout
 !/.bash_profile
 !/.bashrc
+!/.config
+!/.dir_colors
+#.git
+!/.gitignore
+!/.gitmodules
+!/.gitignore_global_
+!/.lesskey
 !/.my_bashrc
 !/.profile
 !/README.md
+!/.themes
 !/.vim
 !/.vimrc
+!/vortex_core
+!/.Xclients
 !/.zshenv
 !/.zshrc
-#vim
-!/.vimrc
-!/.vim
-#i3 config
-!/.i3
-#others config
-!/.config
-#less configuration
-!/.lesskey
 
-#dotfiles
-!/bin
-!/vortex_core
-!/README.md
-!/.gitmodule
-!/.gitignore
-!/.gitignore_global_
+#!/.bash_profile
+#!/.bashrc
+#!/.my_bashrc
+#!/.profile
+#!/README.md
+#!/.vim
+#!/.vimrc
+#!/.zshenv
+#!/.zshrc
+##vim
+#!/.vimrc
+#!/.vim
+##i3 config
+#!/.i3
+#
+##less configuration
+#!/.lesskey
+##themes
+#!/.themes
+#
+##dotfiles
+#!/bin
+#!/vortex_core
+#!/README.md
+#!/.gitmodule
+#!/.gitignore
+#!/.gitignore_global_
+
 # After all filelist to ignore
 /.vim/bundle/*
-/.config/qutebrowser/qsettings/QtProject.conf
-/.config/qutebrowser/bookmarks/urls
-/.config/qutebrowser/quickmarks
+/.config/qutebrowser/*
+!/.config/qutebrowser/config.py
 /.config/ranger/__pycache__/*
 /.config/ranger/plugins/__pycache__/*
+
+/.config/zsh/*
+!/.config/zsh/.zshrc
 
 #!/.vim/bundle/neobundle.vim

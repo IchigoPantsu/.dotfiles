@@ -1,6 +1,5 @@
 #!/bin/sh
 # make default editor Neovim
-export BROWSER=qutebrowser
 export EDITOR=nvim
 
 # Most pure GTK3 apps use wayland by default, but some,
@@ -14,19 +13,9 @@ export QT_QPA_PLATFORM="wayland"
 export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
 
+#Java XWayland blank screens fix
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # set default shell and terminal
 export SHELL=/usr/bin/zsh
-export TERM=xterm-termite
-export TERMINAL_COMMAND='/usr/share/sway/scripts/terminal.sh'
-
-# sway-launcher-desktop with material icons
-export GLYPH_DESKTOP="󰄶 "
-export GLYPH_COMMAND="󰆍 "
-
-# fcitx(japanese)  
-export LC_CTYPE=ja_JP.utf-8
-
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-#fcitx &
+export TERMINAL_COMMAND=/usr/share/sway/scripts/foot.sh

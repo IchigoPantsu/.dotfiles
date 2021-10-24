@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=oceanic_material
+Comment=A dark modern design theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=oceanic_material
+MetacityTheme=oceanic_material
+IconTheme=Qogir-manjaro
+CursorTheme=Qogir-manjaro
+ButtonLayout=menu:minimize,maximize,close
