@@ -160,8 +160,8 @@ c.colors.tabs.selected.even.bg = '#202020'
 #config.bind(';M', 'hint --rapid links spawn open -na /Applications/mpv.app {hint-url}')
 #config.bind('<Meta+n>', 'open -p')
 #config.bind('<Meta+w>', 'close')
-config.bind(',M', 'hint links spawn open -na /Applications/mpv.app {hint-url}')
-config.bind(',m', 'spawn open -na /Applications/mpv.app {url}')
+config.bind(',M', 'hint links spawn mpv {hint-url}')
+config.bind(',m', 'spawn mpv {url}')
 
 #[qutebrowser の細かい設定 - Qiita](https://qiita.com/toyboot4e/items/c801050c0d53d3a1600a)
 
@@ -203,7 +203,7 @@ c.input.partial_timeout = 0
 #c.tabs.padding = {'bottom': 4, 'left': 4, 'right': 4, 'top': 4}
 
 # zoom
-config.set('zoom.default', '80%')
+config.set('zoom.default', '90%')
 
 # hide title bar
 #c.window.hide_decoration = True
@@ -255,6 +255,7 @@ config.bind('<Shift+k>', ':run-with-count 15 scroll up')
 
 config.bind(',c', ':spawn google-chrome-unstable {url}')
 config.bind(',f', ':spawn firefox-nightly {url}')
+
 
 #config.set('backend', 'webkit')
 #config.bind('x', ':tab-close')
