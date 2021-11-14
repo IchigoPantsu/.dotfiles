@@ -255,15 +255,15 @@ nnoremap <C-Right> <C-w>l
 "nnoremap <C-Up> <C-w><S-k><Esc>
 "nnoremap <C-Right> <C-w><S-l><Esc>
 
-nnoremap <C-w>v <C-w>v<C-w>l:e.<CR>
-nnoremap <C-w>s <C-w>s<C-w>j:e.<CR>
+nnoremap <C-w>v <C-w>v<C-w>l:RnvimrToggle<CR>
+nnoremap <C-w>s <C-w>s<C-w>j:RnvimrToggle<CR>
 
-nnoremap <C-w><C-v> <C-w>v<C-w>l:e.<CR>
-nnoremap <C-w><C-s> <C-w>s<C-w>j:e.<CR>
+nnoremap <C-w><C-v> <C-w>v<C-w>l:RnvimrToggle<CR>
+nnoremap <C-w><C-s> <C-w>s<C-w>j:RnvimrToggle<CR>
 
-nnoremap e. :e.<CR>
-nnoremap ws <C-w>s<C-w>j:e.<CR>
-nnoremap wv <C-w>v<C-w>j:e.<CR>
+nnoremap e. :RnvimrToggle<CR>
+nnoremap ws <C-w>s<C-w>j:RnvimrToggle<CR>
+nnoremap wv <C-w>v<C-w>j:RnvimrToggle<CR>
 """ Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
@@ -398,7 +398,15 @@ set termguicolors     " enable true colors support
 "colorscheme ayu
 set background=dark
 colorscheme oceanic_material
-let g:oceanic_material_transparent_background = 0
+let g:oceanic_material_transparent_background = 1
+
+"[Coc warning underline color disappear · Issue #19 · glepnir/oceanic-material]
+"(https://github.com/glepnir/oceanic-material/issues/19)
+hi NormalFloat guibg=#1b2b34
+
+"[Folder names not clearly visible in netrw · Issue #26 · glepnir/oceanic-material]
+"(https://github.com/glepnir/oceanic-material/issues/26)
+hi netrwDir guifg=#FFFFFF
 
 "let g:sonokai_style = 'maia'
 "colorscheme sonokai
