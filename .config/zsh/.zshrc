@@ -21,3 +21,5 @@ alias ssh="TERM=xterm-256color ssh"
 if [[ -e ~/.my_bashrc ]]; then
   source ~/.my_bashrc
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
