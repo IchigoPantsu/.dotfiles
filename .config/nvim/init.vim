@@ -236,14 +236,14 @@ onoremap <Right> l
 " nnoremap <C-s> <C-w>s<C-w>j:<C-u>Files<CR>
 
 " 画面分割移動
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-Left> <C-w>h
-nnoremap <C-Down> <C-w>j
-nnoremap <C-Up> <C-w>k
-nnoremap <C-Right> <C-w>l
+nnoremap wh <C-w>h
+nnoremap wj <C-w>j
+nnoremap wk <C-w>k
+nnoremap wl <C-w>l
+nnoremap w<Left> <C-w>h
+nnoremap w<Down> <C-w>j
+nnoremap w<Up> <C-w>k
+nnoremap w<Right> <C-w>l
 
 "オレオレコード
 "nnoremap <C-Left> <C-w><S-r>
@@ -255,11 +255,11 @@ nnoremap <C-Right> <C-w>l
 "nnoremap <C-Up> <C-w><S-k><Esc>
 "nnoremap <C-Right> <C-w><S-l><Esc>
 
-nnoremap <C-w>v <C-w>v<C-w>l:RnvimrToggle<CR>
-nnoremap <C-w>s <C-w>s<C-w>j:RnvimrToggle<CR>
+"nnoremap <C-w>v <C-w>v<C-w>l:RnvimrToggle<CR>
+"nnoremap <C-w>s <C-w>s<C-w>j:RnvimrToggle<CR>
 
-nnoremap <C-w><C-v> <C-w>v<C-w>l:RnvimrToggle<CR>
-nnoremap <C-w><C-s> <C-w>s<C-w>j:RnvimrToggle<CR>
+"nnoremap <C-w><C-v> <C-w>v<C-w>l:RnvimrToggle<CR>
+"nnoremap <C-w><C-s> <C-w>s<C-w>j:RnvimrToggle<CR>
 
 nnoremap e. :RnvimrToggle<CR>
 nnoremap ws <C-w>s<C-w>j:RnvimrToggle<CR>
