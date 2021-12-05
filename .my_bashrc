@@ -102,8 +102,8 @@ alias nmk="nvim -c ':make'"
 alias e.='ranger_cd' 
 
 alias zathura='zathura --plugins-dir=/usr/lib/zathura'
+export XCURSOR_THEME=Adwaita XCURSOR_SIZE=32 slurp
 
-export XCURSOR_THEME=Adwaita XCURSOR_SIZE=30 slurp
 #unity
 #https://github.com/OmniSharp/omnisharp-vim/issues/583
 export FrameworkPathOverride=/lib/mono/4.7.2-api
@@ -118,10 +118,9 @@ zvm_after_init_commands+=(my_init)
 
 #[Bashでコマンドの存在チェック - LESS IS MORE]
 #(http://r9y9.github.io/blog/2013/08/12/bash-check-commend-existence/)
-if type key-mapper-control > /dev/null 2>&1
+if type key-mapper-control &> /dev/null # 2>&1
 then
     key-mapper-control --command autoload
 fi
 
-
-
+clear

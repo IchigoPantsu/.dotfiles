@@ -142,7 +142,7 @@ c.colors.tabs.selected.odd.fg = '#d5c4a1'
 
 # Background color of selected odd tabs.
 # Type: QtColor
-c.colors.tabs.selected.odd.bg = '#202020'
+c.colors.tabs.selected.odd.bg = '#353535'
 
 # Foreground color of selected even tabs.
 # Type: QtColor
@@ -150,7 +150,7 @@ c.colors.tabs.selected.even.fg = '#d5c4a1'
 
 # Background color of selected even tabs.
 # Type: QtColor
-c.colors.tabs.selected.even.bg = '#202020'
+c.colors.tabs.selected.even.bg = '#353535'
 
 # Font used in the tab bar.
 # Type: QtFont

@@ -86,7 +86,12 @@ qmk flash -kb ergodox_ez -km my_ergodox_ez
 > [GitHubでssh接続する手順公開鍵・秘密鍵の生成から- Qiita](https://qiita.com/shizuma/items/2b2f873a0034839e47ce)
 
 
-### enable japanese in pdf
+### for zathura
+```
+yay -S girara-git
+```
+
+### enable japanese in zathura-pdf
 ```
 sudo pacman -S poppler-data
 ```
