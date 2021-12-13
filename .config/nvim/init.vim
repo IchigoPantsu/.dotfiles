@@ -163,6 +163,22 @@ set errorformat=%f\|%l\ col\ %c\|\ %m\
 " https://vim.fandom.com/wiki/Search_for_visually_selected_text
 vnoremap <CR> y/\V<C-R>=escape(@",'/\')<CR><CR>
 
+"[vimでヴィジュアルモードの連続貼り付け - Qiita](https://qiita.com/hikaruna/items/83c1220eede810bee492)
+" vモードの置換連続ペースト用
+function! Put_text_without_override_register()
+  let line_len = strlen(getline('.'))
+  execute "normal! `>"
+  let col_loc = col('.')
+  execute 'normal! gv"_x'
+  if line_len == col_loc
+    execute 'normal! p'
+  else 
+    execute 'normal! P'
+  endif
+endfunction
+xnoremap <silent> p :call Put_text_without_override_register()<CR>
+"ヤンクした時に自動でクリップボードにコピー(autoselectを指定するとvモードの置換連続ペーストができない)
+"set clipboard=unnamed
 
 " 初心者向け　Vimでクリップボード連携(コピー&ペースト)する方法
 " https://qiita.com/iwaseasahi/items/a45b99a484966662adbe
@@ -265,9 +281,9 @@ nnoremap e. :RnvimrToggle<CR>
 nnoremap ws <C-w>s<C-w>j:RnvimrToggle<CR>
 nnoremap wv <C-w>v<C-w>j:RnvimrToggle<CR>
 """ Tabs
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
-nnoremap <silent> <Leader><Tab> :tabnew<CR>
+"nnoremap <Tab> gt
+"nnoremap <S-Tab> gT
+"nnoremap <silent> <Leader><Tab> :tabnew<CR>
 
 "オレオレセッティング
 "nnoremap <expr><CR> v:hlsearch==1 ? "n" : "<CR>"
@@ -332,7 +348,10 @@ set mouse=a
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
-"inoremap <silent> jj <ESC>
+"setlocal spell
+"set spelllang=en_us
+"inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shougo/dein.vim config 
 " https://qiita.com/sugamondo/items/fcaf210ca86d65bcaca8

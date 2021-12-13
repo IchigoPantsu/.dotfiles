@@ -149,6 +149,13 @@ yay -S key-mapper-git
 sudo systemctl enable key-mapper
 ```
 
+### tex
+```
+sudo pacman -S texlive-langjapanese texlive-bibtexextra texlive-latexextra biber otf-ipafont
+```
+
+> [LaTeXでスライドが作れるBeamerでBibTeXを使う - Qiita](https://qiita.com/spica314/items/42c7290bb3939bf95530)
+
 ### Reference
 + [ミニマルに始めるDotfiles自動化計画](https://qiita.com/okamos/items/40966158d0271ae7198b)
 + [.vimrcをgithubで管理する時って、プラグイン管理をNeoBundle使う場合はどうすんのよ！？](https://qiita.com/yukimura1227/items/9727dec975d3fe9557c9#%E7%B5%8C%E7%B7%AF)

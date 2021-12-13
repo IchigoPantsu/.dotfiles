@@ -712,6 +712,36 @@ let g:vim_current_word#highlight_current_word = 0
 # nmap <silent> <Leader>x <Plug>TranslateX
 # '''
 
+#[How I'm able to take notes in mathematics lectures using LaTeX and Vim | Gilles Castel](https://castel.dev/post/lecture-notes-1/)
+[[plugins]]
+repo = 'lervag/vimtex'
+hook_add = '''
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+'''
+
+#:CocInstall coc-snippets
+#[neoclide/coc-snippets: Snippets solution for coc.nvim](https://github.com/neoclide/coc-snippets)
+[[plugins]]
+repo = 'sirver/ultisnips'
+hook_add = '''
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+"[Setting up Ultisnips for Neovim - jdhao's blog](https://jdhao.github.io/2019/04/17/neovim_snippet_s1/)
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "my_snippets"]
+'''
+
+
+[[plugins]]
+repo = 'KeitaNakamura/tex-conceal.vim'
+hook_add = '''
+set conceallevel=1
+let g:tex_conceal='abdmg'
+hi Conceal ctermbg=none
+'''
 
 # vim・neovimでできるマークダウン　[リアルタイムプレビュー完備]
 # https://qiita.com/Nedward/items/24a6c5aaec8c4fd86626
@@ -722,7 +752,6 @@ let g:vim_markdown_conceal = 0
 "let g:tex_conceal = ""
 "let g:vim_markdown_math = 1
 let g:vim_markdown_conceal_code_blocks = 0
-
 '''
 
 [[plugins]]
