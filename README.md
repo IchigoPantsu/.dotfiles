@@ -151,7 +151,7 @@ sudo systemctl enable key-mapper
 
 ### tex
 ```
-sudo pacman -S texlive-langjapanese texlive-bibtexextra texlive-latexextra biber otf-ipafont
+sudo pacman -S texlive-langjapanese texlive-bibtexextra texlive-latexextra biber
 ```
 
 > [LaTeXでスライドが作れるBeamerでBibTeXを使う - Qiita](https://qiita.com/spica314/items/42c7290bb3939bf95530)
