@@ -1,7 +1,7 @@
 :
 ###fzf config###                                                                               
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"                                
-export FZF_DEFAULT_OPTS="--preview-window=down:1 --height 40% --reverse --border --preview 'bat --style=numbers --color=always {}'"                                                                                   
+export FZF_DEFAULT_OPTS="--preview-window=down:15% --height 60% --reverse --border --preview 'bat --style=numbers --color=always {}'"                                                                                   
                                                                                                
 ### keybinding and completion settings                                                         
 #fzf_version = brew --version                                                                  

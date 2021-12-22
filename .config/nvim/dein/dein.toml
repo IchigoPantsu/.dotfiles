@@ -60,14 +60,11 @@ hook_add = '''
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 
-"inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
-"inoremap <expr> <c-x><c-f> fzf#vim#complete#path('rg --files')
-
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Path completion with custom source command
-inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
+"inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
 inoremap <expr> <c-x><c-f> fzf#vim#complete#path('rg --files')
 
 " Word completion with custom spec with popup layout option
@@ -127,34 +124,40 @@ endfunction
 "nnoremap [Fzf]l :<C-u>Lines<CR>
 
 "nnoremap <C-f> :<C-u>Files ./<CR>
-nnoremap <C-f> :<C-u>Files ~<CR>
-vnoremap <C-f> :<C-u>Files ~<C-R>=<SID>getVisualSelection()<CR><CR>
+"nnoremap <C-f> :<C-u>Files ~<CR>
+"vnoremap <C-f> :<C-u>Files ~ <C-R>=<SID>getVisualSelection()<CR><CR>
 
-"nnoremap <C-g> :<C-u>GFiles<CR>
-nnoremap <C-g> :<C-u>GFiles?<CR>
-vnoremap <C-g> :<C-u>GFiles? <C-R>=<SID>getVisualSelection()<CR><CR>
+command! -bang -nargs=* GitFiles
+  \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case --files".shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': system('git rev-parse --show-toplevel 2> /dev/null')[:-2]}), <bang>0)
+
+nnoremap <C-t> :<C-u>GitFiles<CR>
+vnoremap <C-t> :<C-u>GitFiles <C-R>=<SID>getVisualSelection()<CR><CR>
 
 nnoremap <C-b> :<C-u>Buffers<CR>
 vnoremap <C-b> :<C-u>Buffers <C-R>=<SID>getVisualSelection()<CR><CR>
 
 nnoremap <C-h> :<C-u>History<CR>
 vnoremap <C-h> :<C-u>History <C-R>=<SID>getVisualSelection()<CR><CR>
+
 " オレオレセッティング
-nnoremap <C-a> :<C-u>Ag<CR>
-vnoremap <C-a> :<C-u>Ag <C-R>=<SID>getVisualSelection()<CR><CR>
+"nnoremap <C-a> :<C-u>Ag<CR>
+"vnoremap <C-a> :<C-u>Ag <C-R>=<SID>getVisualSelection()<CR><CR>
 
 "[Rg from different directory · Issue #837 · junegunn/fzf.vim](https://github.com/junegunn/fzf.vim/issues/837)
-command! -bang -nargs=* PRg
+command! -bang -nargs=* GitRg
   \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': system('git rev-parse --show-toplevel 2> /dev/null')[:-2]}), <bang>0)
 
-nnoremap <C-r> :<C-u>PRg<CR>
-vnoremap <C-r> :<C-u>PRg <C-R>=<SID>getVisualSelection()<CR><CR>
-
-nnoremap <C-c><C-m> :<C-u>Commands<CR>
-vnoremap <C-c><C-m> :<C-u>Commands <C-R>=<SID>getVisualSelection()<CR><CR>
+nnoremap <C-f> :<C-u>GitRg<CR>
+vnoremap <C-f> :<C-u>GitRg <C-R>=<SID>getVisualSelection()<CR><CR>
+nnoremap <C-r> :<C-u>History:<CR>
+vnoremap <C-r> :<C-u>History: <C-R>=<SID>getVisualSelection()<CR><CR>
+nnoremap <C-Space> :<C-u>Commands<CR>
+vnoremap <C-Space> :<C-u>Commands <C-R>=<SID>getVisualSelection()<CR><CR>
+nnoremap <C-_> :<C-u>History/<CR>
+vnoremap <C-_> :<C-u>History/ <C-R>=<SID>getVisualSelection()<CR><CR>
 
 nnoremap <C-l> :<C-u>Lines<CR>
-vnoremap <C-l> :<C-u>Commands <C-R>=<SID>getVisualSelection()<CR><CR>
+vnoremap <C-l> :<C-u>Lines <C-R>=<SID>getVisualSelection()<CR><CR>
 " 画面分割
 " nnoremap <C-v> <C-w>v<C-w>l:<C-u>Files<CR>
 " nnoremap <C-s> <C-w>s<C-w>j:<C-u>Files<CR>
@@ -868,7 +871,7 @@ hook_add = '''
 "vmap <C-W>v <Plug>(Visual-Split-VSSplitBelow)
 
 vmap wr <Plug>(Visual-Split-VSResize)
-vmap ws <Plug>(Visual-Split-VSSplitAbove)
+vmap wx <Plug>(Visual-Split-VSSplitAbove)
 vmap wv <Plug>(Visual-Split-VSSplitBelow)
 '''
 
@@ -1002,15 +1005,15 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-" Remap <C-f> and <C-b> for scroll float windows/popups.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
+"" Remap <C-f> and <C-b> for scroll float windows/popups.
+"if has('nvim-0.4.0') || has('patch-8.2.0750')
+"  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+"  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+"  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+"  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+"  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+"  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+"endif
 
 " Use CTRL-S for selections ranges.
 " Requires 'textDocument/selectionRange' support of language server.
@@ -1716,9 +1719,9 @@ EOF
 [[plugins]]
 repo = 'kevinhwang91/rnvimr'
 hook_add = '''
-tnoremap <silent> <M-i> <C-\><C-n>:RnvimrResize<CR>
-nnoremap <silent> <M-o> :RnvimrToggle<CR>
-tnoremap <silent> <M-o> <C-\><C-n>:RnvimrToggle<CR>
+"tnoremap <silent> <M-i> <C-\><C-n>:RnvimrResize<CR>
+"nnoremap <silent> <M-o> :RnvimrToggle<CR>
+"tnoremap <silent> <M-o> <C-\><C-n>:RnvimrToggle<CR>
 
 " Make Ranger replace Netrw and be the file explorer
 let g:rnvimr_enable_ex = 1
@@ -1747,17 +1750,17 @@ let g:rnvimr_ranger_cmd = 'ranger --cmd="set draw_borders both"'
 " Link CursorLine into RnvimrNormal highlight in the Floating window
 highlight link RnvimrNormal CursorLine
 
-nnoremap <silent> <M-o> :RnvimrToggle<CR>
-tnoremap <silent> <M-o> <C-\><C-n>:RnvimrToggle<CR>
+"nnoremap <silent> <M-o> :RnvimrToggle<CR>
+"tnoremap <silent> <M-o> <C-\><C-n>:RnvimrToggle<CR>
 
 " Resize floating window by all preset layouts
 tnoremap <silent> <M-i> <C-\><C-n>:RnvimrResize<CR>
 
 " Resize floating window by special preset layouts
-tnoremap <silent> <M-l> <C-\><C-n>:RnvimrResize 1,8,9,11,5<CR>
+"tnoremap <silent> <M-l> <C-\><C-n>:RnvimrResize 1,8,9,11,5<CR>
 
 " Resize floating window by single preset layout
-tnoremap <silent> <M-y> <C-\><C-n>:RnvimrResize 6<CR>
+"tnoremap <silent> <M-y> <C-\><C-n>:RnvimrResize 6<CR>
 
 " Map Rnvimr action
 let g:rnvimr_action = {
@@ -1770,7 +1773,7 @@ let g:rnvimr_action = {
 
 " Add views for Ranger to adapt the size of floating window
 let g:rnvimr_ranger_views = [
-            \ {'minwidth': 90, 'ratio': []},
+            \ {'minwidth': 50, 'ratio': []},
             \ {'minwidth': 50, 'maxwidth': 89, 'ratio': [1,1]},
             \ {'maxwidth': 49, 'ratio': [1]}
             \ ]
@@ -1778,9 +1781,9 @@ let g:rnvimr_ranger_views = [
 " Customize the initial layout
 let g:rnvimr_layout = {
             \ 'relative': 'editor',
-            \ 'width': float2nr(round(0.7 * &columns)),
+            \ 'width': float2nr(round(0.9 * &columns)),
             \ 'height': float2nr(round(0.7 * &lines)),
-            \ 'col': float2nr(round(0.15 * &columns)),
+            \ 'col': float2nr(round(0.05 * &columns)),
             \ 'row': float2nr(round(0.15 * &lines)),
             \ 'style': 'minimal'
             \ }
