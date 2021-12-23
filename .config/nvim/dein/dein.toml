@@ -128,10 +128,10 @@ endfunction
 "vnoremap <C-f> :<C-u>Files ~ <C-R>=<SID>getVisualSelection()<CR><CR>
 
 command! -bang -nargs=* GitFiles
-  \ call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case --files".shellescape(<q-args>), 1, fzf#vim#with_preview({'dir': system('git rev-parse --show-toplevel 2> /dev/null')[:-2]}), <bang>0)
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'dir': system('git rev-parse --show-toplevel 2> /dev/null')[:-2]}), <bang>0)
 
 nnoremap <C-t> :<C-u>GitFiles<CR>
-vnoremap <C-t> :<C-u>GitFiles <C-R>=<SID>getVisualSelection()<CR><CR>
+"vnoremap <C-t> :<C-u>GitFiles <C-R>=<SID>getVisualSelection()<CR><CR>
 
 nnoremap <C-b> :<C-u>Buffers<CR>
 vnoremap <C-b> :<C-u>Buffers <C-R>=<SID>getVisualSelection()<CR><CR>
