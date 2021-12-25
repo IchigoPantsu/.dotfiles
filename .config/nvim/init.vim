@@ -202,8 +202,8 @@ set clipboard+=unnamed
 " j,kはdein.toml/vim-anyfoldへ移動
 nnoremap j gj
 nnoremap k gk
-nnoremap J <C-d>
-nnoremap K <C-u>
+nnoremap <S-j> <C-d>
+nnoremap <S-k> <C-u>
 nnoremap <Down> gj
 nnoremap <Up> gk
 nnoremap <Leader>j zj
@@ -218,8 +218,8 @@ nnoremap <Right> l
 
 vnoremap j gj
 vnoremap k gk
-vnoremap J <C-d>
-vnoremap K <C-u>
+vnoremap <S-j> <C-d>
+vnoremap <S-k> <C-u>
 vnoremap <Down> gj
 vnoremap <Up> gk
 

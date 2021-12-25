@@ -681,8 +681,6 @@ repo = 'Yggdroot/indentLine'
 #nnoremap <leader>E :W3mShowExtenalBrowser
 #let g:w3m#hit_a_hint_key = 'f'
 #'''
-
-[[plugins]]
 repo = 'pseewald/vim-anyfold'
 hook_add = '''
 filetype plugin indent on " required
@@ -772,25 +770,22 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "my_snippets"]
 '''
 
 
-[[plugins]]
-repo = 'KeitaNakamura/tex-conceal.vim'
-hook_add = '''
-set conceallevel=1
-let g:tex_conceal='abdmg'
-hi Conceal ctermbg=none
-'''
+#[[plugins]]
+#repo = 'KeitaNakamura/tex-conceal.vim'
+#hook_add = '''
+#set conceallevel=1
+#let g:tex_conceal='abdmg'
+#hi Conceal ctermbg=none
+#'''
 
-# vim・neovimでできるマークダウン　[リアルタイムプレビュー完備]
-# https://qiita.com/Nedward/items/24a6c5aaec8c4fd86626
 [[plugins]]
-repo = 'plasticboy/vim-markdown'
+repo = 'tyru/open-browser.vim'
 hook_add = '''
-let g:vim_markdown_conceal = 0
-"let g:tex_conceal = ""
-"let g:vim_markdown_math = 1
-let g:vim_markdown_conceal_code_blocks = 0
-nmap <Plug> <Plug>Markdown_OpenUrlUnderCursor
-vmap <Plug> <Plug>Markdown_OpenUrlUnderCursor
+" disable netrw's gx mapping.
+let g:netrw_nogx = 1 
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+let g:openbrowser_default_search = 'duckduckgo'
 '''
 
 [[plugins]]
@@ -804,13 +799,13 @@ let g:previm_enable_realtime=1
 '''
 
 [[plugins]]
-repo = 'tyru/open-browser.vim'
+repo = 'plasticboy/vim-markdown'
 hook_add = '''
-" disable netrw's gx mapping.
-let g:netrw_nogx = 1 
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
-let g:openbrowser_default_search = 'duckduckgo'
+let g:vim_markdown_conceal = 0
+let g:tex_conceal = ""
+let g:vim_markdown_math = 1
+nmap <Plug> <Plug>Markdown_OpenUrlUnderCursor
+vmap <Plug> <Plug>Markdown_OpenUrlUnderCursor
 '''
 
 #[[plugins]]
@@ -1485,7 +1480,7 @@ nnoremap <silent> <leader>dd :lua require('dap').continue()<CR>
 nnoremap <silent> <leader>J :lua require'dap'.step_over()<CR>
 nnoremap <silent> <leader>j :lua require'dap'.step_into()<CR>
 nnoremap <silent> <leader><Down> :lua require'dap'.step_out()<CR>
-nnoremap <silent> b :lua require'dap'.toggle_breakpoint()<CR>
+nnoremap <silent> <C-b> :lua require'dap'.toggle_breakpoint()<CR>
 nnoremap <silent> <leader>b :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
 nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
 nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
@@ -1840,3 +1835,40 @@ let g:rnvimr_presets = [
 #[[plugins]]
 #repo = 'pwntester/octo.nvim'
 
+[[plugins]]
+repo = 'karb94/neoscroll.nvim'
+hook_add = '''
+lua << EOF
+require('neoscroll').setup({
+    -- All these keys will be mapped to their corresponding default scrolling animation
+    mappings = {},
+    -- mappings = {'<C-u>', '<C-d>', '<C-b>', '<C-f>',
+    --             '<C-y>', '<C-e>', 'zt', 'zz', 'zb'},
+    hide_cursor = true,          -- Hide cursor while scrolling
+    stop_eof = true,             -- Stop at <EOF> when scrolling downwards
+    use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
+    respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+    cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+    easing_function = nil,        -- Default easing function
+    pre_hook = nil,              -- Function to run before the scrolling animation starts
+    post_hook = nil,              -- Function to run after the scrolling animation ends
+})
+
+local t = {}
+-- Syntax: t[keys] = {function, {function arguments}}
+t['<S-j>'] = {'scroll', {'vim.wo.scroll', 'true', '100'}}
+t['<S-k>'] = {'scroll', {'-vim.wo.scroll', 'true', '100'}}
+-- t['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '450'}}
+-- t['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '450'}}
+-- t['<C-y>'] = {'scroll', {'-0.10', 'false', '100'}}
+-- t['<C-e>'] = {'scroll', { '0.10', 'false', '100'}}
+-- t['zt']    = {'zt', {'250'}}
+-- t['zz']    = {'zz', {'250'}}
+-- t['zb']    = {'zb', {'250'}}
+-- t['gg']    = {'scroll', {'-2*vim.api.nvim_buf_line_count(0)', 'true', '1', '5', e}}
+-- t['G']     = {'scroll', {'2*vim.api.nvim_buf_line_count(0)', 'true', '1', '5', e}}
+
+require('neoscroll.config').set_mappings(t)
+
+EOF
+'''
