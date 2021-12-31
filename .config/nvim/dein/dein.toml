@@ -785,17 +785,31 @@ hook_add = '''
 let g:netrw_nogx = 1 
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
-let g:openbrowser_default_search = 'duckduckgo'
-'''
+vmap gx <Plug>(openbrowser-smart-search)
 
-[[plugins]]
-repo = 'IchigoPantsu/previm'
-hook_add = '''
-autocmd BufRead,BufNewFile *.md  set filetype=markdown
-nnoremap <silent> <C-p> :PrevimOpen<CR>
-let g:previm_open_cmd = 'xdg-open'
-let g:vim_markdown_folding_disabled=1
-let g:previm_enable_realtime=1
+let g:openbrowser_default_search = 'duckduckgo'
+let g:openbrowser_search_engines = {
+\       'alc': 'https://eow.alc.co.jp/search?q={query}',
+\       'askubuntu': 'https://askubuntu.com/search?q={query}',
+\       'baidu': 'https://www.baidu.com/s?wd={query}&rsv_bp=0&rsv_spt=3&inputT=2478',
+\       'cpan': 'http://search.cpan.org/search?query={query}',
+\       'devdocs': 'https://devdocs.io/#q={query}',
+\       'duckduckgo': 'https://duckduckgo.com/?q={query}',
+\       'go': 'https://pkg.go.dev/search?q={query}',
+\       'fileformat': 'https://www.fileformat.info/info/unicode/char/{query}/',
+\       'github': 'https://github.com/search?q={query}',
+\       'google': 'https://google.com/search?q={query}',
+\       'php': 'https://php.net/{query}',
+\       'python': 'https://docs.python.org/dev/search.html?q={query}&check_keywords=yes&area=default',
+\       'twitter-search': 'https://twitter.com/search/{query}',
+\       'twitter-user': 'https://twitter.com/{query}',
+\       'vim': 'https://www.google.com/cse?cx=partner-pub-3005259998294962%3Abvyni59kjr1&ie=ISO-8859-1&q={query}&sa=Search&siteurl=www.vim.org%2F#gsc.tab=0&gsc.q={query}&gsc.page=1',
+\       'wikipedia': 'https://en.wikipedia.org/wiki/{query}',
+\       'wikipedia-ja': 'https://ja.wikipedia.org/wiki/{query}',
+\       'yahoo': 'https://search.yahoo.com/search?p={query}',
+\       'deepl': 'https://www.deepl.com/ja/translator#en/ja/{query}',
+\}
+
 '''
 
 [[plugins]]
@@ -806,6 +820,19 @@ let g:tex_conceal = ""
 let g:vim_markdown_math = 1
 nmap <Plug> <Plug>Markdown_OpenUrlUnderCursor
 vmap <Plug> <Plug>Markdown_OpenUrlUnderCursor
+"autocmd FileType markdown highlight mkdLineBreak cterm=none ctermfg=70
+"autocmd FileType markdown highlight mkdLineBreak ctermfg=70
+"hi link mkdLineBreak Pmenu
+'''
+
+[[plugins]]
+repo = 'IchigoPantsu/previm'
+hook_add = '''
+autocmd BufRead,BufNewFile *.md  set filetype=markdown
+nnoremap <silent> <C-p> :PrevimOpen<CR>
+let g:previm_open_cmd = 'xdg-open'
+let g:vim_markdown_folding_disabled=1
+let g:previm_enable_realtime=1
 '''
 
 #[[plugins]]
@@ -1070,6 +1097,9 @@ let g:OmniSharp_server_use_mono = 1
 
 [[plugins]]
 repo = 'glepnir/oceanic-material'
+
+[[plugins]]
+repo = 'vim-scripts/MultipleSearch'
 
 #[[plugins]]
 #repo = 'norcalli/nvim-colorizer.lua'
@@ -1870,5 +1900,12 @@ t['<S-k>'] = {'scroll', {'-vim.wo.scroll', 'true', '100'}}
 
 require('neoscroll.config').set_mappings(t)
 
+EOF
+'''
+
+[[plugins]]
+repo = 'edluffy/hologram.nvim'
+hook_add = '''
+lua << EOF
 EOF
 '''

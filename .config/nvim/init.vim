@@ -348,6 +348,10 @@ set mouse=a
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
+nmap <C-LeftMouse> o<Esc>
+vmap <C-LeftMouse> y
+
+
 "setlocal spell
 "set spelllang=en_us
 "inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
@@ -426,6 +430,9 @@ hi NormalFloat guibg=#1b2b34
 "[Folder names not clearly visible in netrw · Issue #26 · glepnir/oceanic-material]
 "(https://github.com/glepnir/oceanic-material/issues/26)
 hi netrwDir guifg=#FFFFFF
+
+"[[Feature] Highlight line breaks · Issue #140 · plasticboy/vim-markdown](https://github.com/plasticboy/vim-markdown/issues/140)
+hi link mkdLineBreak CursorLine
 
 "let g:sonokai_style = 'maia'
 "colorscheme sonokai

@@ -235,6 +235,8 @@ config.unbind('<Shift+l>')
 config.bind('<Shift+h>', ':back')
 config.bind('<Shift+l>', ':forward')
 
+config.unbind('<Control+v>')
+
 #config.unbind('<Control+i>')
 #config.unbind('<Control+o>')
 #config.bind('<Control+i>', ':back')
