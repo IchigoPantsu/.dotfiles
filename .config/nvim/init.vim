@@ -281,8 +281,8 @@ nnoremap e. :RnvimrToggle<CR>
 nnoremap wx <C-w>s<C-w>j:RnvimrToggle<CR>
 nnoremap wv <C-w>v<C-w>j:RnvimrToggle<CR>
 """ Tabs
-"nnoremap <Tab> gt
-"nnoremap <S-Tab> gT
+nnoremap t gt
+nnoremap <S-t> gT
 "nnoremap <silent> <Leader><Tab> :tabnew<CR>
 
 "オレオレセッティング
