@@ -7,7 +7,6 @@
 # styles - set the folder for your theme defination file
 #set $theme /usr/share/sway/themes/matcha-green
 set $theme $HOME/.config/sway/themes/oceanic_material/
-#set $theme $HOME/.config/sway/themes/oceanic_material
 
 #theme variables
 include $theme/definitions
