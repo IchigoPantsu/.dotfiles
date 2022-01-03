@@ -480,7 +480,7 @@ nmap <Plug> <Plug>(easymotion-T2)
 repo = 'simeji/winresizer'
 hook_add = '''
 " If you want to start window resize mode by `Ctrl+T`
-let g:winresizer_start_key = 'wr'
+let g:winresizer_start_key = 'ws'
 " change keycode_mode 101(e) <-> 114(r)
 let g:winresizer_keycode_mode = 114 
 let g:winresizer_keycode_resize = 101
