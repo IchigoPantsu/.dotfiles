@@ -156,6 +156,33 @@ sudo pacman -S texlive-langjapanese texlive-bibtexextra texlive-latexextra biber
 
 > [LaTeXでスライドが作れるBeamerでBibTeXを使う - Qiita](https://qiita.com/spica314/items/42c7290bb3939bf95530)
 
+### others
+```
+python3 -m pip install --user --upgrade pynvim
+
+"sudo pacman -S nautilus
+sudo pacman -S qutebrowser
+sudo pacman -S swappy
+sudo pacman -S x265
+sudo pacman -S neovim-remote
+sudo pacman -S screenfetch
+sudo pacman -S wdisplays
+sudo pacman -S steam
+sudo pacman -S krita
+sudo pacman -S blender
+
+sudo pacman -S clang
+sudo pacman -S lldb
+sudo pacman -S ccls
+sudo pacman -S cmake
+"sudo pacman -S assimp
+sudo pacman -S shaderc
+sudo pacman -S vulkan-devel
+
+sudo pacman -U wps-office-11.1.0.10161-1-x86_64.pkg.tar.zst
+yay -S celluloid-git
+yay -S pcloud-drive
+```
 ### Reference
 + [ミニマルに始めるDotfiles自動化計画](https://qiita.com/okamos/items/40966158d0271ae7198b)
 + [.vimrcをgithubで管理する時って、プラグイン管理をNeoBundle使う場合はどうすんのよ！？](https://qiita.com/yukimura1227/items/9727dec975d3fe9557c9#%E7%B5%8C%E7%B7%AF)
