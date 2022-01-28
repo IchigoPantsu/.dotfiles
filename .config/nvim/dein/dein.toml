@@ -1907,9 +1907,11 @@ require('neoscroll.config').set_mappings(t)
 EOF
 '''
 
-[[plugins]]
-repo = 'edluffy/hologram.nvim'
-hook_add = '''
-lua << EOF
-EOF
-'''
+#[[plugins]]
+#repo = 'edluffy/hologram.nvim'
+#hook_add = '''
+#lua << EOF
+#EOF
+#autocmd FileType markdown lua require('hologram').setup()
+#autocmd FileType markdown lua require('hologram').gen_images(0, 'markdown')
+#'''
