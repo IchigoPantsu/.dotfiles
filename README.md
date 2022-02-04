@@ -183,6 +183,24 @@ sudo pacman -U wps-office-11.1.0.10161-1-x86_64.pkg.tar.zst
 yay -S celluloid-git
 yay -S pcloud-drive
 ```
+
+### Vimium Option
+```
+# Insert your preferred key mappings here.
+unmap J
+map J scrollPageDown
+unmap K
+map K scrollPageUp
+unmap h
+map h previousTab
+unmap l
+map l nextTab
+unmap d
+map dd removeTab
+unmap X
+map u restoreTab
+```
+
 ### Reference
 + [ミニマルに始めるDotfiles自動化計画](https://qiita.com/okamos/items/40966158d0271ae7198b)
 + [.vimrcをgithubで管理する時って、プラグイン管理をNeoBundle使う場合はどうすんのよ！？](https://qiita.com/yukimura1227/items/9727dec975d3fe9557c9#%E7%B5%8C%E7%B7%AF)
