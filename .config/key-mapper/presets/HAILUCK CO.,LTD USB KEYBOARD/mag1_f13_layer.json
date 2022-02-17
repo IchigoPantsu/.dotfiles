@@ -11,6 +11,7 @@
         "1,183,1+1,39,1": "KEY_APOSTROPHE",
         "1,183,1+1,53,1": "KEY_BACKSLASH",
         "1,183,1+1,51,1": "KEY_LEFTBRACE",
-        "1,183,1+1,52,1": "KEY_RIGHTBRACE"
+        "1,183,1+1,52,1": "KEY_RIGHTBRACE",
+        "1,183,1+1,57,1": "KEY_LEFTMETA"
     }
 }
