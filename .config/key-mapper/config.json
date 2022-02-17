@@ -1,6 +1,7 @@
 {
     "autoload": {
-        "HAILUCK CO.,LTD USB KEYBOARD": "mag1_f13_layer"
+        "HAILUCK CO.,LTD USB KEYBOARD": "mag1_f13_layer",
+        "Lenovo TrackPoint Keyboard II": "Lenovo_TrackPoint_Keyboard_II"
     },
     "macros": {
         "keystroke_sleep_ms": 10

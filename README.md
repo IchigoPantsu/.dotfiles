@@ -127,6 +127,26 @@ MAPPINGS:
     HOLD: KEY_RIGHTSHIFT
 ```
  
+'''  
+#/etc/interception/dual-function-keys/thinkpad_trackpoint_keyboard_ii.yaml
+TIMING:
+  TAP_MILLISEC: 200
+  DOUBLE_TAP_MILLISEC: 0
+
+MAPPINGS:
+  - KEY: KEY_CAPSLOCK
+    TAP: KEY_TAB
+    HOLD: KEY_LEFTCTRL
+ 
+  - KEY: KEY_LEFTALT
+    TAP: KEY_F13
+    HOLD: KEY_F13
+
+  - KEY: KEY_RIGHTALT
+    TAP: KEY_RIGHTMETA
+    HOLD: KEY_RIGHTMETA
+'''
+
 ```
 #/etc/interception/udevmon.yaml
 - JOB: "intercept -g $DEVNODE | dual-function-keys -c /etc/interception/dual-function-keys/mag1.yaml | uinput -d $DEVNODE"
@@ -135,6 +155,14 @@ MAPPINGS:
     NAME: "HAILUCK CO.,LTD USB KEYBOARD"
     EVENTS:
       EV_KEY: [KEY_CAPSLOCK,KEY_ESC,KEY_LEFTCTRL,KEY_LEFTALT]
+
+- JOB: "intercept -g $DEVNODE | dual-function-keys -c /etc/interception/dual-function-keys/thinkpad_trackpoint_keyboard_ii.yaml | uinput -d $DEVNODE"
+  DEVICE:
+    #NAME: "AT Translated Set 2 keyboard"
+    NAME: "Lenovo TrackPoint Keyboard II"
+    EVENTS:
+      EV_KEY: [KEY_CAPSLOCK,KEY_ESC,KEY_LEFTCTRL,KEY_LEFTALT,KEY_RIGHTALT]
+
 ```
 
 > [Remap Caps Lock to Escape and Control](https://www.dannyguo.com/blog/remap-caps-lock-to-escape-and-control/)
