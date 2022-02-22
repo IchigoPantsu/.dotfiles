@@ -115,12 +115,12 @@ function my_init() {
 }
 zvm_after_init_commands+=(my_init)
 
-#[Bashでコマンドの存在チェック - LESS IS MORE]
-#(http://r9y9.github.io/blog/2013/08/12/bash-check-commend-existence/)
-if type key-mapper-control &> /dev/null # 2>&1
-then
-    key-mapper-control --command autoload &> /dev/null 
-fi
+##[Bashでコマンドの存在チェック - LESS IS MORE]
+##(http://r9y9.github.io/blog/2013/08/12/bash-check-commend-existence/)
+#if type key-mapper-control &> /dev/null # 2>&1
+#then
+#    key-mapper-control --command autoload &> /dev/null 
+#fi
 
 #[jeffreytse/zsh-vi-mode: 💻 A better and friendly vi(vim) mode plugin for ZSH.](https://github.com/jeffreytse/zsh-vi-mode)
 function zvm_after_lazy_keybindings() {

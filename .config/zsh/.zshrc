@@ -18,8 +18,8 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=blue'
 # Fix for foot terminfo not installed on most servers
 alias ssh="TERM=xterm-256color ssh"
 
-if [[ -e ~/.my_bashrc ]]; then
-  source ~/.my_bashrc
-fi
+#if [[ -e ~/.my_bashrc ]]; then
+#  source ~/.my_bashrc
+#fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -118,13 +118,18 @@ MAPPINGS:
     TAP: KEY_TAB
     HOLD: KEY_LEFTCTRL
  
-  - KEY: KEY_LEFTALT
-    TAP: KEY_F13
+  - KEY: KEY_SPACE
+    TAP: KEY_SPACE
     HOLD: KEY_F13
+
+  - KEY: KEY_LEFTALT
+    TAP: KEY_LEFTMETA
+    HOLD: KEY_LEFTMETA
 
   - KEY: KEY_RIGHTSHIFT
     TAP: KEY_SEMICOLON
     HOLD: KEY_RIGHTSHIFT
+
  
 #/etc/interception/dual-function-keys/thinkpad_trackpoint_keyboard_ii.yaml
 TIMING:
@@ -136,9 +141,13 @@ MAPPINGS:
     TAP: KEY_TAB
     HOLD: KEY_LEFTCTRL
  
-  - KEY: KEY_LEFTALT
-    TAP: KEY_F13
+  - KEY: KEY_SPACE
+    TAP: KEY_SPACE
     HOLD: KEY_F13
+
+  - KEY: KEY_LEFTALT
+    TAP: KEY_LEFTMETA
+    HOLD: KEY_LEFTMETA
 
 '''
 

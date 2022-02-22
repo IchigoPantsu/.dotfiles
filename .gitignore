@@ -62,7 +62,4 @@
 /.config/ranger/__pycache__/*
 /.config/ranger/plugins/__pycache__/*
 
-/.config/zsh/*
-!/.config/zsh/.zshrc
-
 #!/.vim/bundle/neobundle.vim

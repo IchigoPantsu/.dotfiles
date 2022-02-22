@@ -1,0 +1,6 @@
+/*
+!/.gitignore
+!/.zshrc
+!/config.d
+config.d/*
+!/config.d/00-user.zsh

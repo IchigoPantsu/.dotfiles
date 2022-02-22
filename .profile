@@ -29,3 +29,10 @@ export LC_CTYPE=ja_JP.utf-8
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
+
+#[Bashでコマンドの存在チェック - LESS IS MORE]
+#(http://r9y9.github.io/blog/2013/08/12/bash-check-commend-existence/)
+if type key-mapper-control &> /dev/null # 2>&1
+then
+    key-mapper-control --command autoload &> /dev/null 
+fi
