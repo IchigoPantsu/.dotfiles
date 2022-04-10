@@ -278,6 +278,7 @@ nnoremap w<Right> <C-w>l
 "nnoremap <C-w><C-s> <C-w>s<C-w>j:RnvimrToggle<CR>
 
 nnoremap e. :RnvimrToggle<CR>
+nnoremap w. :RnvimrToggle<CR>
 nnoremap wx <C-w>s<C-w>j:RnvimrToggle<CR>
 nnoremap wv <C-w>v<C-w>j:RnvimrToggle<CR>
 """ Tabs

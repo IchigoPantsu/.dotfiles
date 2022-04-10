@@ -11,9 +11,24 @@ sudo pacman -syy
 sudo pacman -syu
 ```
 
+
+###install nvim python3 prvider
+```
+python3 -m pip install --user --upgrade pynvim
+```
+> [Nvim documentation: provider](https://neovim.io/doc/user/provider.html)
+
+###coc
+```
+:CocInstall coc-ccls
+:CocInstall coc-cmake
+```
+
+
 ### install japanese font 
 ```
 sudo pacman -S adobe-source-han-sans-jp-fonts
+sudo -S nerd-font-complete
 ```
 
 ### sendanywhere
@@ -42,6 +57,7 @@ export XMODIFIERS=@im=fcitx
 
 ```
 
+
 #### ref
 > [How To Setup Japanese Language Environment In Arch Linux](https://ostechnix.com/setup-japanese-language-environment-arch-linux/)
 > [ArchLinuxで日本語入力環境を整える - Qiita](https://qiita.com/k_almajiro/items/1c569513cbe705321902)
@@ -53,7 +69,8 @@ export XMODIFIERS=@im=fcitx
 sudo pacman -S ntp
 sudo timedatectl list-timezones | grep -i tokyo
 sudo timedatectl set-timezone Asia/Tokyo
-sudo timedatectl set-ntp true                                                                                                                                                  
+sudo timedatectl set-ntp true                                                                                                       
+
 ```
 #### ref
 > [日時の設定 - Arch Linuxの最小限インストール直後の作業(2) - Qiita](https://qiita.com/j8takagi/items/cc63ee5e9cfcb20fd244)
@@ -108,7 +125,6 @@ yay -S interception-dual-function-keys
 ```
 #### mag1 profile
 ```
-#/etc/interception/dual-function-keys/mag1.yaml
 TIMING:
   TAP_MILLISEC: 200
   DOUBLE_TAP_MILLISEC: 0
@@ -130,6 +146,13 @@ MAPPINGS:
     TAP: KEY_SEMICOLON
     HOLD: KEY_RIGHTSHIFT
 
+  - KEY: KEY_TAB
+    TAP: KEY_GRAVE
+    HOLD: KEY_GRAVE
+
+  - KEY: KEY_DELETE
+    TAP: KEY_MINUS
+    HOLD: KEY_MINUS
  
 #/etc/interception/dual-function-keys/thinkpad_trackpoint_keyboard_ii.yaml
 TIMING:
@@ -149,9 +172,12 @@ MAPPINGS:
     TAP: KEY_LEFTMETA
     HOLD: KEY_LEFTMETA
 
-'''
+  - KEY: KEY_TAB
+    TAP: KEY_GRAVE
+    HOLD: KEY_GRAVE
 
 ```
+
 #/etc/interception/udevmon.yaml
 - JOB: "intercept -g $DEVNODE | dual-function-keys -c /etc/interception/dual-function-keys/mag1.yaml | uinput -d $DEVNODE"
   DEVICE:
@@ -175,9 +201,9 @@ MAPPINGS:
 sudo systemctl enable udevmon
 ```
 
-### key-mapper
+### input-remapper
 ```
-yay -S key-mapper-git
+yay -S input-remapper-git
 sudo systemctl enable key-mapper
 ```
 
@@ -210,6 +236,7 @@ sudo pacman -S cmake
 "sudo pacman -S assimp
 sudo pacman -S shaderc
 sudo pacman -S vulkan-devel
+yay -S mercurial
 
 sudo pacman -U wps-office-11.1.0.10161-1-x86_64.pkg.tar.zst
 yay -S celluloid-git
@@ -232,6 +259,18 @@ map dd removeTab
 unmap X
 map u restoreTab
 ```
+
+### gpd pocket
+> [GPD Pocket 3 - ArchWiki](https://wiki.archlinux.org/title/GPD_Pocket_3)
+
+#### bluetooth
+```
+sudo rmmod btusb 
+sudo modprobe btusb 
+sudo systemctl restart bluetooth
+bt-adapter -i                   
+```
+
 
 ### Reference
 + [ミニマルに始めるDotfiles自動化計画](https://qiita.com/okamos/items/40966158d0271ae7198b)

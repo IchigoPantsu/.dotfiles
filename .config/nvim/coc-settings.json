@@ -3,7 +3,7 @@
     "ccls": {
       "command": "ccls",
       "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-      "rootPatterns": [".ccls-root", "compile_commands.json"],
+      "rootPatterns": [".ccls-root", "compile_commands.json",".ccls-cache"],
       "initializationOptions": {
         "cache": {
           "directory": ".ccls-cache"
@@ -12,8 +12,18 @@
           "snippetSupport": true
         }
       }
+    },
+    "cmake": {
+      "command": "cmake-language-server",
+      "filetypes": ["cmake"],
+      "rootPatterns": [
+        "build/"
+      ],
+      "initializationOptions": {
+        "buildDirectory": "build"
+      }
     }
-  } ,
+  },
   "coc.source.OmniSharp.enable" : true,
   "coc.source.OmniSharp.triggerCharacters":"."
 

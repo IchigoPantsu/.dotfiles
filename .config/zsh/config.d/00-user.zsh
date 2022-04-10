@@ -13,7 +13,7 @@ export FZF_COMPLETION_TRIGGER='~'
 #[ -f ~/.fzf.bash ] && source ~/.fzf.bash                                                       
                                                                                                
 ###fzf for nvim alias                                                                          
-_fzf_complete_nv() {                                                                           
+function _fzf_complete_nv() {                                                                           
   _fzf_complete --multi --reverse --prompt ="nv> " -- "$@"                                     
 }                                                                                              
 [ -n "$bash" ] && complete -f _fzf_complete_nv -o default -o bashdefault nv                    
@@ -38,7 +38,7 @@ _fzf_complete_nv() {
 # To undo the effect of this function, you can type "cd -" to return to the                    
 # original directory.                                                                          
                                                                                                
-ranger_cd() {                                                                                  
+function ranger_cd() {                                                                                  
     temp_file="$(mktemp -t "ranger_cd.XXXXXXXXXX")"                                            
     ranger --choosedir="$temp_file" -- "${@:-$PWD}"                                            
     if chosen_dir="$(cat -- "$temp_file")" && [ -n "$chosen_dir" ] && [ "$chosen_dir" != "$PWD" ]; then                                                                                       
@@ -99,6 +99,8 @@ alias nv='nvim'
 alias nt="nvim -c ':term'"
 alias nmk="nvim -c ':make'"
 alias e.='ranger_cd' 
+alias .e='ranger_cd' 
+alias .w='ranger_cd' 
 
 alias zathura='zathura --plugins-dir=/usr/lib/zathura'
 export XCURSOR_THEME=Adwaita XCURSOR_SIZE=32 slurp
@@ -124,13 +126,12 @@ zvm_after_init_commands+=(my_init)
 
 #[jeffreytse/zsh-vi-mode: 💻 A better and friendly vi(vim) mode plugin for ZSH.](https://github.com/jeffreytse/zsh-vi-mode)
 function zvm_after_lazy_keybindings() {
-  zvm_bindkey vicmd 'a'  zvm_enter_insert_mode
-  zvm_bindkey vicmd 'i'  zvm_enter_insert_mode
+  zvm_bindkey vicmd 'a'  zvm_enter_insert_mode i
+  zvm_bindkey vicmd 'i'  zvm_enter_insert_mode a
   zvm_bindkey vicmd 'A'  zvm_insert_bol
   zvm_bindkey vicmd 'I'  zvm_append_eol
   zvm_bindkey vicmd 'h'  vi-backward-word
   zvm_bindkey vicmd 'l'  vi-forward-word-end
-
 }
 
 #[Qt 5.11 での Wayland 対応の改善](https://www.qt.io/ja-jp/blog/2018/10/30/whats-new-in-qt-5-11-for-the-wayland-platform-plugin)
