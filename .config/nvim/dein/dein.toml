@@ -973,9 +973,11 @@ nmap <leader>l <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> <C-LeftMouse> <Plug>(coc-definition)
 nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <C-RightMouse> <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 nnoremap gk :call <SID>show_documentation()<CR>
@@ -1104,6 +1106,10 @@ repo = 'glepnir/oceanic-material'
 
 [[plugins]]
 repo = 'vim-scripts/MultipleSearch'
+
+[[plugins]]
+repo = 'knubie/vim-kitty-navigator'
+build = 'cp ./*.py ~/.config/kitty/' 
 
 #[[plugins]]
 #repo = 'norcalli/nvim-colorizer.lua'

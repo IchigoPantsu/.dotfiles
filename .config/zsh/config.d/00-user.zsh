@@ -100,6 +100,7 @@ alias nt="nvim -c ':term'"
 alias nmk="nvim -c ':make'"
 alias e.='ranger_cd' 
 alias .e='ranger_cd' 
+alias w.='ranger_cd' 
 alias .w='ranger_cd' 
 
 alias zathura='zathura --plugins-dir=/usr/lib/zathura'
@@ -137,4 +138,6 @@ function zvm_after_lazy_keybindings() {
 #[Qt 5.11 での Wayland 対応の改善](https://www.qt.io/ja-jp/blog/2018/10/30/whats-new-in-qt-5-11-for-the-wayland-platform-plugin)
 export QT_QPA_PLATFORM="wayland;xcb"
 
+#for emsdk
+#source "/usr/lib/emsdk/emsdk_env.sh"
 #clear

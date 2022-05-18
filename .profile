@@ -36,3 +36,6 @@ if type key-mapper-control &> /dev/null # 2>&1
 then
     key-mapper-control --command autoload &> /dev/null 
 fi
+
+#for emsdk
+source "/usr/lib/emsdk/emsdk_env.sh"

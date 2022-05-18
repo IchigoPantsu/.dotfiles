@@ -125,9 +125,12 @@ yay -S interception-dual-function-keys
 ```
 #### mag1 profile
 ```
+
+#/etc/interception/dual-function-keys/gpd_pocket3.yaml
 TIMING:
   TAP_MILLISEC: 200
   DOUBLE_TAP_MILLISEC: 0
+  SYNTHETIC_KEYS_PAUSE_MILLISEC: 0
 
 MAPPINGS:
   - KEY: KEY_CAPSLOCK
@@ -158,6 +161,7 @@ MAPPINGS:
 TIMING:
   TAP_MILLISEC: 200
   DOUBLE_TAP_MILLISEC: 0
+  SYNTHETIC_KEYS_PAUSE_MILLISEC: 0
 
 MAPPINGS:
   - KEY: KEY_CAPSLOCK
@@ -171,12 +175,6 @@ MAPPINGS:
   - KEY: KEY_LEFTALT
     TAP: KEY_LEFTMETA
     HOLD: KEY_LEFTMETA
-
-  - KEY: KEY_TAB
-    TAP: KEY_GRAVE
-    HOLD: KEY_GRAVE
-
-```
 
 #/etc/interception/udevmon.yaml
 - JOB: "intercept -g $DEVNODE | dual-function-keys -c /etc/interception/dual-function-keys/mag1.yaml | uinput -d $DEVNODE"
@@ -265,10 +263,16 @@ map u restoreTab
 
 #### bluetooth
 ```
-sudo rmmod btusb 
-sudo modprobe btusb 
 sudo systemctl restart bluetooth
-bt-adapter -i                   
+bt-adapter -i
+
+#[Linux PCにBluetooth機器を接続する - Qiita](https://qiita.com/shskwmt/items/fffabf521201f5835214)
+sudo systemctl enable bluetooth    
+
+#/etc/udev/rules.d/10-local.rules
+## Set bluetooth power up
+#ACTION=="add", KERNEL=="hci0", RUN+="/usr/bin/hciconfig hci0 up"
+
 ```
 
 

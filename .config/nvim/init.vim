@@ -163,22 +163,25 @@ set errorformat=%f\|%l\ col\ %c\|\ %m\
 " https://vim.fandom.com/wiki/Search_for_visually_selected_text
 vnoremap <CR> y/\V<C-R>=escape(@",'/\')<CR><CR>
 
-"[vimでヴィジュアルモードの連続貼り付け - Qiita](https://qiita.com/hikaruna/items/83c1220eede810bee492)
-" vモードの置換連続ペースト用
-function! Put_text_without_override_register()
-  let line_len = strlen(getline('.'))
-  execute "normal! `>"
-  let col_loc = col('.')
-  execute 'normal! gv"_x'
-  if line_len == col_loc
-    execute 'normal! p'
-  else 
-    execute 'normal! P'
-  endif
-endfunction
-xnoremap <silent> p :call Put_text_without_override_register()<CR>
+""[vimでヴィジュアルモードの連続貼り付け - Qiita](https://qiita.com/hikaruna/items/83c1220eede810bee492)
+"" vモードの置換連続ペースト用
+"function! Put_text_without_override_register()
+"  let line_len = strlen(getline('.'))
+"  execute "normal! `>"
+"  let col_loc = col('.')
+"  execute 'normal! gv"_x'
+"  if line_len == col_loc
+"    execute 'normal! p'
+"  else 
+"    execute 'normal! P'
+"  endif
+"endfunction
+"xnoremap <silent> p :call Put_text_without_override_register()<CR>
 "ヤンクした時に自動でクリップボードにコピー(autoselectを指定するとvモードの置換連続ペーストができない)
 "set clipboard=unnamed
+
+" [[VSCode][Vim]visualモードで連続してペーストできるようにする | ひろくあさく](https://yosuke24.com/vscode-vim-continuous-paste/)
+xnoremap p "_dP
 
 " 初心者向け　Vimでクリップボード連携(コピー&ペースト)する方法
 " https://qiita.com/iwaseasahi/items/a45b99a484966662adbe
@@ -349,8 +352,8 @@ set mouse=a
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 
-nmap <C-LeftMouse> o<Esc>
-vmap <C-LeftMouse> y
+nmap <C-ScrollWheelUp> <C-o>
+nmap <C-ScrollWheelDown> <C-i>
 
 
 "setlocal spell
