@@ -38,4 +38,4 @@ then
 fi
 
 #for emsdk
-source "/usr/lib/emsdk/emsdk_env.sh"
+#source "/usr/lib/emsdk/emsdk_env.sh"

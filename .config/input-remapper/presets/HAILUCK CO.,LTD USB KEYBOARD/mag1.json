@@ -83,6 +83,18 @@
         "1,183,1+1,51,1": [
             "KEY_LEFTBRACE",
             "keyboard"
+        ],
+        "1,111,1": [
+            "KEY_BACKSPACE",
+            "keyboard"
+        ],
+        "1,14,1": [
+            "KEY_MINUS",
+            "keyboard"
+        ],
+        "1,183,1+1,14,1": [
+            "KEY_EQUAL",
+            "keyboard"
         ]
     }
 }

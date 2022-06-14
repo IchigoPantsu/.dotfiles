@@ -426,6 +426,12 @@ set termguicolors     " enable true colors support
 set background=dark
 colorscheme oceanic_material
 let g:oceanic_material_transparent_background = 1
+let g:oceanic_material_background = 1
+let g:oceanic_material_allow_bold = 1
+let g:oceanic_material_allow_italic = 1
+let g:oceanic_material_allow_underline = 1
+let g:oceanic_material_allow_undercurl = 1
+let g:oceanic_material_allow_reverse = 1
 
 "[Coc warning underline color disappear · Issue #19 · glepnir/oceanic-material]
 "(https://github.com/glepnir/oceanic-material/issues/19)
@@ -438,8 +444,15 @@ hi netrwDir guifg=#FFFFFF
 "[[Feature] Highlight line breaks · Issue #140 · plasticboy/vim-markdown](https://github.com/plasticboy/vim-markdown/issues/140)
 hi link mkdLineBreak CursorLine
 
-"let g:sonokai_style = 'maia'
+"[vim-airlineでVimのステータスラインをカッコよくする | Htkyama Blog](https://blog.htkyama.org/vim_airline)
+"let g:airline_theme = 'wombat'               " テーマの指定
+"let g:airline_theme = 'deus'               " テーマの指定
+let g:airline_theme = 'minimalist'               " テーマの指定
+let g:airline#extensions#tabline#enabled = 0 " タブラインを表示
+let g:airline_powerline_fonts = 1            " Powerline Fontsを利用
+
 "colorscheme sonokai
+"let g:sonokai_style = 'maia'
 "let g:airline_theme = 'sonokai'
 
 ""[vim transparent background](https://gist.github.com/fuadnafiz98/d91e468c9bc4689868eb0984a29fef66)

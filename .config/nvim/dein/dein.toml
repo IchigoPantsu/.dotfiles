@@ -279,10 +279,8 @@ repo = 'sheerun/vim-polyglot'
 #[[plugins]]
 #repo = 'SirVer/ultisnips'
 
-[[plugins]]
-repo = 'jiangmiao/auto-pairs'
-
-
+#[[plugins]]
+#repo = 'jiangmiao/auto-pairs'
 
 ###オレ的vimプラグイン10選
 ###https://qiita.com/reireias/items/beaa3bb0e299ae934217
@@ -323,64 +321,64 @@ repo = 'vim-jp/vimdoc-ja'
 # set t_Co=256
 # '''
 
-[[plugins]]
-repo = 'kana/vim-operator-user'
-[[plugins]]
-repo = 'kana/vim-operator-replace'
-depends = ['kana/vim-operator-user']
-
-#kana/vim-textobj-user/wiki
-#https://github.com/kana/vim-textobj-user/wiki
-[[plugins]]
-repo = 'kana/vim-textobj-user'
-
-#al/il for the current line
-[[plugins]]
-repo = 'kana/vim-textobj-line'
-
-#ae/ie for the entire region of the current buffer
-[[plugins]]
-repo = 'kana/vim-textobj-entire'
-
-#af/if and aF/iF for a function / extensible for any language
-[[plugins]]
-repo = 'kana/vim-textobj-indent'
-
-#ay/iy for a syntax-highlighted item
-[[plugins]]
-repo = 'kana/vim-textobj-syntax'
-
-#adh/idh and others for various elements in diff(1) output
-[[plugins]]
-repo = 'kana/vim-textobj-diff'
-
-#af{char}/if{char} for a region between {char}s
-[[plugins]]
-repo = 'thinca/vim-textobj-between'
-
-#ac/ic for a comment
-[[plugins]]
-repo = 'thinca/vim-textobj-comment'
-
-#ap/ip for next file path (w/o basename), aP/iP for the previous file path (w/o basename)
-[[plugins]]
-repo = 'paulhybryant/vim-textobj-path'
-
-#au/iu for a URL
-[[plugins]]
-repo ='mattn/vim-textobj-url'
-
-# isb/asb for the closest region between any of () [] or {}.
-[[plugins]]
-repo ='osyo-manga/vim-textobj-multiblock'
-
-#av/iv for a region between either _s or camelCaseVariables
-[[plugins]]
-repo = 'Julian/vim-textobj-variable-segment'
-
-#aT/iT for "top level" blocks of code in arbitrary programming language
-[[plugins]]
-repo = 'adolenc/vim-textobj-toplevel'
+#[[plugins]]
+#repo = 'kana/vim-operator-user'
+#[[plugins]]
+#repo = 'kana/vim-operator-replace'
+#depends = ['kana/vim-operator-user']
+#
+##kana/vim-textobj-user/wiki
+##https://github.com/kana/vim-textobj-user/wiki
+#[[plugins]]
+#repo = 'kana/vim-textobj-user'
+#
+##al/il for the current line
+#[[plugins]]
+#repo = 'kana/vim-textobj-line'
+#
+##ae/ie for the entire region of the current buffer
+#[[plugins]]
+#repo = 'kana/vim-textobj-entire'
+#
+##af/if and aF/iF for a function / extensible for any language
+#[[plugins]]
+#repo = 'kana/vim-textobj-indent'
+#
+##ay/iy for a syntax-highlighted item
+#[[plugins]]
+#repo = 'kana/vim-textobj-syntax'
+#
+##adh/idh and others for various elements in diff(1) output
+#[[plugins]]
+#repo = 'kana/vim-textobj-diff'
+#
+##af{char}/if{char} for a region between {char}s
+#[[plugins]]
+#repo = 'thinca/vim-textobj-between'
+#
+##ac/ic for a comment
+#[[plugins]]
+#repo = 'thinca/vim-textobj-comment'
+#
+##ap/ip for next file path (w/o basename), aP/iP for the previous file path (w/o basename)
+#[[plugins]]
+#repo = 'paulhybryant/vim-textobj-path'
+#
+##au/iu for a URL
+#[[plugins]]
+#repo ='mattn/vim-textobj-url'
+#
+## isb/asb for the closest region between any of () [] or {}.
+#[[plugins]]
+#repo ='osyo-manga/vim-textobj-multiblock'
+#
+##av/iv for a region between either _s or camelCaseVariables
+#[[plugins]]
+#repo = 'Julian/vim-textobj-variable-segment'
+#
+##aT/iT for "top level" blocks of code in arbitrary programming language
+#[[plugins]]
+#repo = 'adolenc/vim-textobj-toplevel'
 
 
 
@@ -1082,7 +1080,15 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 set pumblend=10
 
-"let g:coc_global_extensions=['coc-cmake','coc-rust-analyzer']
+"[Unable to load global extension · Issue #5 · Maxattax97/coc-ccls · GitHub](https://github.com/Maxattax97/coc-ccls/issues/5)
+let g:coc_global_extensions=['coc-ccls','coc-cmake','coc-rust-analyzer']
+
+'''
+
+[[plugin]]
+repo = 'rust-lang/rust.vim'
+hook_add = '''
+let g:rust_clip_command = 'xclip -selection clipboard'
 '''
 
 #[[plugin]]
@@ -1107,9 +1113,9 @@ repo = 'glepnir/oceanic-material'
 [[plugins]]
 repo = 'vim-scripts/MultipleSearch'
 
-[[plugins]]
-repo = 'knubie/vim-kitty-navigator'
-build = 'cp ./*.py ~/.config/kitty/' 
+#[[plugins]]
+#repo = 'knubie/vim-kitty-navigator'
+#build = 'cp ./*.py ~/.config/kitty/' 
 
 #[[plugins]]
 #repo = 'norcalli/nvim-colorizer.lua'
@@ -1333,7 +1339,9 @@ merge = 0
 hook_add ='''
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  -- [install.lua:373: Parser not available for language maintained · Issue #2887 · nvim-treesitter/nvim-treesitter · GitHub](https://github.com/nvim-treesitter/nvim-treesitter/issues/2887)
+  -- ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {"python","cpp","rust"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = {}, -- List of parsers to ignore installing
   highlight = {
@@ -1346,7 +1354,7 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
   indent = {
-    enable = true
+    enable = false
   },
   incremental_selection = {
     enable = true,
@@ -1442,6 +1450,52 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 '''
+
+[[plugins]]
+repo = 'windwp/nvim-autopairs'
+depends = ['nvim-treesitter/nvim-treesitter']
+hook_add ='''
+lua << EOF
+local remap = vim.api.nvim_set_keymap
+local npairs = require('nvim-autopairs')
+
+npairs.setup({ map_bs = false, map_cr = false })
+
+vim.g.coq_settings = { keymap = { recommended = false } }
+
+-- these mappings are coq recommended mappings unrelated to nvim-autopairs
+remap('i', '<esc>', [[pumvisible() ? "<c-e><esc>" : "<esc>"]], { expr = true, noremap = true })
+remap('i', '<c-c>', [[pumvisible() ? "<c-e><c-c>" : "<c-c>"]], { expr = true, noremap = true })
+remap('i', '<tab>', [[pumvisible() ? "<c-n>" : "<tab>"]], { expr = true, noremap = true })
+remap('i', '<s-tab>', [[pumvisible() ? "<c-p>" : "<bs>"]], { expr = true, noremap = true })
+
+-- skip it, if you use another global object
+_G.MUtils= {}
+
+MUtils.CR = function()
+  if vim.fn.pumvisible() ~= 0 then
+    if vim.fn.complete_info({ 'selected' }).selected ~= -1 then
+      return npairs.esc('<c-y>')
+    else
+      return npairs.esc('<c-e>') .. npairs.autopairs_cr()
+    end
+  else
+    return npairs.autopairs_cr()
+  end
+end
+remap('i', '<cr>', 'v:lua.MUtils.CR()', { expr = true, noremap = true })
+
+MUtils.BS = function()
+  if vim.fn.pumvisible() ~= 0 and vim.fn.complete_info({ 'mode' }).mode == 'eval' then
+    return npairs.esc('<c-e>') .. npairs.autopairs_bs()
+  else
+    return npairs.autopairs_bs()
+  end
+end
+remap('i', '<bs>', 'v:lua.MUtils.BS()', { expr = true, noremap = true })
+EOF
+'''
+
 [[plugins]]
 repo = 'windwp/nvim-ts-autotag'
 depends = ['nvim-treesitter/nvim-treesitter']
@@ -1737,7 +1791,8 @@ let g:rnvimr_enable_bw = 1
 let g:rnvimr_shadow_winblend = 70
 
 " Draw border with both
-let g:rnvimr_ranger_cmd = 'ranger --cmd="set draw_borders both"'
+" let g:rnvimr_ranger_cmd = 'ranger --cmd="set draw_borders both"'
+let g:rnvimr_ranger_cmd = ['ranger', '--cmd=set draw_borders both']
 
 " Link CursorLine into RnvimrNormal highlight in the Floating window
 highlight link RnvimrNormal CursorLine
@@ -1810,6 +1865,7 @@ let g:rnvimr_presets = [
 " Only use initial preset layout
 " let g:rnvimr_presets = [{}]
 '''
+
 #[[plugins]]
 #repo = 'nvim-treesitter/playground'
 
@@ -1853,8 +1909,8 @@ require('neoscroll').setup({
 
 local t = {}
 -- Syntax: t[keys] = {function, {function arguments}}
-t['<S-j>'] = {'scroll', {'vim.wo.scroll', 'true', '100'}}
-t['<S-k>'] = {'scroll', {'-vim.wo.scroll', 'true', '100'}}
+t['<S-j>'] = {'scroll', {'vim.wo.scroll', 'true', '15'}}
+t['<S-k>'] = {'scroll', {'-vim.wo.scroll', 'true', '15'}}
 -- t['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '450'}}
 -- t['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '450'}}
 -- t['<C-y>'] = {'scroll', {'-0.10', 'false', '100'}}
