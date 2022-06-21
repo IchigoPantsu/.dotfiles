@@ -1081,7 +1081,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 set pumblend=10
 
 "[Unable to load global extension · Issue #5 · Maxattax97/coc-ccls · GitHub](https://github.com/Maxattax97/coc-ccls/issues/5)
-let g:coc_global_extensions=['coc-ccls','coc-cmake','coc-rust-analyzer']
+let g:coc_global_extensions=['coc-ccls','coc-cmake','coc-rust-analyzer', 'coc-tsserver']
 
 '''
 
