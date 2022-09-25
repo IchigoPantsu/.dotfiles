@@ -39,7 +39,7 @@ yay -S sendanywhere
 
 ### install japanese fcitx 
 ```
-sudo pacman -S fcitx fcitx-mozc fcitx-configtool fcitx-im
+sudo pacman -S fcitx5-im fcitx5-mozc fcitx5-qt fcitx5-gtk fcitx5-lua
 ```
 
 ```
@@ -217,6 +217,7 @@ sudo pacman -S texlive-langjapanese texlive-bibtexextra texlive-latexextra biber
 python3 -m pip install --user --upgrade pynvim
 
 "sudo pacman -S nautilus
+sudo pacman -S kitty
 sudo pacman -S qutebrowser
 sudo pacman -S swappy
 sudo pacman -S x265
@@ -226,6 +227,11 @@ sudo pacman -S wdisplays
 sudo pacman -S steam
 sudo pacman -S krita
 sudo pacman -S blender
+sudo pacman -S nodejs npm
+
+"rust
+sudo pacman -S rustup
+rustup default stable
 
 sudo pacman -S clang
 sudo pacman -S lldb
@@ -235,11 +241,20 @@ sudo pacman -S cmake
 sudo pacman -S shaderc
 sudo pacman -S vulkan-devel
 yay -S mercurial
+yay -S wps-office
 
 sudo pacman -U wps-office-11.1.0.10161-1-x86_64.pkg.tar.zst
 yay -S celluloid-git
 yay -S pcloud-drive
 ```
+
+### coc-ccls issue
+```
+cd ~/.config/coc/extensions/node_modules/coc-ccls
+ln -s node_modules/ws/lib lib
+```
+
+> https://github.com/neoclide/coc.nvim/issues/2088
 
 ### Vimium Option
 ```
@@ -272,8 +287,11 @@ sudo systemctl enable bluetooth
 #/etc/udev/rules.d/10-local.rules
 ## Set bluetooth power up
 #ACTION=="add", KERNEL=="hci0", RUN+="/usr/bin/hciconfig hci0 up"
-
 ```
+
+### sway-idle lock
+> [swayidle before-sleep only works once · Issue #3062 · swaywm/sway](https://github.com/swaywm/sway/issues/3062)
+
 
 
 ### Reference
