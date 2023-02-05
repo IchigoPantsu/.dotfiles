@@ -298,3 +298,4 @@ ccw.darkmode.policy.page = 'smart'
 ccw.preferred_color_scheme = 'dark'
 #c.colors.statusbar.normal.bg = xresources['*.background']
 
+c.url.start_pages = ['https://send-anywhere.com/']

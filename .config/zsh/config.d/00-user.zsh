@@ -135,6 +135,11 @@ function zvm_after_lazy_keybindings() {
   zvm_bindkey vicmd 'l'  vi-forward-word-end
 }
 
+zvm_vi_yank () {
+	zvm_yank
+	printf %s "${CUTBUFFER}" |  wl-copy -n
+	zvm_exit_visual_mode
+}
 #[Qt 5.11 での Wayland 対応の改善](https://www.qt.io/ja-jp/blog/2018/10/30/whats-new-in-qt-5-11-for-the-wayland-platform-plugin)
 export QT_QPA_PLATFORM="wayland;xcb"
 

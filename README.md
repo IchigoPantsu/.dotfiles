@@ -97,7 +97,7 @@ qmk flash -kb ergodox_ez -km my_ergodox_ez
 
 #### ref
 > [Overview](https://docs.qmk.fm/#/cli)
-
+> [Workaround for recent -Werror=array-bounds AVR issues by zvecr · Pull Request #17136 · qmk/qmk_firmware · GitHub](https://github.com/qmk/qmk_firmware/pull/17136)
 
 ### ssh(Github)
 > [GitHubでssh接続する手順公開鍵・秘密鍵の生成から- Qiita](https://qiita.com/shizuma/items/2b2f873a0034839e47ce)
