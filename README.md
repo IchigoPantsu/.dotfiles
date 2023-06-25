@@ -292,7 +292,11 @@ sudo systemctl enable bluetooth
 ### sway-idle lock
 > [swayidle before-sleep only works once · Issue #3062 · swaywm/sway](https://github.com/swaywm/sway/issues/3062)
 
-
+#### ranger images
+```
+pip install pillow 
+```
+> [preview images using kitty · Issue #1549 · ranger/ranger · GitHub](https://github.com/ranger/ranger/issues/1549)
 
 ### Reference
 + [ミニマルに始めるDotfiles自動化計画](https://qiita.com/okamos/items/40966158d0271ae7198b)

@@ -27,11 +27,7 @@ include /etc/sway/modes/*
 # xwayland disable
 
 # include additional configs e.g. to autostart applications
-include /etc/sway/config.d/50-systemd-user.conf
-include /etc/sway/config.d/90-enable-gtk-theme.conf
-include /etc/sway/config.d/95-generate-help.conf
-include /etc/sway/config.d/96-waybar-config.conf
-include /etc/sway/config.d/98-application-defaults.conf
+include /etc/sway/config.d/*
 
 # user config
 include $HOME/.config/sway/config.d/*.conf

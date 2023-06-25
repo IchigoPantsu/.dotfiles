@@ -9,7 +9,7 @@ set $icon-theme Papirus-Dark-Maia
 set $cursor-theme xcursor-breeze
 set $gui-font Roboto 11
 set $term-font RobotoMono Nerd Font 14
-set $kvantum-theme Matchama-Dark
+set $kvantum-theme oceanic_material
 
 #set $color0  #141a1b
 set $color0  #1b2b34
